@@ -10858,3 +10858,16 @@ html {
   width: 150px;   /* adjust this size as needed */
   height: auto;   /* maintains aspect ratio */
 }
+
+.brand-mint {
+  background-color: rgb(84, 226, 173);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.bg-brand-mint {
+  background-color: rgb(84, 226, 173);
+}
