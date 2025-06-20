@@ -10892,16 +10892,17 @@ body {
 }
 
 .navbar {
-  background-color: #f2fdf4;
+  background-color: #6c757d; /* confirm it's visible */
 }
 
 .navbar .nav-link {
-  color: #2978b5;
+  color: #ffffff;
   font-weight: 500;
 }
 
 .navbar .nav-link:hover {
-  color: #519872;
+  color: #f8f9fa;
+  text-decoration: underline;
 }
 
 .btn-primary {
