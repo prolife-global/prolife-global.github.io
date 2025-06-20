@@ -10885,3 +10885,31 @@ html {
   color: #519872; /* herbal green */
 }
 
+body {
+  background-color: #f9f9f9;
+  color: #2e3d49;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  background-color: #f2fdf4;
+}
+
+.navbar .nav-link {
+  color: #2978b5;
+  font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+  color: #519872;
+}
+
+.btn-primary {
+  background-color: #519872;
+  border-color: #519872;
+}
+
+.btn-primary:hover {
+  background-color: #3f7c5e;
+  border-color: #3f7c5e;
+}
