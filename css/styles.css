@@ -10891,20 +10891,6 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.navbar {
-  background-color: #6c757d; /* confirm it's visible */
-}
-
-.navbar .nav-link {
-  color: #ffffff;
-  font-weight: 500;
-}
-
-.navbar .nav-link:hover {
-  color: #f8f9fa;
-  text-decoration: underline;
-}
-
 .btn-primary {
   background-color: #519872;
   border-color: #519872;
