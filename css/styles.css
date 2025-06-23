@@ -10925,3 +10925,8 @@ body {
   color: #519872 !important;
   background-color: #519872 !important; 
 }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f2fdf4;
+}
