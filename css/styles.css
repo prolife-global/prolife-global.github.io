@@ -10920,3 +10920,7 @@ body {
   --bs-text-opacity: 1;
   color: #2978b5 !important;
 }
+
+.navbar-toggler {
+  color: #519872;
+}
