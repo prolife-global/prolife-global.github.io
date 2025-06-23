@@ -10910,3 +10910,9 @@ body {
   height: auto;
   object-fit: contain;
 }
+
+.navbar {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #519872; /* herbal green or our brand colour */
+}
+
