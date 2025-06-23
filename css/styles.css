@@ -10916,3 +10916,7 @@ body {
   background-color: #519872; /* herbal green or our brand colour */
 }
 
+.text-herbal-green {
+  --bs-text-opacity: 1;
+  color: #2978b5 !important;
+}
