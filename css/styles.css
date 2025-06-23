@@ -10904,3 +10904,9 @@ body {
 .hero-section {
   background-color: #a8d5ba;
 }
+
+.hero-section img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
