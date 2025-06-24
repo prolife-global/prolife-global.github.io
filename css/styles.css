@@ -10959,10 +10959,10 @@ body {
       background-color: #f8fcff;
       color: #2e3d49;
     }
-    .section-title {
-      font-weight: bold;
+   .section-title {
       color: #519872;
-      border-bottom: 2px solid #d1f0e0;
+      font-weight: 700;
+      border-bottom: 2px solid #d1ebdf;
       padding-bottom: 0.5rem;
     }
     .gut-section {
@@ -10975,10 +10975,14 @@ body {
     .gut-section h5 {
       color: #2978b5;
     }
+	
     .highlight {
-      background-color: #e3f7ed;
-      border-left: 4px solid #519872;
+      background-color: #e3f6ed;
       padding: 1rem;
-      margin-top: 1.5rem;
+      border-left: 4px solid #519872;
+      border-radius: 0.5rem;
+    }
+    .icon-title {
+      color: #2978b5;
     }
 
