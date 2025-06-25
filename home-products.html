@@ -22,42 +22,35 @@
 
             <!-- Header-->
 			<!-- 2) page header/content -->
-            <header class="hero-section text-white py-5" style="
+<header style="
   background: url('images/product-line.png') no-repeat center center;
   background-size: cover;
-  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  z-index: 1;
-  overflow: hidden;
+  text-align: center;
 ">
-  <div class="container px-5" style="position: relative; z-index: 2;">
-    <div class="row gx-5 align-items-center justify-content-center">
-      <div class="col-lg-8 col-xl-7 col-xxl-6">
-        <div class="my-5 text-center text-xl-start">
-          <h1 class="display-5 fw-bolder text-white mb-2">Our Product Line</h1>
-          <p class="lead fw-normal mb-4" style="color: #e0ffe5;">
-            Pro Life Global offers beverages infused with beneficial microorganisms to enhance well-being holistically.
-          </p>
-          <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#products">Get Started</a>
-            <a class="btn btn-outline-light btn-lg px-4" href="#science">Learn About Microbiome</a>
-          </div>
-        </div>
-      </div>
+  <!-- Optional overlay for better text readability -->
+  <div style="background: rgba(0,0,0,0.4); position: absolute; inset: 0;"></div>
 
-      <div class="col-lg-5 col-xxl-6 d-flex justify-content-center align-items-center">
-        <img class="img-fluid rounded-3 my-5" src="images/product-line.png" alt="Gut Health Illustration">
-      </div>
-    </div>
-  </div>
-
-  <!-- Optional: semi-transparent overlay -->
+  <!-- Content on top -->
   <div style="
-    background-color: rgba(0, 0, 0, 0.3);
-    position: absolute;
-    inset: 0;
+    position: relative;
     z-index: 1;
-  "></div>
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    max-width: 700px;
+  ">
+    <h1 style="color: #2e3d49;">i-Breath: Breathe Better, Naturally</h1>
+    <p style="color: #444;">
+      Empowering lung health through beneficial microorganisms and nature-inspired nutrition.
+    </p>
+    <a href="#products" class="btn btn-success btn-lg mt-3">Explore Products</a>
+  </div>
 </header>
 			<!--<header class="hero-section py-5">
                 <div class="container px-5">
