@@ -11107,3 +11107,10 @@ body {
   }
 }
 
+.company-name-bar {
+  font-family: 'Segoe UI', sans-serif;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+
+
