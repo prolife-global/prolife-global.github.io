@@ -11112,5 +11112,40 @@ body {
   border-bottom: 1px solid #e6e6e6;
 }
 
+.btn-primary {
+  background-color: #4caf50; /* herbal green */
+  border-color: #4caf50;
+}
+
+.btn-primary:hover {
+  background-color: #3b9442;
+  border-color: #3b9442;
+}
+
+.btn-outline-light {
+  color: #4caf50;
+  border-color: #4caf50;
+  background-color: transparent;
+}
+
+.btn-outline-light:hover {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.btn-organic {
+  background-color: #f28e2b; /* Organic orange tone */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-organic:hover {
+  background-color: #d97514;
+  box-shadow: 0 4px 12px rgba(242, 142, 43, 0.4);
+  color: #fff;
+}
 
 
