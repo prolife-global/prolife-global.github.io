@@ -11151,8 +11151,8 @@ body {
 
 .image-button-wrap {
   position: relative;
-  width: 300px; /* set your desired size */
-  height: 200px;
+  width: 200px; /* set your desired size */
+  height: 50px;
   border-radius: 12px;
   overflow: hidden;
 }
