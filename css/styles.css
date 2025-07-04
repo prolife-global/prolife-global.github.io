@@ -11301,3 +11301,24 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+.hero-section {
+  background: linear-gradient(to right, #0f3d2e, #1f5f3f);
+  color: #fff;
+}
+
+.text-herbal-green {
+  color: #cde9d9;
+}
+
+.cta-green-box {
+  background: linear-gradient(135deg, #006400, #32CD32);
+  color: #fff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  height: 100%;
+  box-shadow: 0 6px 20px rgba(0, 100, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.cta-green
