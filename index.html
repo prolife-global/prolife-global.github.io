@@ -333,6 +333,20 @@
 		
   <!-- footer placeholder -->
   <div id="footer-placeholder"></div>
+  
+  <script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  });
+
+  document.querySelectorAll('.image-button-wrap').forEach(el => {
+    observer.observe(el);
+  });
+</script>
 
   <!-- 3) Fetch & inject menu -->
   <script>

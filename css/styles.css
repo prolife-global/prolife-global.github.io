@@ -11254,3 +11254,50 @@ body {
 .cta-button:hover {
   background-color: #e0b83f;
 }
+
+/* Stack hero section content vertically on small screens */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text, .hero-image {
+    flex: 1 1 100%;
+  }
+
+  .cta-grid {
+    grid-template-columns: 1fr; /* Stack CTA cards */
+  }
+
+  .btn-overlay h2 {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+}
+
+/*    end make mobile responsive */
+
+.image-button-wrap {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Class added by JS or scroll trigger */
+.image-button-wrap.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
