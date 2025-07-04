@@ -10886,7 +10886,7 @@ html {
 }
 
 body {
-  background-color: #b3d9b3;
+  background-color: #f9f9f9;
   color: #2e3d49;
   font-family: 'Poppins', sans-serif;
 }
@@ -10902,9 +10902,8 @@ body {
 }
 
 .hero-section {
-  background-color: transparent; /* Let body color show through */
+  background-color: #a8d5ba;
 }
-
 
 .hero-section img {
   max-width: 100%;
@@ -10957,7 +10956,7 @@ body {
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #b3d9b3;
+      background-color: #f8fcff;
       color: #2e3d49;
     }
    .section-title {
@@ -11304,7 +11303,7 @@ body {
 }
 
 .hero-section {
-  background: linear-gradient(to right, #0f3d2e, #1f5f3f);
+  /*background: linear-gradient(to right, #0f3d2e, #1f5f3f);*/
   color: #fff;
 }
 
