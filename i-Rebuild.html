@@ -14,126 +14,89 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body class="d-flex flex-column h-100">
-			<!--<main class="flex-shrink-0">-->
-            <!-- Navigation-->
-			<!-- 1) menu placeholder -->
-			<div id="menu-placeholder"></div>
+<body class="d-flex flex-column h-100">
+  <!-- … your menu and header … -->
 
-            <!-- Header-->
-			<!-- 2) page header/content -->
-<header style="
-  background: url('images/product-line.png') no-repeat center center;
-  background-size: cover;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-align: center;
-">
-  <!-- Optional overlay for better text readability -->
-  <div style="background: rgba(0,0,0,0.4); position: absolute; inset: 0;"></div>
-
-  <!-- Content on top -->
-  <div style="
-    position: relative;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 0.75);
-    padding: 2.5rem 3rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    max-width: 850px;
-  ">
-    <h1 style="color: #2e3d49;">i-Slim® 瘦白寶- Refreshing Health, Powered by Probiotic Nutritional Drinks</h1>
-	<h1 style="color: #2e3d49;">i-Slim® 瘦白寶- 清新健康，源自益生營養液飲料的力量</h1>
-    <p style="color: #444;">
-		i-Slim® is a next-generation probiotic wellness drink formulated to help your body rebalance from within. Designed for modern lifestyles, it supports fat metabolism, gut health, and weight management—all while complementing your daily nutritional needs.</p>
-    <a href="#i-Slim" class="btn btn-success btn-lg mt-3">Explore i-Slim® 瘦白寶</a>
-  </div>
-</header>
-
-<section id="i-Slim" class="py-5 bg-light">
-  <div class="container px-5">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold text-success">Why It Works: Mechanism of Action</h2>
-      <p class="lead text-muted">
-        Each ingredient in i-Slim® is selected for its synergistic role in metabolic regulation:
-      </p>
-      <p class="lead text-muted">
-        Proudly <strong>Made in Hong Kong</strong>, each formulation blends science with nature to support your body’s vital systems.
-      </p>
-      <p class="tagline">Proudly Made in Hong Kong — Powered by Science, Rooted in Care</p>
-    </div>
-
-    <!-- Row for side-by-side layout -->
-    <div class="row gx-5 justify-content-center">
-      <!-- Left Column -->
-      <div class="col-lg-5 mb-4">
-        <h2 class="section-title">
-          <i class="bi bi-hourglass-split me-2 icon-title"></i>Lactobacillus plantarum
-        </h2>
-        <ul>
-          <li>Enhances gut microbiota diversity and suppresses fat-promoting bacteria (e.g., Firmicutes)</li>
-          <li>Boosts production of <strong>short-chain fatty acids (SCFAs)</strong> like butyrate, which improve fat oxidation and reduce inflammation</li>
-          <li><strong>Scientific Support:</strong> A 2024 meta-analysis of 9 RCTs showed significant reductions in BMI and abdominal fat with Lactobacillus plantarum supplementation 1</li>
-        </ul>
-		<p class="source">
-  Source: 1. <a href="https://www.mdpi.com/1422-0067/25/14/7608" target="_blank" rel="noopener noreferrer">
-    The Role of <em>Lactobacillus plantarum</em> in Reducing Obesity and Inflammation: A Meta-Analysis
-  </a>
-</p>
+  <!-- i-Rebuild® Section -->
+  <section id="i-Rebuild" class="py-5 bg-light">
+    <div class="container px-5">
+      <!-- Section header -->
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-success">Why It Works: Mechanism of Action</h2>
+        <p class="lead text-muted">
+          i-Rebuild® combines precision-selected probiotic strains with cell-supportive cofactors to repair, protect, and revitalize at the cellular level.
+        </p>
+        <p class="lead text-muted">
+          Proudly <strong>Made in Hong Kong</strong>, our formulation marries cutting-edge science with natural care.
+        </p>
+        <p class="tagline">Proudly Made in Hong Kong — Repair at the Cellular Level</p>
       </div>
 
-      <!-- Right Column -->
-      <div class="col-lg-5 mb-4">
-        <h2 class="section-title">
-          <i class="bi bi-book me-2 icon-title"></i>Lactobacillus rhamnosus
-        </h2>
-        <ul>
-          <li>Stimulates GLP-1 secretion to slow gastric emptying and enhance satiety</li>
-          <li>Reduces LPS levels, improving gut inflammation and insulin sensitivity</li>
-          <li><strong>Scientific Support:</strong> Studies show L. rhamnosus GG improves GLP-1 secretion by protecting L-cells from lipotoxicity and modulating gut microbiota 2</li>
-        </ul>
-				<p class="source">
-  Source: 2. <a href="https://link.springer.com/article/10.1007/s12602-025-10564-9" target="_blank" rel="noopener noreferrer">
-    The Role of <em>Lactobacillus rhamnosus</em> GG Supernatant Improves GLP-1 Secretion Through Attenuating L Cell Lipotoxicity and Modulating Gut Microbiota in Obesity
-  </a>
-</p>
+      <!-- Ingredients side-by-side -->
+      <div class="row gx-5 justify-content-center">
+        <!-- B. longum -->
+        <div class="col-lg-5 mb-4">
+          <h2 class="section-title">
+            <i class="bi bi-science me-2 icon-title"></i>Bifidobacterium longum
+          </h2>
+          <ul>
+            <li>
+              <strong>Mechanism:</strong>  
+              Repairs epithelial tight junctions (e.g., occludin) to reduce intestinal permeability and boosts butyrate production to inhibit NF-κB inflammatory signaling.
+            </li>
+          </ul>
+          <p class="source">
+            <strong>Literature Support:</strong>
+            <a href="https://doi.org/10.1016/j.celrep.2021.109423" target="_blank" rel="noopener">
+              Chen et al., 2021 (Cell Reports)
+            </a>
+          </p>
+        </div>
+
+        <!-- L. acidophilus -->
+        <div class="col-lg-5 mb-4">
+          <h2 class="section-title">
+            <i class="bi bi-book me-2 icon-title"></i>Lactobacillus acidophilus
+          </h2>
+          <ul>
+            <li>
+              <strong>Mechanism:</strong>  
+              Scavenges free radicals by boosting SOD activity to reduce DNA oxidative damage and modulates the Nrf2/ARE antioxidant pathway for lasting cellular protection.
+            </li>
+          </ul>
+          <p class="source">
+            <strong>Literature Support:</strong>
+            <a href="https://doi.org/10.1155/2020/8154567" target="_blank" rel="noopener">
+              Wang et al., 2020 (Oxidative Medicine & Cell Longevity)
+            </a>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<section class="key-benefits">
-  <div class="container">
-    <h3>🔑 Key Benefits of i-Slim®</h3>
+  </section>
 
-    <div class="benefit-item">
-      <h4>Supports Fat Metabolism</h4>
-      <p>Enhances fat breakdown and reduces storage by increasing SCFA production and inhibiting fatty acid synthase (FAS).</p>
+  <!-- Key Benefits Section -->
+  <section class="key-benefits py-5">
+    <div class="container px-5">
+      <h3 class="fw-bold text-success mb-4">🔑 Key Benefits of i-Rebuild® 重活寶 (Cell Health)</h3>
+      <div class="benefit-item mb-3">
+        <h4>Strengthens Gut Barrier</h4>
+        <p>Restores tight junction integrity to prevent “leaky gut” and systemic inflammation.</p>
+      </div>
+      <div class="benefit-item mb-3">
+        <h4>Reduces Inflammatory Stress</h4>
+        <p>Enhanced butyrate production blocks NF-κB signaling for faster recovery.</p>
+      </div>
+      <div class="benefit-item mb-3">
+        <h4>Boosts Antioxidant Defense</h4>
+        <p>Elevates SOD activity and activates Nrf2 pathways to neutralize free radicals.</p>
+      </div>
+      <div class="benefit-item">
+        <h4>Supports Cellular Repair</h4>
+        <p>Reduces DNA oxidation markers so your cells can regenerate optimally.</p>
+      </div>
     </div>
-
-    <div class="benefit-item">
-      <h4>Improves Gut Health</h4>
-      <p>Promotes microbiota balance, reduces inflammation, and strengthens intestinal barrier function.</p>
-    </div>
-
-    <div class="benefit-item">
-      <h4>Regulates Appetite</h4>
-      <p>Stimulates GLP-1 and improves leptin sensitivity for better satiety and reduced cravings.</p>
-    </div>
-
-    <div class="benefit-item">
-      <h4>Complements Daily Nutrition</h4>
-      <p>Fortifies your diet with science-backed nutrients like Vitamin D3 and K1, often lacking in everyday meals.</p>
-    </div>
-
-    <div class="benefit-item">
-      <h4>Science-Driven Results</h4>
-      <p>Each benefit is supported by peer-reviewed clinical trials and modern nutritional research.</p>
-    </div>
-  </div>
-</section>	
+  </section>
 
 <section id="Why-It-Works-Mechanism-of-Action" class="py-5 bg-light">
   <div class="container px-5">
