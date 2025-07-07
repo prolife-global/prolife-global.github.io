@@ -39,7 +39,7 @@
             At <strong>ProLife Global Health Ltd</strong> (活之寶環球健康有限公司), we’re devoted to the science of probiotics and the art of wellness.
             Our Probiotic Nutritional Drinks (益生營養液飲料) support gut health, immunity, and balance from within—naturally refreshing, delicious, and driven by purpose.
           </p>
-          <a href="#science" class="btn btn-success">Explore the Science</a>
+          <a href="#science" class="btn btn-success">Explore Why Probiotics Work</a>
         </div>
       </div>
 
@@ -49,34 +49,42 @@
       </div>
 
     </div>
-
-    <!-- 🟩 Four-Column Green CTA Grid -->
-    <div class="row g-4 mt-1 text-center">
-      <div class="col-6 col-lg-3">
-        <div class="cta-green-box">
-          <h3>Why Probiotics Work</h3>
-          <a href="#science" class="cta-button">Learn More</a>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="cta-green-box">
-          <h3>Explore Improve Health</h3>
-          <a href="#health" class="cta-button">Learn More</a>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="cta-green-box">
-          <h3>Explore About Ingredients</h3>
-          <a href="#ingredients" class="cta-button">Learn More</a>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="cta-green-box">
-          <h3>Explore Our Products</h3>
-          <a href="#products" class="cta-button">Learn More</a>
-        </div>
+	
+<!-- 🟩 Four-Column Green CTA Grid -->
+<div class="row g-4 mt-1 text-center">
+  <div class="col-6 col-lg-3">
+    <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+      <div class="cta-overlay">
+        <h3>Why Probiotics Work</h3>
+        <a href="#science" class="cta-button">Learn More</a>
       </div>
     </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+      <div class="cta-overlay">
+        <h3>Explore Improve Health</h3>
+        <a href="#health" class="cta-button">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+      <div class="cta-overlay">
+        <h3>Explore About Ingredients</h3>
+        <a href="#ingredients" class="cta-button">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+      <div class="cta-overlay">
+        <h3>Explore Our Products</h3>
+        <a href="#products" class="cta-button">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
 </header>
 
@@ -327,6 +335,13 @@
 		
   <!-- footer placeholder -->
   <div id="footer-placeholder"></div>
+  
+  <script>
+  document.querySelectorAll('.cta-green-box').forEach(box => {
+    const img = box.getAttribute('data-bg');
+    if (img) box.style.backgroundImage = `url('${img}')`;
+  });
+</script>
   
   <script>
   const observer = new IntersectionObserver(entries => {
