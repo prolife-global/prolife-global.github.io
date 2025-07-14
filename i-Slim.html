@@ -32,8 +32,8 @@
         <div class="mb-4">
 <h1 class="display-5 fw-bold text-white mb-3">
   i-Slim® 瘦白寶 — Refreshing Health, Powered by
-  <span lang="en">Probiotic Nutritional Drinks</span>
-  <span lang="zh-Hant">益生營養液飲料</span>
+  <span id="en-probiotic" lang="en">Probiotic Nutritional Drinks</span>
+  <span id="zh-probiotic" lang="zh-Hant" style="display:none;">益生營養液飲料</span>
 </h1>
 
 
@@ -197,15 +197,14 @@
     });
   </script>
   
-  <script>
+<script>
   function setLanguage(lang) {
-    // English
-    document.getElementById('en-probiotic').style.display = lang === 'en' ? 'block' : 'none';
-
-    // Traditional Chinese
-    document.getElementById('zh-probiotic').style.display = lang === 'zh' ? 'block' : 'none';
+    document.getElementById('en-probiotic').style.display = lang === 'en' ? 'inline' : 'none';
+    document.getElementById('zh-probiotic').style.display = lang === 'zh' ? 'inline' : 'none';
   }
 </script>
+
+
 
 
   
