@@ -30,9 +30,13 @@
       <!-- 🧠 Left Column: Text -->
       <div class="col-lg-6">
         <div class="mb-4">
-          <h1 class="display-5 fw-bold text-white mb-3">
-            i-Slim® 瘦白寶 — Refreshing Health, Powered by Probiotic Nutritional Drinks
-          </h1>
+<h1 class="display-5 fw-bold text-white mb-3">
+  i-Slim® 瘦白寶 — Refreshing Health, Powered by
+  <span lang="en">Probiotic Nutritional Drinks</span>
+  （<span lang="zh-Hant">益生營養液飲料</span>）
+</h1>
+
+
           <p class="lead fw-normal text-herbal-green mb-4">
             i-Slim® is a next-generation probiotic wellness drink formulated to help your body rebalance from within. Designed for modern lifestyles, it supports fat metabolism, gut health, and weight management—all while complementing your daily nutritional needs.
           </p>
@@ -192,6 +196,18 @@
         });
     });
   </script>
+  
+  <script>
+  function setLanguage(lang) {
+    // English
+    document.getElementById('en-probiotic').style.display = lang === 'en' ? 'block' : 'none';
+
+    // Traditional Chinese
+    document.getElementById('zh-probiotic').style.display = lang === 'zh' ? 'block' : 'none';
+  }
+</script>
+
+
   
    <!-- load footer.html -->
   <script>
