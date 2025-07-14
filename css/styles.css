@@ -10916,10 +10916,10 @@ body {
   /*background-color: #519872; /* herbal green or our brand colour */
 }
 
-/*.text-herbal-green {
+.text-herbal-green {
   --bs-text-opacity: 1;
   color: #2978b5 !important;
-}*/
+}
 
 .navbar-toggler-icon {
   color: #519872 !important;
@@ -11353,9 +11353,5 @@ body {
 
 .cta-green-box:hover {
   transform: translateY(-5px);
-}
-
-.text-herbal-green {
-  color: #5a7d5a; /* or your brand green */
 }
 
