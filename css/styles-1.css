@@ -11147,203 +11147,63 @@ body {
   box-shadow: 0 4px 12px rgba(242, 142, 43, 0.4);
   color: #fff;
 }
-/* home page*/
 
-.image-button-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 220px;
+.image-button-wrapper {
+  display: inline-block;
+  text-align: center;
+}
+
+.img-button {
+  width: 220px;
   height: auto;
-  border-radius: 12px;
-  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-.image-bg {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 12px;
+.img-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
 }
 
-.btn-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  background: linear-gradient(145deg, #006400, #32CD32); /* Gradient green */
-  opacity: 0.9;
-  border-radius: 12px;
-}
 
-.btn-overlay h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
 
-.cta-button {
-  background-color: #f2c94c;
-  color: #000;
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #e0b83f;
-}
-
-.cta-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.image-button-wrap {
+.image-cta-wrapper {
   position: relative;
-  border-radius: 12px;
-  overflow: hidden;
+  display: inline-block;
+  width: 300px; /* define image size here */
 }
 
-.image-bg {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.cta-image {
   display: block;
+  width: 100%;
+  border-radius: 12px;
 }
-
-.btn-overlay {
+.cta-overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(145deg, #006400, #32CD32);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 72, 37, 0.75); /* Herbal green transparent overlay */
+  padding: 20px 30px;
+  border-radius: 10px;
   text-align: center;
-  padding: 20px;
+  color: #fff;
 }
 
-.btn-overlay h2 {
-  font-size: 1.2rem;
+.cta-overlay h2 {
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
 .cta-button {
-  background-color: #f2c94c;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #e0b83f;
-}
-
-/* Stack hero section content vertically on small screens */
-@media (max-width: 768px) {
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-text, .hero-image {
-    flex: 1 1 100%;
-  }
-
-  .cta-grid {
-    grid-template-columns: 1fr; /* Stack CTA cards */
-  }
-
-  .btn-overlay h2 {
-    font-size: 1rem;
-  }
-
-  .cta-button {
-    font-size: 0.95rem;
-    padding: 10px 16px;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-description {
-    font-size: 1rem;
-  }
-}
-
-/*    end make mobile responsive */
-
-
-.cta-green-box {
-  position: relative;
-  height: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 20px rgba(0, 100, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-/* Dynamically set background using data attribute */
-.cta-green-box::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: inherit;
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-}
-
-/* Green translucent overlay */
-.cta-overlay {
-  position: relative;
-  z-index: 2;
-  background-color: rgba(0, 100, 0, 0.75);
-  width: 100%;
-  height: 100%;
-  padding: 25px 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 12px;
-  color: #fff;
-}
-
-.cta-green-box h3 {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.cta-button {
-  background-color: #f2c94c;
+  background-color: #f2c94c; /* Accent yellow */
   color: #000;
   padding: 10px 20px;
   border-radius: 6px;
-  font-weight: bold;
   text-decoration: none;
+  font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
@@ -11351,7 +11211,120 @@ body {
   background-color: #e0b83f;
 }
 
-.cta-green-box:hover {
-  transform: translateY(-5px);
+
+
+.text-on-image-wrapper {
+  position: relative;
+  display: inline-block;
 }
 
+.bg-image {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Green box overlay */
+.green-box {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  background-color: rgba(0, 128, 0, 0.85); /* Green with opacity */
+  padding: 20px 30px;
+  border-radius: 12px;
+  color: #fff;
+  max-width: 300px;
+  text-align: center;
+}
+
+.green-box h2 {
+  margin: 0 0 12px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* CTA Button */
+.cta-btn {
+  display: inline-block;
+  background-color: #f2c94c;
+  color: #000;
+  padding: 10px 16px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #e0b83f;
+}
+
+.cutout-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cutout-wrapper img {
+  width: 100%;
+  display: block;
+}
+
+.cutout-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
+  mix-blend-mode: exclusion; /* or try 'difference' or 'screen' */
+  text-transform: uppercase;
+  padding: 20px;
+}
+
+.text-mask {
+  font-size: 5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-image: url('images/bio-technology.jpg');
+  background-size: cover;
+  background-position: center;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.paired-blocks {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Apply equal size to image and button */
+.equal-item {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.equal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Styling for the button */
+.cta-button {
+  background-color: #f2c94c;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0; /* use flex centering instead */
+  border: none;
+}
