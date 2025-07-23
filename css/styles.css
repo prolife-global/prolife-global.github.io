@@ -11355,3 +11355,19 @@ body {
   transform: translateY(-5px);
 }
 
+<!-- Add this CSS to your stylesheet or within a <style> tag -->
+.slogan-overlay {
+  position: absolute;
+  top: 270%; /* Adjust this to move vertically */
+  left: 50%; /* Adjust this to move horizontally */
+  transform: translate(-50%, -50%); /* Center the text */
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.slogan-overlay h2 {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
