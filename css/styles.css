@@ -11371,3 +11371,34 @@ body {
   font-size: 1.8rem;
   line-height: 1.5;
 }
+
+
+
+
+
+
+    .contact-banner {
+      background: linear-gradient(to right, #3AB7B9, #62D4A3);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .contact-banner img {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .contact-banner h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .contact-banner p {
+      font-size: 1.2em;
+      margin: 0 auto;
+      max-width: 700px;
+    }
+
+
