@@ -11402,3 +11402,10 @@ body {
     }
 
 
+.logo-overlay {
+  position: absolute;
+  top: 15px;               /* Adjust vertical position */
+  left: 35px;              /* Adjust horizontal position */
+  width: 150px;            /* Set logo width */
+  z-index: 2;              /* Ensure it sits on top */
+}
