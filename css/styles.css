@@ -11402,10 +11402,21 @@ body {
     }
 
 
+.position-relative {
+  position: relative;
+}
+
 .logo-overlay {
   position: absolute;
-  top: 15px;               /* Adjust vertical position */
-  left: 35px;              /* Adjust horizontal position */
-  width: 150px;            /* Set logo width */
-  z-index: 2;              /* Ensure it sits on top */
+  top: 20px;
+  left: 40px;
+  width: 150px; /* Adjust as needed */
+}
+
+.slogan-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 40%;
+  transform: translateX(-50%);
+  text-align: left;
 }
