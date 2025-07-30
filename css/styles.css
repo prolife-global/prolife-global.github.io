@@ -11419,3 +11419,59 @@ body {
   transform: translateX(-50%);
   text-align: left;
 }
+
+.text-herbal-green {
+  color: #4CAF50;
+}
+
+.ingredient-icons li {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: start;
+}
+
+.ingredient-icons i {
+  color: #4CAF50;
+  font-size: 1.3rem;
+  min-width: 24px;
+}
+
+.nutrition-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.nutrition-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #ddd;
+  padding: 0.5rem 0;
+}
+
+.nutrition-row .label {
+  flex: 1;
+  font-weight: 500;
+}
+
+.nutrition-row .value {
+  flex: 1;
+  text-align: center;
+}
+
+.nutrition-row .nrv {
+  flex: 1;
+  text-align: right;
+  color: #666;
+}
+
+.nutrition-row.probiotic {
+  font-weight: bold;
+  background-color: #f7f7f7;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e0e0e0;
+}
