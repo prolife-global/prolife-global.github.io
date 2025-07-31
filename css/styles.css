@@ -11475,3 +11475,11 @@ body {
   border-radius: 0.5rem;
   border: 1px solid #e0e0e0;
 }
+
+.banner-small {
+  width: 408px;
+  height: 278px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
