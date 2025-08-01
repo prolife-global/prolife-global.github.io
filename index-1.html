@@ -771,7 +771,7 @@
   <!-- 3) Fetch & inject menu -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      fetch('menu.html')
+      fetch('menu1.html')
         .then(r => {
           if (!r.ok) throw new Error('HTTP ' + r.status);
           return r.text();
@@ -780,7 +780,7 @@
           document.getElementById('menu-placeholder').innerHTML = html;
         })
         .catch(err => {
-          console.error('Failed to load menu.html:', err);
+          console.error('Failed to load menu1.html:', err);
         });
     });
   </script>
