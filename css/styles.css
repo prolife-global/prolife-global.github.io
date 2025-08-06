@@ -11492,3 +11492,55 @@ img.rounded.shadow-sm {
   max-height: 450px;
   object-fit: contain;
 }
+
+
+
+  .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .product-tile {
+      width: 80px;
+      height: 220px;
+      background-color: white;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      text-align: center;
+      font-size: 16px;
+      padding: 10px 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .product-tile:hover {
+      border-color: #007BFF;
+      background-color: #e6f2ff;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+    }
+
+    .product-tile::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 4px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .product-tile:hover::after {
+      opacity: 1;
+    }
