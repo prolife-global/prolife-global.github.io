@@ -11483,3 +11483,12 @@ body {
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
+
+.section-title i {
+  color: #f9c74f;
+}
+img.rounded.shadow-sm {
+  max-width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+}
