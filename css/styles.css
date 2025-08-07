@@ -11599,3 +11599,10 @@ img.rounded.shadow-sm {
       opacity: 1;
     }
 
+    @media (max-width: 768px) {
+  .contact-qr img {
+    max-width: 70%;
+  }
+}
+
+
