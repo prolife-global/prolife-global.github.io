@@ -11495,14 +11495,14 @@ img.rounded.shadow-sm {
 
 
 
-  .product-grid {
+.product-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
 
-    .product-tile {
+.product-tile {
       width: 80px;
       height: 220px;
       background-color: white;
@@ -11516,15 +11516,15 @@ img.rounded.shadow-sm {
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
-    }
+}
 
-    .product-tile:hover {
+.product-tile:hover {
       border-color: #007BFF;
       background-color: #e6f2ff;
       box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
-    }
+}
 
-    .product-tile::after {
+.product-tile::after {
       content: attr(data-tooltip);
       position: absolute;
       bottom: -30px;
@@ -11541,7 +11541,61 @@ img.rounded.shadow-sm {
       transition: opacity 0.2s ease;
     }
 
-    .product-tile:hover::after {
+.product-tile:hover::after {
+    opacity: 1;
+}
+
+
+
+
+    .i-product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .i-product-tile {
+      width: 80px;
+      height: 220px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .i-product-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .i-product-tile:hover img {
+      border-color: #007BFF;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    .i-tooltip {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .i-product-tile:hover .tooltip {
       opacity: 1;
     }
-    
+
