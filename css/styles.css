@@ -11599,10 +11599,24 @@ img.rounded.shadow-sm {
       opacity: 1;
     }
 
-    @media (max-width: 768px) {
-  .contact-qr img {
-    max-width: 70%;
+.contact-card{ background:rgba(255,255,255,.06); border-radius:16px; padding:16px; }
+  .qr-img{ width:100%; max-width:260px; height:auto; display:block; margin:0 auto; object-fit:contain; }
+  .icon-circle{
+    width:60px; height:60px; border-radius:14px;
+    display:inline-flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 16px rgba(0,0,0,.1)
   }
-}
+  .icon-circle i{ font-size:28px; color:#fff; }
+  .icon-circle.whatsapp{ background:#25D366; }
+  .icon-circle.wechat{ background:#07C160; }
+  /* Optional: avoid vertical squish on small screens */
+  @media (max-width:576px){ .contact-card{ padding:12px; } .qr-img{ max-width:220px; } }
 
+.qr-img {
+  max-width: 150px;  /* Adjust size here */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 

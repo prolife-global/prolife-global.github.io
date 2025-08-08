@@ -10,9 +10,14 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />-->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+		
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Add this once in <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     </head>
     <body class="d-flex flex-column h-100">
 			<!--<main class="flex-shrink-0">-->
@@ -35,12 +40,6 @@
       <!-- 👩‍🔬 Image First on Mobile, Right on Desktop -->
       <div class="col-lg-4 text-center position-relative order-1 order-lg-2 mb-4 mb-lg-0">
         <img src="images/ContactUs.png" alt="Gut Health Illustration" class="img-fluid rounded-3 shadow-sm">
-
-        <!-- Optional Overlay -->
-        <div class="slogan-overlay">
-          <!-- Uncomment and edit if needed -->
-          <!-- <h2 class="text-white fw-bold">要活得好，飲活之寶<br><span style="font-size: 1.2rem;">Drink Well to Live Well — ProLife, Your Vital Treasure</span></h2> -->
-        </div>
       </div>
 
       <!-- 🧠 Text Second on Mobile, Left on Desktop -->
@@ -56,25 +55,37 @@
 
           <div class="container px-5">
             <div class="row gx-4 gy-4 row-cols-1 row-cols-sm-2 row-cols-lg-2 py-5">
-              <div class="col px-3 py-2" style="min-height: 180px;">
-                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                  <i class="bi bi-chat-dots"></i>
-                </div>
-                <div class="h5 mb-2">HEAD OFFICE ADDRESS (Hong Kong)</div>
-                <p class="text-muted mb-0">
-                  香港 九龍 佐敦 廣東道 340號 C1 地舖<br>
-                  C1 G/F. 340 Canton Road, Jordan, Kowloon, Hong Kong
-                </p>
-              </div>
+  <!-- WhatsApp -->
+  <div class="col">
+    <div class="contact-card h-100">
+      <div class="icon-circle whatsapp mb-2">
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+      <h5 class="fw-bold text-white">WhatsApp</h5>
 
-              <div class="col px-3 py-2" style="min-height: 180px;">
-                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                  <i class="bi bi-people"></i>
-                </div>
-                <div class="h5 mb-2">FAX Us</div>
-                <p class="text-muted mb-0">FAX : (852) 2311 5661</p>
-              </div>
+<img src="images/whatsapp-qr.PNG" alt="WhatsApp QR Code" class="qr-img rounded-3 shadow-sm mb-3">
+      <p class="text-muted mb-1">+852 9294 9898</p>
+      <a href="https://wa.me/message/WGSQAVC7IGQYJ1" class="btn btn-success btn-sm" target="_blank">
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
 
+  <!-- WeChat -->
+  <div class="col">
+    <div class="contact-card h-100">
+      <div class="icon-circle wechat mb-2">
+        <i class="fa-brands fa-weixin"></i>
+      </div>
+      <h5 class="fw-bold text-white">WeChat</h5>
+
+      <img src="images/wechat-qr.PNG" alt="WeChat QR Code" class="qr-img rounded-3 shadow-sm mb-3">
+      <p class="text-muted mb-1">WeChat ID: <strong>wilson62987878</strong></p>
+      <p class="text-muted">掃描上面的 QR Code 圖案，加我為朋友。</p>
+    </div>
+  </div>
+
+              <!-- Email -->
               <div class="col px-3 py-2" style="min-height: 180px;">
                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
                   <i class="bi bi-question-circle"></i>
@@ -85,6 +96,7 @@
                 </p>
               </div>
 
+              <!-- Call Us -->
               <div class="col px-3 py-2" style="min-height: 180px;">
                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
                   <i class="bi bi-telephone"></i>
@@ -94,32 +106,32 @@
                   Call us during normal business hours at +852 2898 4278.
                 </p>
               </div>
+
+              <!-- Address -->
+              <div class="col px-3 py-2" style="min-height: 180px;">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="h5 mb-2">HEAD OFFICE ADDRESS (Hong Kong)</div>
+                <p class="text-muted mb-0">
+                  香港 九龍 佐敦 廣東道 340號 C1 地舖<br>
+                  C1 G/F. 340 Canton Road, Jordan, Kowloon, Hong Kong
+                </p>
+              </div>
+
+              <!-- Fax Us -->
+              <div class="col px-3 py-2" style="min-height: 180px;">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                  <i class="bi bi-printer"></i>
+                </div>
+                <div class="h5 mb-2">FAX Us</div>
+                <p class="text-muted mb-0">FAX : (852) 2311 5661</p>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
-<!-- 📱 New Row: WhatsApp & WeChat -->
-<div class="row gx-4 gy-4 text-center mt-4">
-
-  <!-- WhatsApp -->
-  <div class="col-md-6">
-    <h5 class="fw-bold text-white">WhatsApp</h5>
-    <img src="images/whatsapp-qr.PNG" alt="WhatsApp QR Code" class="img-fluid rounded-3 shadow-sm mb-3" style="max-width: 250px;">
-    <p class="text-muted mb-1">+852 9294 9898</p>
-    <a href="https://wa.me/message/WGSQAVC7IGQYJ1" class="btn btn-success btn-sm" target="_blank">Chat on WhatsApp</a>
-  </div>
-
-  <!-- WeChat -->
-  <div class="col-md-6">
-    <h5 class="fw-bold text-white">WeChat</h5>
-    <img src="images/wechat-qr.PNG" alt="WeChat QR Code" class="img-fluid rounded-3 shadow-sm mb-3" style="max-width: 250px;">
-    <p class="text-muted mb-1">WeChat ID: <strong>wilson62987878</strong></p>
-    <p class="text-muted">掃描上面的 QR Code 圖案，加我為朋友。</p>
-  </div>
-
-</div>
-
-
 
     </div>
 
@@ -161,6 +173,7 @@
 
   </div>
 </header>
+
 
 
 			
