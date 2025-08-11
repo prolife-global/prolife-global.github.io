@@ -11646,3 +11646,86 @@ img.rounded.shadow-sm {
   margin: 0 auto;
 }
 
+/* CSS */
+.product-grid {
+  --card-pad: 1rem;
+  --card-radius: 1rem;
+  --card-gap: 1rem;
+  --shadow: 0 6px 18px rgba(0,0,0,.08);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--card-gap);
+  align-items: stretch;
+}
+
+.product-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  padding: calc(var(--card-pad) + .25rem);
+  text-align: center;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  min-height: 180px; /* makes all cards uniform */
+}
+
+.product-tile img {
+  width: 72px;         /* uniform image size */
+  height: 72px;
+  object-fit: contain; /* keeps aspect ratio */
+  display: block;
+}
+
+.product-tile span {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.product-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  border-color: #ddd;
+}
+
+/* Tooltip from data-tooltip */
+.product-tile::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  inset: auto auto 100% 50%;
+  transform: translateX(-50%) translateY(-8px);
+  white-space: nowrap;
+  background: rgba(0,0,0,.85);
+  color: #fff;
+  font-size: .75rem;
+  padding: .35rem .5rem;
+  border-radius: .5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.product-tile:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-12px);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .product-tile { transition: none; }
+  .product-tile:hover { transform: none; }
+  .product-tile::after { transition: none; }
+}
+
+/* Optional dark mode */
+@media (prefers-color-scheme: dark) {
+  .product-tile { background:#111; border-color:#222; box-shadow: none; }
+  .product-tile:hover { border-color:#333; }
+}
