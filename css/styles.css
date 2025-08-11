@@ -11553,7 +11553,7 @@ img.rounded.shadow-sm {
 
   .bottle-container img {
     display: block;
-    max-width: 300px;
+    max-width: 100px;
     height: auto;
   }
 
