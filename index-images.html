@@ -27,58 +27,46 @@
       }
 
       /* Logo on top-left */
-      .logo-overlay{
-        position:absolute; top:1rem; left:1rem;
-        z-index: 30;
-        max-width:120px;
-      }
-
-      /* Slogan covers image area and centers content */
-.slogan-overlay {
+.logo-overlay{
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-start;  /* align from top */
-  justify-content: center;  /* keep horizontal center */
-  padding-top: 33%;         /* 1/3 down from top */
-  text-align: center;
-  z-index: 25;
-  pointer-events: none;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  top: 1rem;
+  left: 1rem;
+  width: 120px;        /* fixed so we can offset text below it */
+  height: auto;
+  z-index: 30;
 }
 
-
-
-      .slogan-overlay h1{
-        margin:0;
-        font-size: clamp(1.4rem, 3.5vw, 3rem);
-        line-height:1.2;
-        color:#fff;
-        text-shadow: 2px 2px 6px rgba(0,0,0,.6);
-      }
-
-/* HERO SLOGAN POSITIONING */
-.hero-slogan {
+/* Slogan under the logo, aligned left */
+.hero-slogan{
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-start;   /* start from top of image */
-  justify-content: center;   /* center horizontally */
-  padding-top: 17%;          /* move down 1/3 of image height */
+  /* 1rem (logo top) + logo height (120px) + gap (.75rem) */
+  top: calc(1rem + 120px + .75rem);
+  left: 1rem;
+  right: auto;
+  bottom: auto;
+  z-index: 25;
+  pointer-events: none;
   text-align: left;
-  z-index: 25;
-  pointer-events: none;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  width: clamp(260px, 42vw, 520px);  /* readable line length */
 }
 
-.hero-slogan h1 {
+.hero-slogan h1{
   margin: 0;
-  font-size: clamp(1.4rem, 3.5vw, 3rem);
-  line-height: 1.2;
+  font-size: clamp(1.2rem, 3.2vw, 3rem);
+  line-height: 1.15;
   color: #fff;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, .6);
+  text-shadow: 2px 2px 6px rgba(0,0,0,.6);
+}
+
+/* Mobile: smaller logo and tighter offset */
+@media (max-width: 768px){
+  .logo-overlay{ width: 90px; }
+  .hero-slogan{
+    top: calc(1rem + 90px + .5rem);
+    left: .75rem;
+    width: clamp(220px, 80vw, 460px);
+  }
+  .hero-slogan h1{ font-size: clamp(1rem, 5vw, 2rem); }
 }
 
       /* ------------------------------- */
@@ -136,8 +124,8 @@
   <h1 class="fw-bold">
     <span translate="no">要活得好</span><br>
     <span translate="no">用活之寶</span><br>
-    <span translate="no">Live Well</span><br>
-    <span translate="no">Use ProLife</span>
+    <span translate="no">Healthy Life</span><br>
+    <span translate="no">ProLife</span>
   </h1>
 </div>
   </div>
