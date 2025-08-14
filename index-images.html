@@ -27,10 +27,10 @@
       }
 
       /* Logo on top-left */
-.logo-overlay{
+.logo-overlay-1{
   position: absolute;
   top: 1rem;
-  left: 1rem;
+  left: 15px;
   width: 120px;        /* fixed so we can offset text below it */
   height: auto;
   z-index: 30;
@@ -60,7 +60,7 @@
 
 /* Mobile: smaller logo and tighter offset */
 @media (max-width: 768px){
-  .logo-overlay{ width: 90px; }
+  .logo-overlay-1{ width: 90px; }
   .hero-slogan{
     top: calc(1rem + 90px + .5rem);
     left: .75rem;
@@ -118,7 +118,7 @@
          class="img-fluid rounded-3 shadow-sm">
 
     <img src="images/prolife-global-logo-small.PNG" alt="ProLife Logo"
-         class="logo-overlay">
+         class="logo-overlay-1">
 
 <div class="hero-slogan">
   <h1 class="fw-bold">
