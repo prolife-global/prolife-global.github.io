@@ -11729,3 +11729,14 @@ img.rounded.shadow-sm {
   .product-tile { background:#111; border-color:#222; box-shadow: none; }
   .product-tile:hover { border-color:#333; }
 }
+
+
+/* Style Google Translate dropdown to fit Bootstrap navbar */
+#google_translate_element select.goog-te-combo {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+}
