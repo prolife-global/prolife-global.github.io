@@ -142,6 +142,28 @@
     @media (prefers-reduced-motion: reduce) {
       .product-card, .product-link::after, .card-actions a, .card-actions button { transition: none; }
     }
+
+    /* media object tile for the Product Line section */
+.media-tile{
+  display:grid;
+  grid-template-columns: 112px 1fr;
+  align-items:center;
+  gap:1rem;
+  padding:1rem 1.25rem;
+  border-radius:1rem;
+  background:#eef7f0; /* or your existing .highlight styling */
+}
+.tile-thumb{
+  width:112px; height:112px; object-fit:cover; border-radius:.75rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+}
+.tile-body{ min-width:0; }         /* prevents overflow on long titles */
+.media-tile .card-title{ margin:0; }
+@media (max-width: 768px){
+  .media-tile{ grid-template-columns: 1fr; text-align:left; }
+  .tile-thumb{ width:96px; height:96px; }
+}
+
   </style>
 </head>
 <body class="d-flex flex-column h-100">
@@ -546,6 +568,17 @@
       </div>
     </div>
   </div>
+
+<div class="highlight media-tile">
+  <img class="tile-thumb" src="images/prolife-logo-2.jpg" alt="i‑Slim bottle" width="112" height="112" loading="lazy">
+  <div class="tile-body">
+    <h4 id="i-Slim" class="card-title">🌿 <strong translate="no">i‑Slim (瘦白寶)</strong></h4>
+    <p class="card-text mt-1">Supports healthy body contouring, aids weight management and metabolism, and promotes skin brightening.</p>
+    <a href="i-Slim.html" class="cta-button mt-1">Learn More</a>
+  </div>
+</div>
+
+
 
 </div>
       </section>
