@@ -11740,3 +11740,183 @@ img.rounded.shadow-sm {
   border-radius: 0.375rem;
   font-size: 0.9rem;
 }
+
+
+/* ===============================
+   ProLife – Product Cards (scoped)
+   =============================== */
+:root{
+  --brand: #198754;
+  --brand-600: #157347;
+  --surface: #ecf7f1;   /* light mint surface */
+  --ink: #0f2e1f;       /* deep greenish text */
+  --shadow: 0 6px 18px rgba(0,0,0,.08);
+  --card-radius: 1rem;
+  --card-pad: 1rem;
+}
+
+/* Section wrapper */
+.prolife-products {
+  color: var(--ink);
+}
+.prolife-products .section-heading{
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+/* Responsive grid:
+   - 4 cols desktop
+   - 3 cols lg
+   - 2 cols md & down (phone = exactly 2-up)
+*/
+.prolife-products .product-grid{
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1200px){
+  .prolife-products .product-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 992px){
+  .prolife-products .product-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+/* If a very narrow device (<390px), fall back to 1 column */
+@media (max-width: 390px){
+  .prolife-products .product-grid{ grid-template-columns: 1fr; }
+}
+
+/* Card */
+.prolife-products .product-card{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.prolife-products .product-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  border-color: #dfe6e2;
+}
+
+/* Clickable top area with image + name */
+.prolife-products .product-link{
+  position: relative;
+  display: grid;
+  place-items: center;
+  gap: .75rem;
+  text-decoration: none;
+  color: inherit;
+  padding: calc(var(--card-pad) + .25rem) var(--card-pad) .5rem;
+}
+.prolife-products .product-link::after{
+  content: attr(data-tooltip);
+  position: absolute;
+  inset: auto auto 100% 50%;
+  transform: translate(-50%, -8px);
+  background: rgba(0,0,0,.85);
+  color: #fff;
+  font-size: .75rem;
+  padding: .35rem .5rem;
+  border-radius: .5rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease;
+}
+.prolife-products .product-link:hover::after{
+  opacity: 1;
+  transform: translate(-50%, -12px);
+}
+
+/* Fixed product image size (desktop). We scale down on small screens */
+.prolife-products .product-link img{
+  width: 172px;
+  height: 172px;
+  object-fit: contain;
+  display: block;
+}
+/* Slightly smaller on small screens so two cards fit comfortably */
+@media (max-width: 576px){
+  .prolife-products .product-link img{
+    width: 148px;
+    height: 148px;
+  }
+}
+
+.prolife-products .product-name{
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* Description (kept outside the link for accessibility) */
+.prolife-products .card-desc{
+  margin: 0 .875rem .75rem;
+  color: #2a2f2d;
+}
+
+/* Actions */
+.prolife-products .card-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: .75rem var(--card-pad);
+  border-top: 1px solid #eef1ef;
+  background: #f7fbf9; /* very light mint strip */
+}
+.prolife-products .card-actions a,
+.prolife-products .card-actions button{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .8rem;
+  border-radius: .65rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+
+/* Primary CTA */
+.prolife-products .learn-btn{
+  border: 1px solid var(--brand);
+  background: var(--brand);
+  color: #fff;
+}
+.prolife-products .learn-btn:hover{
+  background: var(--brand-600);
+  border-color: var(--brand-600);
+}
+
+/* Secondary CTA */
+.prolife-products .enquire-btn{
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  color: inherit;
+}
+.prolife-products .enquire-btn:hover{
+  background: #f4f4f4;
+  border-color: #ddd;
+}
+
+/* Nice dark-mode defaults */
+@media (prefers-color-scheme: dark){
+  .prolife-products .product-card{ background:#111; border-color:#222; box-shadow:none; }
+  .prolife-products .product-card:hover{ border-color:#2a2a2a; }
+  .prolife-products .card-actions{ background:#0f1513; border-top-color:#222; }
+  .prolife-products .enquire-btn{ background:#141414; border-color:#222; }
+  .prolife-products .enquire-btn:hover{ background:#161616; border-color:#2a2a2a; }
+  .prolife-products .learn-btn{ background:#1a7b4e; border-color:#1a7b4e; }
+  .prolife-products .learn-btn:hover{ background:#166a44; border-color:#166a44; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .prolife-products .product-card,
+  .prolife-products .product-link::after,
+  .prolife-products .card-actions a,
+  .prolife-products .card-actions button{ transition: none; }
+}
