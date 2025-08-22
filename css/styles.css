@@ -11920,3 +11920,15 @@ img.rounded.shadow-sm {
   .prolife-products .card-actions a,
   .prolife-products .card-actions button{ transition: none; }
 }
+
+/* Product 區塊全寬背景色帶 */
+:root{ --surface: #ECF7F1; }  /* 想更深：#E6F3EC */
+.prolife-products{ position: relative; }
+.prolife-products::before{
+  content:"";
+  position:absolute; inset:0;
+  /* 讓背景延伸到視窗兩側 */
+  left:50%; right:50%; margin-left:-50vw; margin-right:-50vw;
+  background: var(--surface);
+  z-index:-1;
+}
