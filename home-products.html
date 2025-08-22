@@ -9,6 +9,12 @@
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet" />
+
+  <!-- Small guard so buttons are always clickable -->
+  <style>
+    .card-actions { position: relative; z-index: 2; }
+    .product-link  { position: relative; z-index: 1; }
+  </style>
 </head>
 <body class="d-flex flex-column h-100">
 
@@ -38,7 +44,9 @@
             <p class="card-desc">Supports healthy body contouring, aids weight management and metabolism, and promotes skin brightening.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Slim.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -51,7 +59,9 @@
             <p class="card-desc">Improves sleep quality, calms the mind, relieves stress and startle responses for deeper, more restorative rest.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Sleep.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -64,7 +74,9 @@
             <p class="card-desc">Enhances respiratory tract immunity, promotes clear airways, and supports healthy circulation of qi and blood.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Breath.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -77,7 +89,9 @@
             <p class="card-desc">Rejuvenates internal organs, strengthens cellular repair across all five viscera, and restores natural function.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Rebuild.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -90,7 +104,9 @@
             <p class="card-desc">Supports liver detoxification pathways, improves fat metabolism, and helps reduce hepatic fat accumulation.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Liver.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -103,7 +119,9 @@
             <p class="card-desc">Boosts kidney filtration and detox capacity, aids vascular health, and supports fluid balance.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Kidney.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -116,7 +134,9 @@
             <p class="card-desc">Delivers antioxidants to protect the retina, guard against dry eye and macular degeneration, and sharpen visual clarity.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Eyes.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -129,7 +149,9 @@
             <p class="card-desc">Increases physical energy and endurance, supports muscle recovery, and enhances reproductive vitality.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Force.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -142,7 +164,9 @@
             <p class="card-desc">Nourishes neuronal health, supports cognitive performance, and helps prevent age-related decline and dementia.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Brain.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -155,7 +179,9 @@
             <p class="card-desc">Features natural compounds that relax blood vessels, improve circulation, and help maintain healthy blood pressure.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Hypertension.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -168,7 +194,9 @@
             <p class="card-desc">Uses plant-based and probiotic cofactors to inhibit cholesterol synthesis, balance bile-duct flora, and support healthy lipid profiles.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Cholesterol.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -181,7 +209,9 @@
             <p class="card-desc">Helps regulate blood sugar secretion, improve insulin sensitivity, and lower long-term risk of diabetes.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Glucose.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -194,7 +224,9 @@
             <p class="card-desc">Alleviates systemic inflammation, supports a balanced immune response, and may reduce the risk of inflammation-driven diseases.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Anti-inflammatory.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -207,7 +239,9 @@
             <p class="card-desc">Relieves stomach discomfort, improves bowel regularity, enhances digestive function, promotes mucosal healing, and stimulates intestinal movement.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Intestinal.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -220,7 +254,9 @@
             <p class="card-desc">Improves hair health, promotes regrowth, and activates follicles through natural scalp renewal mechanisms.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Hair.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
 
@@ -233,7 +269,9 @@
             <p class="card-desc">Improves skin health, relieves eczema and skin sensitivities through microbiome-skin modulation and barrier-reinforcing mechanisms.</p>
             <div class="card-actions">
               <a class="learn-btn" href="i-Skin.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button"><i class="bi bi-envelope"></i><span>Enquire</span></button>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
             </div>
           </div>
         </div><!-- /.product-grid -->
@@ -264,11 +302,50 @@
 
   <div id="footer-placeholder"></div>
 
-  <!-- Enquiry Modal (unchanged) -->
-  <!-- ... your modal HTML ... -->
+  <!-- Enquiry Modal -->
+  <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="enquiryForm" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="enquiryModalLabel">Product enquiry</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Product</label>
+            <input type="text" class="form-control" id="enquiryProduct" name="product" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="enquiryName" class="form-label">Your name</label>
+            <input type="text" class="form-control" id="enquiryName" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="enquiryEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="enquiryEmail" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="enquiryMessage" class="form-label">Message</label>
+            <textarea class="form-control" id="enquiryMessage" name="message" rows="4" placeholder="How can we help?" required></textarea>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="enquiryConsent" required>
+            <label class="form-check-label" for="enquiryConsent">
+              I agree to be contacted about this enquiry.
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
+          <button class="btn btn-primary" type="submit">Send enquiry</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
+  <!-- Bootstrap bundle (JS + Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Page scripts -->
   <script>
     // Inject menu & footer
     document.addEventListener('DOMContentLoaded', () => {
@@ -281,16 +358,33 @@
         .catch(err => console.error('Could not load footer:', err));
     });
 
-    // Enquiry modal trigger
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.enquire-btn');
-      if (!btn) return;
-      const card = btn.closest('.product-card');
-      const productName = card?.dataset.productName || 'ProLife Product';
-      document.getElementById('enquiryProduct').value = productName;
+    // Prefill product name when Bootstrap is about to show the modal
+    document.addEventListener('DOMContentLoaded', () => {
+      const modalEl = document.getElementById('enquiryModal');
+      if (!modalEl) return;
 
-      const modal = new bootstrap.Modal(document.getElementById('enquiryModal'));
-      modal.show();
+      modalEl.addEventListener('show.bs.modal', (event) => {
+        const trigger = event.relatedTarget; // the Enquire button
+        const card = trigger?.closest('.product-card');
+        const productName = card?.dataset.productName || 'ProLife Product';
+        modalEl.querySelector('#enquiryProduct').value = productName;
+      });
+
+      // Mailto submit (kept from your version)
+      document.getElementById('enquiryForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const product = document.getElementById('enquiryProduct').value;
+        const name = document.getElementById('enquiryName').value;
+        const email = document.getElementById('enquiryEmail').value;
+        const message = document.getElementById('enquiryMessage').value;
+
+        const to = 'sales@yourdomain.com'; // TODO: replace with your email
+        const subject = encodeURIComponent(`Product enquiry: ${product}`);
+        const body = encodeURIComponent(
+          `Product: ${product}\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        );
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      });
     });
   </script>
 
