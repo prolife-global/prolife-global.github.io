@@ -11945,3 +11945,15 @@ img.rounded.shadow-sm {
   border-radius: 8px;
   text-decoration: none;
 }
+
+/* Force the CTA to exactly two lines */
+.cta-two-line{
+  display: block;            /* full-width button inside the card */
+  text-align: center;
+  white-space: normal;       /* allow wrapping */
+  padding: 10px 20px;        /* keep your current sizing */
+}
+.cta-two-line > span{
+  display: block;            /* one span = one line */
+  line-height: 1.25;
+}
