@@ -11932,3 +11932,16 @@ img.rounded.shadow-sm {
   background: var(--surface);
   z-index:-1;
 }
+
+/* CTA final overrides */
+.cta-button{
+  display: inline-flex;            /* stop full-width pill */
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;             /* keep on one line */
+  width: auto;                     /* don't stretch */
+  max-width: 100%;
+  padding: 10px 20px;              /* keep your current sizing */
+  border-radius: 8px;
+  text-decoration: none;
+}
