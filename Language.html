@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multilingual (Google + China fallback)</title>
+
+  <!-- Basic styles for a neat inline language switcher -->
+  <style>
+    :root { --bg:#0b1220; --card:#121a2b; --text:#e7ecf3; --muted:#9fb0c3; --accent:#6aa6ff; --ring:#27436e; }
+    body { margin:0; font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", Helvetica, Arial, sans-serif; color:var(--text); background:linear-gradient(180deg, var(--bg), #0d1627 65%); }
+    .wrap { max-width: 960px; margin: 32px auto; padding: 0 16px; }
+    .card { background: var(--card); border: 1px solid #1d2a44; border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    .row { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+    .langbar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .badge { font-size:12px; color: var(--muted); border:1px solid #2a3e61; padding:4px 8px; border-radius:999px; }
+    button.lang {
+      appearance:none; border:1px solid #2a3e61; background:#101a2c; color:var(--text);
+      padding:8px 12px; border-radius:12px; cursor:pointer; transition: transform .04s ease, box-shadow .2s ease, background .2s ease;
+    }
+    button.lang:hover { transform: translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.25); }
+    button.lang.active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--ring); }
+    button.lang[disabled] { opacity:.5; cursor:not-allowed; }
+    #google_translate_element { display:none; } /* keep the stock dropdown hidden; we drive it via buttons */
+    .note { color: var(--muted); font-size: 14px; margin-top: 8px; }
+    .china { display:none; color:#ffd18b; font-size:13px; }
+    .china strong { color:#ffd18b; }
+    html[data-china-mode="1"] .china { display:block; }
+    html[data-china-mode="1"] .when-google { display:none; } /* hide zh-TW button when in China Mode */
+    .content { margin-top: 20px; }
+    .hero { font-size: clamp(24px, 3vw, 36px); margin: 0 0 8px; }
+    .sub { margin: 0 0 18px; color: var(--muted); }
+    .divider { height:1px; background: linear-gradient(90deg, transparent, #22365b, transparent); margin:16px 0; border:0; }
+    .footer { margin-top: 14px; font-size: 12px; color: var(--muted); }
+  </style>
+
+  <!-- (Optional) SEO: tell crawlers original page language is English -->
+  <meta http-equiv="Content-Language" content="en" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="row" style="justify-content: space-between;">
+        <div class="langbar">
+          <span class="badge">Language</span>
+          <!-- Buttons driven by JS. English also acts as "back to original". -->
+          <button class="lang" data-lang="en" id="btn-en">English</button>
+          <button class="lang when-google" data-lang="zh-TW" id="btn-zh-tw">繁體中文</button>
+          <!-- zh-CN works both with Google (global) and Baidu Transpage (China Mode). -->
+          <button class="lang" data-lang="zh-CN" id="btn-zh-cn">简体中文</button>
+        </div>
+        <div class="china" id="china-banner">⚠️ <strong>China Mode:</strong> Google Translate seems unavailable. Simplified Chinese uses Baidu 翻译。</div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Your page content goes here -->
+      <div class="content">
+        <h1 class="hero">Hello! 👋 Welcome to our website.</h1>
+        <p class="sub">Use the language buttons above. Globally we use Google Translate; inside mainland China we fall back to Baidu (Simplified Chinese only).</p>
+
+        <p>
+          This is sample text to demonstrate translation. Replace this with your actual page content.  
+          這是示範文字。请将其替换为您的真实网页内容。
+        </p>
+      </div>
+
+      <div class="footer">
+        <div id="google_translate_element"></div>
+        <p class="note">Tip: “English” resets back to the original language.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Translate: load; if it fails or is blocked, we’ll auto-fallback -->
+  <script>
+    // --- Utilities: set & get cookies (for Google Translate "googtrans" cookie) ---
+    function setCookie(name, value, days) {
+      try {
+        var expires = "";
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + (days*24*60*60*1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        // Set for current domain + root path
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        // Also try parent domain (helps when site uses subdomains)
+        var host = location.hostname;
+        var parts = host.split(".");
+        if (parts.length > 2) {
+          var parent = parts.slice(parts.length - 2).join(".");
+          document.cookie = name + "=" + (value || "") + expires + "; domain=." + parent + "; path=/";
+        }
+      } catch (e) {}
+    }
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i=0;i<ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+    }
+
+    // --- Google Translate bootstrap ---
+    function googleTranslateElementInit() {
+      try {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,zh-TW,zh-CN',
+          autoDisplay: false
+        }, 'google_translate_element');
+        // Mark that Google loaded successfully
+        window.__GOOGLE_TRANSLATE_READY__ = true;
+      } catch (e) {
+        // Swallow; fallback timer will handle China Mode
+      }
+    }
+
+    // Programmatic language switch for Google Translate via cookie + reload
+    function useGoogleLanguage(lang) {
+      if (!window.__GOOGLE_TRANSLATE_READY__) return false;
+      // "en" clears the cookie (back to original).
+      if (lang === 'en') {
+        setCookie('googtrans', '/auto/en', 365);
+        location.reload();
+        return true;
+      }
+      // Format is "/[src]/[dest]"; using "/auto/xx" lets Google detect source
+      setCookie('googtrans', '/auto/' + lang, 365);
+      location.reload();
+      return true;
+    }
+
+    // --- Baidu Transpage fallback for Simplified Chinese ---
+    // Opens Baidu's proxied translation of the *current page* into zh-CN.
+    function openBaiduTranspage() {
+      var currentUrl = location.href;
+      // Baidu transpage parameters:
+      // query = URL to translate
+      // from = auto, to = zh (Simplified)
+      // source = webpage
+      var transUrl =
+        'https://fanyi.baidu.com/transpage?query=' + encodeURIComponent(currentUrl) +
+        '&from=auto&to=zh&source=web&render=1';
+      // Navigate in-place so the user stays "on" your site (proxied by Baidu).
+      location.href = transUrl;
+    }
+
+    // --- Mode management: try Google; if blocked, enable "China Mode" ---
+    (function setupTranslate() {
+      // 1) Try to load Google’s element.js
+      var g = document.createElement('script');
+      g.src = (location.protocol === 'https:' ? 'https:' : 'http:') + '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      g.referrerPolicy = 'no-referrer-when-downgrade';
+      g.async = true;
+      document.head.appendChild(g);
+
+      // 2) After a grace period, if Google didn't initialize, switch to China Mode
+      var FALLBACK_MS = 2500; // tweak if needed
+      setTimeout(function(){
+        if (!window.__GOOGLE_TRANSLATE_READY__) {
+          document.documentElement.setAttribute('data-china-mode','1');
+          // Visually mark Simplified as active only (others still visible if you choose)
+          document.getElementById('btn-zh-cn')?.classList.add('active');
+          // Optional: if a Google cookie was lingering, clear it so the page shows original English
+          setCookie('googtrans', '/auto/en', 1);
+        } else {
+          // Google ready => reflect current cookie as active button
+          var val = getCookie('googtrans') || '';
+          var active = /\/auto\/([^;]+)/.exec(val);
+          var current = active ? active[1] : 'en';
+          var btn = document.querySelector('button.lang[data-lang="'+ current +'"]');
+          if (btn) btn.classList.add('active');
+        }
+      }, FALLBACK_MS);
+    })();
+
+    // --- Wire buttons ---
+    function bindLanguageButtons() {
+      var buttons = document.querySelectorAll('button.lang');
+      buttons.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var lang = btn.getAttribute('data-lang');
+          var china = document.documentElement.getAttribute('data-china-mode') === '1';
+          if (china) {
+            // In China Mode: only zh-CN uses Baidu; English just shows original; zh-TW disabled.
+            if (lang === 'zh-CN') {
+              openBaiduTranspage();
+            } else if (lang === 'en') {
+              // Return to original English (just reload this page URL if coming back from a Baidu proxied page)
+              // If this page is already the original domain, a simple reload is fine.
+              // If you're *on* Baidu transpage now, users can click browser Back to return.
+              location.href = location.origin + location.pathname + location.search;
+            }
+          } else {
+            // Google mode (global): use the google cookie trick
+            useGoogleLanguage(lang);
+          }
+        });
+      });
+
+      // Disable zh-TW button when in China Mode
+      var observer = new MutationObserver(function(){
+        var china = document.documentElement.getAttribute('data-china-mode') === '1';
+        var tw = document.getElementById('btn-zh-tw');
+        if (tw) tw.disabled = china;
+      });
+      observer.observe(document.documentElement, { attributes:true, attributeFilter:['data-china-mode'] });
+    }
+    document.addEventListener('DOMContentLoaded', bindLanguageButtons);
+  </script>
+
+  <noscript>
+    <div style="max-width:960px;margin:16px auto;padding:12px;background:#fff3cd;border:1px solid #ffeeba;color:#856404;border-radius:8px">
+      This page needs JavaScript to enable translation.
+    </div>
+  </noscript>
+</body>
+</html>
