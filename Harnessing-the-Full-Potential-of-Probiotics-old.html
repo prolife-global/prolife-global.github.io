@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>ProLife Global (活之寶環球健康有限公司) Website</title>
+        <title>ProLife Global Website</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -15,9 +15,10 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100">
-  <!-- 1) menu placeholder -->
-  <div id="menu-placeholder"></div>
-  			<!-- Company Name Banner -->
+			<!--<main class="flex-shrink-0">-->
+            <!-- Navigation-->
+			<!-- 1) menu placeholder -->
+			<div id="menu-placeholder"></div>
 		<div class="company-name-bar py-2 bg-white text-center shadow-sm">
 			<h4 class="mb-0 fw-bold text-success text-center">
         <span class="d-block d-lg-inline" translate="no">ProLife Global Health Ltd</span>
@@ -25,31 +26,36 @@
       </h4>
 		</div>
 
-  <!-- 2) page header/content -->
+            <!-- Header-->
+			<!-- 2) page header/content -->
+            <!--<header class="hero-section py-5">-->
+			
 <header class="hero-section py-1">
   <div class="container px-5">
     <div class="row gx-5 align-items-center justify-content-between">
 
-      <!-- 👩‍🔬 Image First on Mobile, Right on Desktop -->
-      <div class="col-lg-6 text-center order-1 order-lg-2 mb-4 mb-lg-0">
-        <img 
-          src="images/bio-technology.jpg" 
-          alt="Gut Health Illustration" 
-          class="img-fluid rounded-3 shadow-sm"
-        >
+      <!-- 🖼️ Image first on mobile, right on desktop -->
+      <div class="col-lg-6 text-center position-relative order-1 order-lg-2 mb-4 mb-lg-0">
+        <img src="images/bio-technology.jpg"
+             alt="Gut Health Illustration"
+             class="img-fluid rounded-3 shadow-sm">
+        <!-- Optional overlay
+        <div class="slogan-overlay">...</div>
+        -->
       </div>
 
-      <!-- 🧠 Text Second on Mobile, Left on Desktop -->
+      <!-- 🧠 Text second on mobile, left on desktop -->
       <div class="col-lg-6 order-2 order-lg-1">
         <div class="mb-4">
-          <h1 class="display-5 fw-bold text-white mb-3">
-            <span translate="no"><!--Healthy Living, Informed Decisions — !-->Vitamin D, D3 &amp; K2:</span>
-          </h1>
+          <h5 class="display-5 fw-bold text-white mb-3">
+            <span translate="no">Healthy Living, Informed Decisions — Vitamin D, D3 &amp; K2:</span>
+          </h5>
 
           <p class="lead fw-normal text-herbal-green mb-4">
             The Perfect Duo for Health and Wellness<br>
             Proudly made in Hong Kong, with a commitment to quality and care.
           </p>
+
           <p class="lead fw-normal text-herbal-green mb-4">
             At <strong translate="no">ProLife Global Health Ltd (活之寶環球健康有限公司)</strong>,
             we fuse cutting-edge probiotic science with a deep commitment to whole-body vitality. Our
@@ -59,12 +65,52 @@
             research and inspired by nature, perfected through innovation. Because good health isn't just a goal—it’s a
             lifestyle. Refresh yourself from the inside out.
           </p>
+
+          <a href="#Vitamin-D3-K2" class="btn btn-success">Explore Vitamin D, D3 &amp; K2</a>
         </div>
       </div>
 
     </div>
+
+    <!-- 🟩 Four-Column Green CTA Grid -->
+    <div class="row g-4 text-center">
+      <div class="col-6 col-lg-3">
+        <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+          <div class="cta-overlay">
+            <h3>Why Probiotics Work</h3>
+            <a href="Harnessing-the-Full-Potential-of-Probiotics.html" class="cta-button">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+          <div class="cta-overlay">
+            <h3>Explore Improve Health</h3>
+            <a href="Improve-Health-home.html" class="cta-button">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+          <div class="cta-overlay">
+            <h3>Explore About Ingredients</h3>
+            <a href="ingredients.html" class="cta-button">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+          <div class="cta-overlay">
+            <h3>Explore Our Products</h3>
+            <a href="home-products.html" class="cta-button">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </header>
+
 
 <section id="Unlocking-the-Power-of-Gut-Health" class="py-5">
   <div class="container px-5">
@@ -137,6 +183,7 @@
   </div>
 </section>
 
+</main>
 
 
             <!-- Blog preview section-->
@@ -169,7 +216,7 @@
   <!-- 3) Fetch & inject menu -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      fetch('/menu.html')
+      fetch('menu.html')
         .then(r => {
           if (!r.ok) throw new Error('HTTP ' + r.status);
           return r.text();
@@ -186,7 +233,7 @@
    <!-- load footer.html -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      fetch('/footer.html')
+      fetch('footer.html')
         .then(r => {
           if (!r.ok) throw new Error('HTTP ' + r.status);
           return r.text();
@@ -200,22 +247,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="/js/scripts.js"></script>
-
-        <script>
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: 'en', // change if your default is not English
-        includedLanguages: 'zh-CN,zh-TW,ja,ko,fr,de,es,th,vi,id,ms,ru,ar,hi,pt,it,nl',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      },
-      'google_translate_element'
-    );
-  }
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+        <script src="js/scripts.js"></script>
     </body>
 </html>
