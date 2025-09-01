@@ -11958,11 +11958,21 @@ img.rounded.shadow-sm {
   line-height: 1.25;
 }
 
-/* Google Translate tweaks */
-#google_translate_element .goog-te-gadget { font-size: 0 !important; }
-#google_translate_element .goog-te-gadget .goog-te-combo { font-size: 14px !important; }
-
-/* Hide Google banner after translation (optional) */
+/* === Google Translate cleanup (hide default chrome) === */
+#google_translate_element .goog-te-gadget { font-size:0 !important; line-height:0; }
+#google_translate_element .goog-te-gadget > span { display:none !important; } /* "Google Translate" label */
+#google_translate_element .goog-te-combo { display:none !important; }          /* default select */
 .goog-te-banner-frame.skiptranslate,
-body > .skiptranslate { display: none !important; }
-body { top: 0 !important; }
+body > .skiptranslate { display:none !important; }  /* the top frame */
+body { top:0 !important; }
+
+/* === Language pills (match navbar look) === */
+.langbar { display:flex; align-items:center; gap:.5rem; }
+.lang-btn.btn { padding:.35rem .75rem; border-radius:50rem; font-weight:600; }
+.navbar-dark .lang-btn.btn { color:#fff; background-color:#0d1326; border:1px solid rgba(255,255,255,.15); }
+.lang-btn.active { box-shadow:0 0 0 .25rem rgba(13,110,253,.25); border-color:#0d6efd; }
+#china-badge { display:none; font-size:.8rem; color:#ffc107; }
+html[data-china-mode="1"] #china-badge { display:inline; }
+
+/* Let pills sit neatly inside your Language nav item */
+.navbar .nav-link #google_translate_element { display:inline-flex; align-items:center; gap:.5rem; }

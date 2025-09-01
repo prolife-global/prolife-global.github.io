@@ -1,9 +1,5 @@
-// Use this file to add JavaScript to your project
-
-
 /* Multilingual: Google (global) + Baidu fallback (China)
    Requires an element with id="google_translate_element" in your navbar.
-   Your menu already has it, so we mount there. :contentReference[oaicite:0]{index=0}
 */
 
 /* ---------- tiny helpers ---------- */
@@ -70,49 +66,44 @@ function openBaiduTranspage() {
   location.href = url;
 }
 
-/* ---------- UI next to Google widget ---------- */
+/* ---------- UI next to Google widget (Bootstrap pills) ---------- */
 function injectLanguageButtons(mount) {
   var wrap = document.createElement("div");
-  wrap.style.display = "flex";
-  wrap.style.gap = "8px";
-  wrap.style.alignItems = "center";
+  wrap.className = "langbar";
 
   function mk(label, onClick, id) {
     var b = document.createElement("button");
     b.textContent = label;
     if (id) b.id = id;
     b.type = "button";
-    b.style.cssText =
-      "border:1px solid #2a3e61;background:#101a2c;color:#e7ecf3;padding:6px 10px;border-radius:10px;cursor:pointer";
-    b.onclick = onClick;
+    b.className = "btn btn-sm lang-btn";
+    b.addEventListener("click", onClick);
     return b;
   }
 
-  var btnEN   = mk("English",    () => useGoogleLanguage("en"),    "btn-en");
-  var btnZHTW = mk("繁體中文",     () => useGoogleLanguage("zh-TW"), "btn-zh-tw");
-  var btnZHCN = mk("简体中文",     () => {
+  var btnEN   = mk("English", () => useGoogleLanguage("en"), "btn-en");
+  var btnZHTW = mk("繁體中文", () => useGoogleLanguage("zh-TW"), "btn-zh-tw");
+  var btnZHCN = mk("简体中文", () => {
     if (document.documentElement.getAttribute("data-china-mode") === "1") openBaiduTranspage();
     else useGoogleLanguage("zh-CN");
   }, "btn-zh-cn");
 
   var badge = document.createElement("span");
-  badge.textContent = "China mode";
-  badge.style.cssText = "display:none;font-size:12px;color:#ffd18b;margin-left:6px";
   badge.id = "china-badge";
+  badge.textContent = "China mode";
 
   wrap.append(btnEN, btnZHTW, btnZHCN, badge);
   mount.appendChild(wrap);
 
-  // Reflect active (Google mode)
+  // Reflect active (Google mode) by reading googtrans cookie
   if (window.__GOOGLE_TRANSLATE_READY__) {
     var val = getCookie("googtrans") || "";
     var m = /\/auto\/([^;]+)/.exec(val);
     var current = m ? m[1] : "en";
-    var activeBtn = current === "en" ? btnEN : current === "zh-TW" ? btnZHTW : btnZHCN;
-    activeBtn.style.boxShadow = "0 0 0 3px rgba(106,166,255,.35)";
+    (current === "en" ? btnEN : current === "zh-TW" ? btnZHTW : btnZHCN).classList.add("active");
   }
 
-  // Disable zh-TW when in China mode
+  // Disable zh-TW visually + show badge when in China mode
   var obs = new MutationObserver(function () {
     var china = document.documentElement.getAttribute("data-china-mode") === "1";
     btnZHTW.disabled = china;
@@ -124,9 +115,7 @@ function injectLanguageButtons(mount) {
 /* ---------- Load Google + fallback to China mode ---------- */
 function loadGoogleAndMaybeFallback() {
   var s = document.createElement("script");
-  s.src =
-    (location.protocol === "https:" ? "https:" : "http:") +
-    "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  s.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
   s.async = true;
   s.referrerPolicy = "no-referrer-when-downgrade";
   document.head.appendChild(s);
@@ -144,7 +133,7 @@ function loadGoogleAndMaybeFallback() {
 
 /* ---------- Bootstrap after the menu gets injected ---------- */
 document.addEventListener("DOMContentLoaded", function () {
-  // Your layout loads the navbar HTML into #menu-placeholder, so we wait for the mount point. :contentReference[oaicite:1]{index=1}
+  // Your layout loads the navbar HTML into #google_translate_element within the menu.
   waitForEl("#google_translate_element", function (mount) {
     injectLanguageButtons(mount);
     loadGoogleAndMaybeFallback();
