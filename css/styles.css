@@ -11957,3 +11957,12 @@ img.rounded.shadow-sm {
   display: block;            /* one span = one line */
   line-height: 1.25;
 }
+
+/* Google Translate tweaks */
+#google_translate_element .goog-te-gadget { font-size: 0 !important; }
+#google_translate_element .goog-te-gadget .goog-te-combo { font-size: 14px !important; }
+
+/* Hide Google banner after translation (optional) */
+.goog-te-banner-frame.skiptranslate,
+body > .skiptranslate { display: none !important; }
+body { top: 0 !important; }
