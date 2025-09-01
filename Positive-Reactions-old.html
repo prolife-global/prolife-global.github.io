@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>ProLife Global (活之寶環球健康有限公司) Website</title>
+        <title>ProLife Global Website</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -15,9 +15,12 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100">
-  <!-- 1) menu placeholder -->
-  <div id="menu-placeholder"></div>
-  			<!-- Company Name Banner -->
+			<!--<main class="flex-shrink-0">-->
+            <!-- Navigation-->
+			<!-- 1) menu placeholder -->
+			<div id="menu-placeholder"></div>
+			<!-- Company Name Banner -->
+
 		<div class="company-name-bar py-2 bg-white text-center shadow-sm">
 			<h4 class="mb-0 fw-bold text-success text-center">
         <span class="d-block d-lg-inline" translate="no">ProLife Global Health Ltd</span>
@@ -25,41 +28,74 @@
       </h4>
 		</div>
 
-  <!-- 2) page header/content -->
+            <!-- Header-->
+			<!-- 2) page header/content -->
 <header class="hero-section py-1">
   <div class="container px-5">
     <div class="row gx-5 align-items-center justify-content-between">
 
-      <!-- 👩‍🔬 Image First on Mobile, Right on Desktop -->
+      <!-- 🖼️ Image first on mobile, right on desktop -->
       <div class="col-lg-6 text-center order-1 order-lg-2 mb-4 mb-lg-0">
-        <img 
-          src="images/Positive-Reactions.png" 
-          alt="Positive Reactions" 
-          class="img-fluid rounded-3 shadow-sm"
-        >
+        <img src="images/Positive-Reactions.png" alt="Gut Health Illustration" class="img-fluid rounded-3 shadow-sm">
       </div>
 
-      <!-- 🧠 Text Second on Mobile, Left on Desktop -->
+      <!-- 🧠 Text second on mobile, left on desktop -->
       <div class="col-lg-6 order-2 order-lg-1">
         <div class="mb-4">
-          <h1 class="display-5 fw-bold text-white mb-3">
+          <h2 class="display-5 fw-bold text-white mb-3">
             Positive Reactions
-          </h1>
-
+          </h2> 
           <p class="lead fw-normal text-herbal-green mb-4">
-          When starting probiotic nutritional drinks, you may notice some temporary reactions. These are not harmful side effects—they’re signs your body is adjusting, detoxifying, and rebalancing. 
+            When starting probiotic nutritional drinks, you may notice some temporary reactions. These are not harmful side effects—they’re signs your body is adjusting, detoxifying, and rebalancing. 
           </p>
-                    <ul class="lead fw-normal text-herbal-green mb-4">
-            <li>✔ Digestive changes (gas, diarrhea, appetite)</li>
-            <li>✔ Skin flare-ups or itchiness</li>
-            <li>✔ Fatigue, thirst, or frequent urination</li>
-            <li>✔ Temporary pain or discomfort in affected areas</li>
-            <li>✔ Emotional shifts or sleep disruption</li>
+          <ul class="lead fw-normal text-herbal-green mb-4">
+            <li>✔ Digestive changes (gas, diarrhea, appetite)<br>腸胃變化（脹氣、腹瀉、食慾變化）</li>
+            <li>✔ Skin flare-ups or itchiness<br>皮膚痕癢或短暫爆發</li>
+            <li>✔ Fatigue, thirst, or frequent urination<br>疲倦、口渴、頻尿</li>
+            <li>✔ Temporary pain or discomfort in affected areas<br>患處可能有短期疼痛或不適</li>
+            <li>✔ Emotional shifts or sleep disruption<br>情緒波動或睡眠短暫失衡</li>
           </ul>
         </div>
       </div>
 
     </div>
+
+    <!-- 🟩 Four-Column Green CTA Grid -->
+    <div class="row g-4 text-center">
+      <div class="col-6 col-lg-3">
+        <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+          <div class="cta-overlay">
+            <h3>Why Probiotics Work</h3>
+            <a href="Harnessing-the-Full-Potential-of-Probiotics.html" class="cta-button">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+          <div class="cta-overlay">
+            <h3>Explore Improve Health</h3>
+            <a href="Improve-Health-home.html" class="cta-button">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+          <div class="cta-overlay">
+            <h3>Explore About Ingredients</h3>
+            <a href="ingredients.html" class="cta-button">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="cta-green-box" data-bg="images/bio-technology.jpg">
+          <div class="cta-overlay">
+            <h3>Explore Our Products</h3>
+            <a href="home-products.html" class="cta-button">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </header>
 
@@ -212,11 +248,13 @@
   </div>
 </section>
 
+			
+            <!-- Testimonial section-->
 
             <!-- Blog preview section-->
             <section class="py-5">
                 <div class="container px-5 my-5">
-
+                    
                     <!-- Call to action-->
                     <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
                         <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
@@ -239,11 +277,32 @@
 		
   <!-- footer placeholder -->
   <div id="footer-placeholder"></div>
+  
+  <script>
+  document.querySelectorAll('.cta-green-box').forEach(box => {
+    const img = box.getAttribute('data-bg');
+    if (img) box.style.backgroundImage = `url('${img}')`;
+  });
+</script>
+  
+  <script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  });
+
+  document.querySelectorAll('.image-button-wrap').forEach(el => {
+    observer.observe(el);
+  });
+</script>
 
   <!-- 3) Fetch & inject menu -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      fetch('/menu.html')
+      fetch('menu.html')
         .then(r => {
           if (!r.ok) throw new Error('HTTP ' + r.status);
           return r.text();
@@ -260,7 +319,7 @@
    <!-- load footer.html -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      fetch('/footer.html')
+      fetch('footer.html')
         .then(r => {
           if (!r.ok) throw new Error('HTTP ' + r.status);
           return r.text();
@@ -274,7 +333,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="/js/scripts.js"></script>
+        <script src="js/scripts.js"></script>
 
         <script>
   function googleTranslateElementInit() {
