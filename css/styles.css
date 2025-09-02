@@ -11976,3 +11976,34 @@ html[data-china-mode="1"] #china-badge { display:inline; }
 
 /* Let pills sit neatly inside your Language nav item */
 .navbar .nav-link #google_translate_element { display:inline-flex; align-items:center; gap:.5rem; }
+
+
+/* --- Language UI: pills on ≥lg, dropdown on <lg --- */
+.langbar { display:flex; align-items:center; gap:.35rem; }
+.lang-btn.btn {
+  padding:.2rem .55rem; border-radius:999px; font-weight:700; line-height:1; font-size:.85rem;
+}
+.lang-btn.active { box-shadow:0 0 0 .2rem rgba(13,110,253,.25); border-color:#0d6efd; }
+.navbar-dark .lang-btn.btn { color:#fff; background:#0d1326; border:1px solid rgba(255,255,255,.15); }
+
+/* Dropdown (mobile) base */
+.langdrop { display:none; }
+.langdrop .dropdown-toggle { padding:.35rem .6rem; border-radius:999px; font-weight:700; }
+.navbar-dark .langdrop .dropdown-toggle { color:#fff; background:#0d1326; border:1px solid rgba(255,255,255,.15); }
+.langdrop .dropdown-menu { min-width: 9rem; }
+
+/* Switch at Bootstrap lg breakpoint */
+@media (max-width: 991.98px) {
+  .langbar { display:none; }
+  .langdrop { display:inline-flex; }
+}
+
+/* Hide Google’s default UI */
+#google_translate_element .goog-te-gadget { font-size:0 !important; line-height:0; }
+#google_translate_element .goog-te-gadget > span { display:none !important; }
+#google_translate_element .goog-te-combo { display:none !important; }
+.goog-te-banner-frame.skiptranslate, body > .skiptranslate { display:none !important; }
+body { top:0 !important; }
+
+/* Keep mount tidy in your Language nav item */
+.navbar .nav-link #google_translate_element { display:inline-flex; align-items:center; gap:.5rem; }
