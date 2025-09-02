@@ -12007,3 +12007,62 @@ body { top:0 !important; }
 
 /* Keep mount tidy in your Language nav item */
 .navbar .nav-link #google_translate_element { display:inline-flex; align-items:center; gap:.5rem; }
+
+/* --- Language: always-dropdown version --- */
+.langbar { display: none !important; }           /* hide pills everywhere */
+
+.langdrop { display:inline-flex; }
+.langdrop .dropdown-toggle {
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  line-height: 1.1;                /* holds up when fonts are larger */
+  white-space: nowrap;             /* keep the button on one line */
+}
+.navbar-dark .langdrop .dropdown-toggle {
+  color:#fff;
+  background:#0d1326;
+  border:1px solid rgba(255,255,255,.15);
+}
+.langdrop .dropdown-menu { min-width: 10rem; }
+
+/* Hide Google’s default UI */
+#google_translate_element .goog-te-gadget { font-size:0 !important; line-height:0; }
+#google_translate_element .goog-te-gadget > span { display:none !important; }
+#google_translate_element .goog-te-combo { display:none !important; }
+.goog-te-banner-frame.skiptranslate, body > .skiptranslate { display:none !important; }
+body { top:0 !important; }
+
+/* Keep mount tidy in your Language nav item */
+.navbar .nav-link #google_translate_element { display:inline-flex; align-items:center; gap:.5rem; }
+
+/* --- Language: always-dropdown version --- */
+.langbar { display: none !important; }           /* hide pills everywhere */
+
+.langdrop { display:inline-flex; }
+.langdrop .dropdown-toggle {
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  line-height: 1.1;                /* holds up when fonts are larger */
+  white-space: nowrap;             /* keep the button on one line */
+}
+.navbar-dark .langdrop .dropdown-toggle {
+  color:#fff;
+  background:#0d1326;
+  border:1px solid rgba(255,255,255,.15);
+}
+.langdrop .dropdown-menu { min-width: 10rem; }
+
+/* Hide Google’s default UI */
+#google_translate_element .goog-te-gadget { font-size:0 !important; line-height:0; }
+#google_translate_element .goog-te-gadget > span { display:none !important; }
+#google_translate_element .goog-te-combo { display:none !important; }
+.goog-te-banner-frame.skiptranslate, body > .skiptranslate { display:none !important; }
+body { top:0 !important; }
+
+/* Keep mount tidy in your Language nav item */
+.navbar .nav-link #google_translate_element { display:inline-flex; align-items:center; gap:.5rem; }
+
+/* Optional: small gap after the globe in the language toggle */
+.langdrop .dropdown-toggle { letter-spacing: .2px; }

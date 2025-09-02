@@ -2,6 +2,10 @@
    Requires an element with id="google_translate_element" in your navbar.
 */
 
+/* Multilingual: Google (global) + Baidu fallback (China)
+   Mounts into <div id="google_translate_element"> in your navbar.
+*/
+
 /* ---------- tiny helpers ---------- */
 function waitForEl(sel, cb, t = 0) {
   const el = document.querySelector(sel);
@@ -34,7 +38,7 @@ function getCookie(n) {
   return null;
 }
 
-/* ---------- Google init (called by Google’s script) ---------- */
+/* ---------- Google init (called by Google's script) ---------- */
 function googleTranslateElementInit() {
   try {
     new google.translate.TranslateElement({
@@ -52,10 +56,9 @@ function useGoogleLanguage(lang) {
   if (!window.__GOOGLE_TRANSLATE_READY__) return false;
   if (lang === "en") {
     setCookie("googtrans", "/auto/en", 365);
-    location.reload();
-    return true;
+  } else {
+    setCookie("googtrans", "/auto/" + lang, 365);
   }
-  setCookie("googtrans", "/auto/" + lang, 365);
   location.reload();
   return true;
 }
@@ -66,32 +69,8 @@ function openBaiduTranspage() {
   location.href = url;
 }
 
-/* ---------- UI next to Google widget (Bootstrap pills) ---------- */
+/* ---------- Always-on Bootstrap dropdown UI ---------- */
 function injectLanguageButtons(mount) {
-  /* ---------- Pills (desktop ≥ lg) ---------- */
-  var bar = document.createElement("div");
-  bar.className = "langbar";
-
-  function mkPill(label, onClick, id) {
-    var b = document.createElement("button");
-    if (id) b.id = id;
-    b.type = "button";
-    b.className = "btn btn-sm lang-btn";
-    b.textContent = label;
-    b.addEventListener("click", onClick);
-    return b;
-  }
-
-  var pillEN   = mkPill("English",  () => useGoogleLanguage("en"),     "btn-en");
-  var pillZHTW = mkPill("繁體中文",   () => useGoogleLanguage("zh-TW"),  "btn-zh-tw");
-  var pillZHCN = mkPill("简体中文",   () => {
-    if (document.documentElement.getAttribute("data-china-mode") === "1") openBaiduTranspage();
-    else useGoogleLanguage("zh-CN");
-  }, "btn-zh-cn");
-
-  bar.append(pillEN, pillZHTW, pillZHCN);
-
-  /* ---------- Dropdown (mobile < lg) ---------- */
   var dropWrap = document.createElement("div");
   dropWrap.className = "dropdown langdrop";
 
@@ -101,7 +80,7 @@ function injectLanguageButtons(mount) {
   toggle.setAttribute("data-bs-toggle", "dropdown");
   toggle.setAttribute("aria-expanded", "false");
   toggle.id = "langDropdownToggle";
-  toggle.textContent = "Language"; // will be replaced with current short label
+  toggle.textContent = "🌐 EN"; // will update after init
 
   var menu = document.createElement("ul");
   menu.className = "dropdown-menu dropdown-menu-end";
@@ -119,20 +98,17 @@ function injectLanguageButtons(mount) {
     return li;
   }
 
-  var itemEN   = mkItem("English (EN)",     () => useGoogleLanguage("en"),    "item-en");
-  var itemZHTW = mkItem("繁體中文 (繁)",      () => useGoogleLanguage("zh-TW"), "item-zh-tw");
-  var itemZHCN = mkItem("简体中文 (简)",      () => {
+  var itemEN   = mkItem("English (EN)", () => useGoogleLanguage("en"),    "item-en");
+  var itemZHTW = mkItem("繁體中文 (繁)",  () => useGoogleLanguage("zh-TW"), "item-zh-tw");
+  var itemZHCN = mkItem("简体中文 (简)",  () => {
     if (document.documentElement.getAttribute("data-china-mode") === "1") openBaiduTranspage();
     else useGoogleLanguage("zh-CN");
   }, "item-zh-cn");
 
   menu.append(itemEN, itemZHTW, itemZHCN);
   dropWrap.append(toggle, menu);
+  mount.appendChild(dropWrap);
 
-  /* ---------- Mount both UIs ---------- */
-  mount.append(bar, dropWrap);
-
-  /* ---------- Reflect active selection (Google mode) ---------- */
   function currentLang() {
     var val = getCookie("googtrans") || "";
     var m = /\/auto\/([^;]+)/.exec(val);
@@ -140,31 +116,24 @@ function injectLanguageButtons(mount) {
   }
   function setActive() {
     var cur = window.__GOOGLE_TRANSLATE_READY__ ? currentLang() : "en";
-    [pillEN, pillZHTW, pillZHCN].forEach(b => b.classList.remove("active"));
-    (cur === "zh-TW" ? pillZHTW : cur === "zh-CN" ? pillZHCN : pillEN).classList.add("active");
-
-    // dropdown label uses short code
-    var short = cur === "zh-TW" ? "繁" : cur === "zh-CN" ? "简" : "EN";
-    toggle.textContent = short;
+    toggle.textContent = "🌐 " + (cur === "zh-TW" ? "繁" : cur === "zh-CN" ? "简" : "EN");
   }
   setActive();
 
-  /* ---------- China mode: disable 繁體 & note users ---------- */
+  // China mode: disable 繁體中文 item
   var mo = new MutationObserver(function () {
     var china = document.documentElement.getAttribute("data-china-mode") === "1";
-    pillZHTW.disabled = china;
     itemZHTW.classList.toggle("disabled", china);
   });
   mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-china-mode"] });
 
-  // Also update labels once Google finishes initializing (first load)
+  // Update once Google finishes initializing on first load
   if (!window.__GOOGLE_TRANSLATE_READY__) {
     var readyInt = setInterval(function(){
       if (window.__GOOGLE_TRANSLATE_READY__) { clearInterval(readyInt); setActive(); }
     }, 200);
   }
 }
-
 
 /* ---------- Load Google + fallback to China mode ---------- */
 function loadGoogleAndMaybeFallback() {
@@ -187,7 +156,7 @@ function loadGoogleAndMaybeFallback() {
 
 /* ---------- Bootstrap after the menu gets injected ---------- */
 document.addEventListener("DOMContentLoaded", function () {
-  // Your layout loads the navbar HTML into #google_translate_element within the menu.
+  // Your menu injects <div id="google_translate_element" class="ms-2"></div> into the navbar.
   waitForEl("#google_translate_element", function (mount) {
     injectLanguageButtons(mount);
     loadGoogleAndMaybeFallback();
