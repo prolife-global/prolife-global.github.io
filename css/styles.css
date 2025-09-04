@@ -12151,3 +12151,23 @@ body { top:0 !important; }
 }
 
 /* ===== i-Glucose Accordion (Professional) end ===== */
+
+/* In-page sub menu for the Probiotics section */
+.subnav {
+  border: 1px solid #e6ece8;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.06);
+  z-index: 1020; /* above content */
+}
+.subnav .nav-link {
+  font-weight: 600;
+  padding: .45rem .9rem;
+}
+.subnav .nav-link.active {
+  background: #e9f4ef;
+  color: #0f4f3a;
+}
+html { scroll-behavior: smooth; }
+/* offset so anchors don't hide under fixed navs */
+.anchor-target { scroll-margin-top: 110px; }
