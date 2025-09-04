@@ -12066,3 +12066,88 @@ body { top:0 !important; }
 
 /* Optional: small gap after the globe in the language toggle */
 .langdrop .dropdown-toggle { letter-spacing: .2px; }
+
+
+/* ===== i-Glucose Accordion (Professional) ===== */
+.pro-accordion .accordion-item {
+  border: 1px solid #e6ece8;
+  border-radius: 1rem !important;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,.06);
+  margin-bottom: 1rem;
+  background: #fff;
+}
+.pro-accordion .accordion-button {
+  padding: 1.1rem 1.25rem;
+  font-weight: 700;
+  color: #1b4d3e;             /* herbal green tone */
+  background: linear-gradient(180deg,#ffffff 0%,#f7fbf9 100%);
+}
+.pro-accordion .accordion-button:not(.collapsed) {
+  color: #126b4c;
+  background: #eef7f3;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.03);
+}
+.pro-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 .2rem rgba(18,107,76,.15);
+}
+.pro-accordion .accordion-button .label-sub {
+  display: block;
+  font-weight: 500;
+  font-size: .875rem;
+  color: #6b8a7e;
+}
+.pro-accordion .accordion-body {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+/* Ingredients list */
+.ingredient-list {
+  columns: 1;
+  column-gap: 2rem;
+}
+@media (min-width: 992px) {
+  .ingredient-list { columns: 2; }
+}
+.ingredient-list li {
+  margin: .35rem 0;
+}
+
+/* Nutrition table */
+.nutri-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .975rem;
+}
+.nutri-table thead th {
+  background: #e9f4ef;
+  color: #0f4f3a;
+  font-weight: 700;
+  border-bottom: 2px solid #d7e8e1;
+}
+.nutri-table th, .nutri-table td {
+  padding: .75rem .85rem;
+  border-bottom: 1px solid #edf3f0;
+  vertical-align: middle;
+}
+.nutri-table tr:hover td {
+  background: #f8fcfa;
+}
+.nutri-note {
+  font-size: .85rem;
+  color: #6c757d;
+}
+
+/* “chip” meta tags */
+.meta-chip {
+  display: inline-block;
+  border: 1px solid #d7e8e1;
+  background: #f6fbf8;
+  color: #126b4c;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  font-size: .8rem;
+  margin-right: .35rem;
+}
+
+/* ===== i-Glucose Accordion (Professional) end ===== */
