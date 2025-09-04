@@ -12171,3 +12171,20 @@ body { top:0 !important; }
 html { scroll-behavior: smooth; }
 /* offset so anchors don't hide under fixed navs */
 .anchor-target { scroll-margin-top: 110px; }
+
+
+/* Compact menu bar shown above the "Harnessing..." section */
+.section-top-menu {
+  border: 1px solid #e6ece8;
+  background: #fff;
+  border-radius: 999px;
+  padding: .5rem .75rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+.section-top-menu .nav-link {
+  font-weight: 600;
+  padding: .35rem .75rem;
+  color: #0f4f3a;
+}
+.section-top-menu .nav-link:hover { background: #e9f4ef; }
+.section-top-menu .badge { transform: translateY(-2px); }
