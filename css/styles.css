@@ -12188,3 +12188,11 @@ html { scroll-behavior: smooth; }
 }
 .section-top-menu .nav-link:hover { background: #e9f4ef; }
 .section-top-menu .badge { transform: translateY(-2px); }
+
+/* Most of your typography (body text, headings, utilities) uses rem units that scale off the root (html) size, 
+so reducing the root to 95% makes the entire type system ~5% smaller automatically.*/
+/* Global 10% font size reduction */
+html { font-size: 90%; }
+
+/* (Optional) keep Bootstrap's var in sync, in case any components read it */
+:root { --bs-body-font-size: 0.90rem; }
