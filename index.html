@@ -23,15 +23,33 @@
       .font-controls button { padding: 6px 12px; margin: 0 5px; font-size: 14px; cursor: pointer; }
 
       /* ===== In-page sub menu for the Probiotics section ===== */
-      .subnav {
-        border: 1px solid #e6ece8;
-        background: #ffffff;
-        border-radius: 999px;
-        box-shadow: 0 8px 18px rgba(0,0,0,.06);
-        z-index: 1020; /* above content */
-      }
-      .subnav .nav-link { font-weight: 600; padding: .45rem .9rem; }
-      .subnav .nav-link.active { background: #e9f4ef; color: #0f4f3a; }
+/* Green button styling inside the subnav */
+.subnav .subnav-btn{
+  border-radius: .75rem;          /* rounded pills like screenshot */
+  font-weight: 600;
+  padding: .55rem 1rem;           /* compact height */
+  box-shadow: 0 1px 0 rgba(0,0,0,.08) inset; /* subtle depth */
+}
+.subnav .subnav-btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 .2rem rgba(25,135,84,.25); /* accessible focus ring */
+}
+
+/* Keep layout tidy on very small screens */
+@media (max-width: 576px){
+  .subnav .subnav-btn{ width: 100%; }
+}
+
+.subnav--no-box {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
 
       html { scroll-behavior: smooth; }
       /* Make sure anchor jumps don't hide under fixed navs */
@@ -88,18 +106,21 @@
                  class="img-fluid rounded shadow-sm">
           </div>
 
-          <!-- NEW: sticky in-page menu -->
-            <nav class="subnav sticky-top px-3 py-2 mb-3">
-              <ul class="nav nav-pills justify-content-start" id="probioticsPills">
-                <li class="nav-item"><a class="nav-link" href="Harnessing-the-Full-Potential-of-Probiotics.html">Probiotics</a></li>
-                <li class="nav-item"><a class="nav-link" href="Vitamin-D3-&-K2.html">Vitamin D & K</a></li>
-                <li class="nav-item"><a class="nav-link" href="Citric-acid.html">Organic Lemon Enzyme</a></li>
-                <li class="nav-item"><a class="nav-link" href="Live-Well-Backed-by-WHO.html">Live Well, Backed by WHO</a></li>
-                <li class="nav-item"><a class="nav-link" href="Positive-Reactions.html">Positive Reactions</a></li>
-                <li class="nav-item"><a class="nav-link" href="Improve-Health-home.html">Improve Health</a></li>
-                <li class="nav-item"><a class="nav-link" href="home-products.html">Our Product Line</a></li>
-              </ul>
-            </nav>
+<!-- NEW: sticky in-page menu -->
+<!-- NEW: sticky in-page menu -->
+<nav class="subnav subnav--no-box sticky-top px-3 py-2 mb-3">
+  <ul class="nav justify-content-start flex-wrap gap-2" id="probioticsPills">
+    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Harnessing-the-Full-Potential-of-Probiotics.html">Probiotics</a></li>
+    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Vitamin-D3-&-K2.html">Vitamin D &amp; K</a></li>
+    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Citric-acid.html">Organic Lemon Enzyme</a></li>
+    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Live-Well-Backed-by-WHO.html">Live Well, Backed by WHO</a></li>
+    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Positive-Reactions.html">Positive Reactions</a></li>
+    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Improve-Health-home.html">Improve Health</a></li>
+    <li class="nav-item"><a class="btn btn-success subnav-btn" href="home-products.html">Our Product Line</a></li>
+  </ul>
+</nav>
+
+
 
           <!-- Text + Subnav -->
           <div class="col-lg-8 order-2 order-lg-1">
