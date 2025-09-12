@@ -16,49 +16,35 @@
     <!-- Core theme CSS (includes Bootstrap) -->
     <link href="css/styles.css" rel="stylesheet" />
 
-    <!-- Page-only CSS additions -->
+    <!-- Page-only CSS (minimal) -->
     <style>
-      body { font-size: 16px; line-height: 1.6; }
-      .font-controls { margin: 15px 0; }
-      .font-controls button { padding: 6px 12px; margin: 0 5px; font-size: 14px; cursor: pointer; }
-
-      /* ===== In-page sub menu for the Probiotics section ===== */
-/* Green button styling inside the subnav */
-.subnav .subnav-btn{
-  border-radius: .75rem;          /* rounded pills like screenshot */
-  font-weight: 600;
-  padding: .55rem 1rem;           /* compact height */
-  box-shadow: 0 1px 0 rgba(0,0,0,.08) inset; /* subtle depth */
-}
-.subnav .subnav-btn:focus {
-  outline: 0;
-  box-shadow: 0 0 0 .2rem rgba(25,135,84,.25); /* accessible focus ring */
-}
-
-/* Keep layout tidy on very small screens */
-@media (max-width: 576px){
-  .subnav .subnav-btn{ width: 100%; }
-}
-
-.subnav--no-box {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-
-
       html { scroll-behavior: smooth; }
-      /* Make sure anchor jumps don't hide under fixed navs */
+      /* Prevent anchor jump from hiding behind fixed headers */
       .anchor-target { scroll-margin-top: 110px; }
+
+      /* In-page green-pill menu (no white box behind) */
+      .subnav--no-box {
+        background: transparent; border: 0; box-shadow: none; border-radius: 0;
+        padding-left: 0; padding-right: 0;
+      }
+      .subnav-btn {
+        border-radius: .75rem;     /* rounded like screenshot */
+        font-weight: 600;
+        padding: .55rem 1rem;
+        box-shadow: 0 1px 0 rgba(0,0,0,.08) inset;
+      }
+      .subnav-btn:focus {
+        outline: 0;
+        box-shadow: 0 0 0 .2rem rgba(25,135,84,.25); /* accessible focus ring */
+      }
+      @media (max-width: 576px){
+        .subnav-btn { width: 100%; } /* tidy wrapping on small screens */
+      }
     </style>
   </head>
 
   <body class="d-flex flex-column h-100">
-    <!-- 1) menu placeholder -->
+    <!-- Header / Menu placeholder (will be injected) -->
     <div id="menu-placeholder"></div>
 
     <!-- Company Name Banner -->
@@ -69,18 +55,16 @@
       </h4>
     </div>
 
-    <!-- 2) page header/content -->
+    <!-- Hero -->
     <header class="hero-section py-1">
       <div class="container px-5">
         <div class="row gx-5 align-items-center justify-content-between">
-          <!-- Image First on Mobile, Right on Desktop -->
           <div class="col-lg-6 text-center order-1 order-lg-2 mb-4 mb-lg-0">
             <img src="images/Live-Well-Use-ProLife.PNG"
                  alt="Gut Health Illustration"
                  class="img-fluid rounded-3 shadow-sm">
           </div>
 
-          <!-- Text Second on Mobile, Left on Desktop -->
           <div class="col-lg-6 order-2 order-lg-1">
             <div class="mb-4">
               <h1 class="display-5 fw-bold text-white mb-3">
@@ -106,56 +90,23 @@
                  class="img-fluid rounded shadow-sm">
           </div>
 
-<!-- NEW: sticky in-page menu -->
-<!-- NEW: sticky in-page menu -->
-<nav class="subnav subnav--no-box sticky-top px-3 py-2 mb-3">
-  <ul class="nav justify-content-start flex-wrap gap-2" id="probioticsPills">
-    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Harnessing-the-Full-Potential-of-Probiotics.html">Probiotics</a></li>
-    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Vitamin-D3-&-K2.html">Vitamin D &amp; K</a></li>
-    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Citric-acid.html">Organic Lemon Enzyme</a></li>
-    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Live-Well-Backed-by-WHO.html">Live Well, Backed by WHO</a></li>
-    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Positive-Reactions.html">Positive Reactions</a></li>
-    <li class="nav-item"><a class="btn btn-success subnav-btn" href="Improve-Health-home.html">Improve Health</a></li>
-    <li class="nav-item"><a class="btn btn-success subnav-btn" href="home-products.html">Our Product Line</a></li>
-  </ul>
-</nav>
+          <!-- In-page subnav (green buttons) -->
+          <nav class="subnav--no-box sticky-top mb-3">
+            <ul class="nav flex-wrap gap-2" id="probioticsPills">
+              <li class="nav-item"><a class="btn btn-success subnav-btn" href="Harnessing-the-Full-Potential-of-Probiotics.html">Probiotics</a></li>
+              <li class="nav-item"><a class="btn btn-success subnav-btn" href="Vitamin-D3-&-K2.html">Vitamin D &amp; K</a></li>
+              <li class="nav-item"><a class="btn btn-success subnav-btn" href="Citric-acid.html">Organic Lemon Enzyme</a></li>
+              <li class="nav-item"><a class="btn btn-success subnav-btn" href="Live-Well-Backed-by-WHO.html">Live Well, Backed by WHO</a></li>
+              <li class="nav-item"><a class="btn btn-success subnav-btn" href="Positive-Reactions.html">Positive Reactions</a></li>
+              <li class="nav-item"><a class="btn btn-success subnav-btn" href="Improve-Health-home.html">Improve Health</a></li>
+              <li class="nav-item"><a class="btn btn-success subnav-btn" href="home-products.html">Our Product Line</a></li>
+            </ul>
+          </nav>
 
-
-
-          <!-- Text + Subnav -->
+          <!-- Text -->
           <div class="col-lg-8 order-2 order-lg-1">
-
-            
-
-
-<!-- Compact site menu (above the section title) -->
-<!--<nav class="section-top-menu mb-3">
-  <ul class="nav nav-pills flex-wrap justify-content-start">
-    <li class="nav-item">
-      <a class="nav-link" href="Harnessing-the-Full-Potential-of-Probiotics.html">Probiotics</a>
-    </li>
-
-    <li class="nav-item d-flex align-items-center">
-      <a class="nav-link" href="Vitamin-D3-&-K2.html">
-        Vitamin D & K
-      </a>
-    </li>
-
-    <li class="nav-item d-flex align-items-center">
-      <a class="nav-link" href="Citric-acid.html">Organic Lemon Enzyme</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="home-products.html">Our Product Line</a>
-    </li>
-    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-  </ul>
-</nav>-->
-
-
             <h2 class="fw-bold mb-4">
-              Harnessing the Full Potential of Probiotics: A Comprehensive Guide to Holistic Wellness, Supported by Scientific Research and Global Traditions. 
+              Harnessing the Full Potential of Probiotics: A Comprehensive Guide to Holistic Wellness, Supported by Scientific Research and Global Traditions.
             </h2>
 
             <p>This product has been meticulously developed in Hong Kong, ensuring the highest standards of quality and care.</p>
@@ -194,7 +145,7 @@
         <div class="text-center mb-5" id="Improve-Health">
           <h2 class="fw-bold mb-4">🌟 Enhance Health – Unlock Pathways to Vitality</h2>
           <p>
-            At <strong translate="no">ProLife Global Health Ltd (活之寶環球健康有限公司)</strong>, our distinctive i-Series 
+            At <strong translate="no">ProLife Global Health Ltd (活之寶環球健康有限公司)</strong>, our distinctive i-Series
             <strong translate="no">Probiotic Nutritional Drinks (益生菌營養液)</strong>
             are meticulously formulated to target critical aspects of well-being. Each product is designed to enhance overall vitality, from improving cellular functionality to promoting restorative sleep, thus facilitating a healthier, more robust, and radiant life from within.
           </p>
@@ -209,38 +160,25 @@
     <!-- Footer placeholder -->
     <div id="footer-placeholder"></div>
 
-    <!-- 3) Fetch & inject menu -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        fetch('/menu.html')
-          .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
-          .then(html => { document.getElementById('menu-placeholder').innerHTML = html; })
-          .catch(err => { console.error('Failed to load menu.html:', err); });
-
-        fetch('/footer.html')
-          .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
-          .then(html => { document.getElementById('footer-placeholder').innerHTML = html; })
-          .catch(err => console.error('Could not load footer:', err));
-      });
-    </script>
-
     <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- ScrollSpy to highlight active pill while scrolling -->
+    <!-- Inject menu & footer (combined, concise) -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        // Activate ScrollSpy on the body, target the in-page subnav pills
-        new bootstrap.ScrollSpy(document.body, {
-          target: '#probioticsPills',
-          offset: 120
-        });
+        const inject = (path, targetId) =>
+          fetch(path)
+            .then(r => r.ok ? r.text() : Promise.reject('HTTP ' + r.status))
+            .then(html => { const el = document.getElementById(targetId); if (el) el.innerHTML = html; })
+            .catch(err => console.error('Load failed:', path, err));
+
+        inject('menu.html',   'menu-placeholder');
+        inject('footer.html', 'footer-placeholder');
       });
     </script>
 
     <!-- Core theme JS -->
     <script src="/js/scripts.js"></script>
-
     <!-- Translator -->
     <script src="js/translate.js" defer></script>
   </body>
