@@ -12311,3 +12311,75 @@ html { font-size: 90%; }
 
 /* Utility */
 .not-italic{font-style:normal}
+
+
+/* ---- tokens you can tweak ---- */
+:root{
+  --subnav-card-bg:#fff;
+  --subnav-card-shadow:0 6px 18px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.04);
+  --subnav-radius:18px;
+  --pill-radius:999px;
+
+  --green-600:#169A60;
+  --green-700:#0f7b4c;
+  --green-800:#0a5a38;
+}
+
+/* ---- white box behind the pills ---- */
+.subnav-card{ z-index: 50; }
+.subnav-card .subnav-inner{
+  background: var(--subnav-card-bg);
+  border-radius: var(--subnav-radius);
+  box-shadow: var(--subnav-card-shadow);
+  padding: .8rem;
+}
+
+/* layout for the pill row */
+.subnav-card .nav{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin: 0;
+}
+
+/* mobile: horizontal scroll instead of wrapping */
+@media (max-width: 640px){
+  .subnav-card .nav{
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .subnav-card .nav::after{ content:""; flex: 0 0 .5rem; }
+}
+
+/* ---- improved green pills ---- */
+.subnav-btn{
+  border-radius: var(--pill-radius);
+  padding: .55rem .95rem;
+  font-weight: 700;
+  line-height: 1;
+  border: 1px solid rgba(0,0,0,.05) !important;
+  background-image: linear-gradient(180deg, var(--green-600), var(--green-700)) !important;
+  box-shadow: 0 2px 0 rgba(0,0,0,.07);
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease, background .12s ease;
+}
+
+.subnav-btn:hover{
+  transform: translateY(-1px);
+  filter: saturate(1.05);
+  background-image: linear-gradient(180deg, var(--green-700), var(--green-800)) !important;
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+}
+
+.subnav-btn:active{
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0,0,0,.14) inset;
+}
+
+.subnav-btn:focus-visible{
+  outline: 3px solid color-mix(in oklab, var(--green-600) 40%, white);
+  outline-offset: 2px;
+}
+
+
