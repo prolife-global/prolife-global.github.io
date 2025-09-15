@@ -12343,7 +12343,7 @@ html { font-size: 90%; }
 }
 
 /* mobile: horizontal scroll instead of wrapping */
-@media (max-width: 640px){
+@media (max-width: 340px){
   .subnav-card .nav{
     flex-wrap: nowrap;
     overflow-x: auto;
