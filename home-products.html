@@ -36,20 +36,25 @@
 
         <div class="product-grid">
 
-          <!-- i-ReBuild -->
-          <div class="product-card" data-product-id="i-rebuild" data-product-name="i-ReBuild (重活寶)">
-            <a href="i-Rebuild.html" class="product-link" data-tooltip="Aids recovery and energy" aria-label="i-ReBuild product page">
-              <img src="images/i-product/i-ReBuild-prod.png" alt="i-ReBuild bottle" width="172" height="172" loading="lazy">
-              <span class="product-name" translate="no">🔄 i-ReBuild (重活寶)</span>
-            </a>
-            <p class="card-desc">Restores organ vitality, supports detoxification, and helps eliminate toxins for renewed internal health.</p>
-            <div class="card-actions">
-              <a class="learn-btn" href="i-Rebuild.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
-              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-                <i class="bi bi-envelope"></i><span>Enquire</span>
-              </button>
-            </div>
-          </div>
+          <!-- i-ReBuild — Flagship -->
+<div class="product-card flagship" data-product-id="i-rebuild" data-product-name="i-ReBuild (重活寶)" data-flagship="true">
+  <span class="flagship-badge" aria-label="Flagship">旗艦</span>
+  <span class="flagship-badge" aria-label="Flagship">Flagship</span>
+  <a href="i-Rebuild.html" class="product-link" data-tooltip="Aids recovery and energy" aria-label="i-ReBuild product page (flagship)">
+    <img src="images/i-product/i-ReBuild-prod.png" alt="i-ReBuild bottle" width="172" height="172" loading="lazy">
+    <span class="product-name" translate="no">🔄 i-ReBuild (重活寶)</span>
+  </a>
+  <p class="flagship-subhead">我們的旗艦日常配方，助您恢復活力、提升能量，重建全方位健康。</p>
+  <p class="card-desc">Restores organ vitality, supports detoxification, and helps eliminate toxins for renewed internal health.</p>
+  <div class="card-actions">
+    <a class="learn-btn primary" href="i-Rebuild.html" rel="bookmark">
+      <i class="bi bi-lightning-charge"></i><span>Learn More</span>
+    </a>
+    <button class="enquire-btn outline" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+      <i class="bi bi-envelope"></i><span>Enquire</span>
+    </button>
+  </div>
+</div>
 
           <!-- i-Slim -->
           <div class="product-card" data-product-id="i-slim" data-product-name="i-Slim (瘦白寶)">
@@ -367,6 +372,14 @@
       });
     });
   </script>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.querySelector('.product-grid');
+  const flagship = grid?.querySelector('.product-card[data-product-id="i-rebuild"]');
+  if (grid && flagship) grid.prepend(flagship); // pin to first slot
+});
+</script>
+
 
   <script src="js/scripts.js"></script>
 <!-- Our translator (waits for the menu + handles Google/Baidu) -->
