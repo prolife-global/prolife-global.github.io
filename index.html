@@ -40,6 +40,50 @@
       @media (max-width: 576px){
         .subnav-btn { width: 100%; } /* tidy wrapping on small screens */
       }
+
+
+
+
+      /* Blue halo behind product images */
+.halo-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.halo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -14%;                  /* slightly larger than the image */
+  z-index: 0;
+  border-radius: 999px;
+  background:
+    radial-gradient(
+      circle at 50% 60%,
+      rgba(56,132,255,0.50) 0%,
+      rgba(56,132,255,0.30) 35%,
+      rgba(56,132,255,0.15) 55%,
+      rgba(56,132,255,0.00) 75%
+    );
+  filter: blur(12px);           /* soft glow */
+  pointer-events: none;
+}
+
+.halo-wrap img {
+  position: relative;
+  z-index: 1;                   /* sit above the halo */
+  /* Optional: a tiny outer glow */
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
+}
+
+/* (Optional) very subtle breathing effect */
+/*
+@keyframes halo-breathe {
+  0%, 100% { opacity: .9; transform: scale(1); }
+  50%      { opacity: 1;  transform: scale(1.02); }
+}
+.halo-wrap::before { animation: halo-breathe 6s ease-in-out infinite; }
+*/
+
     </style>
   </head>
 
@@ -192,13 +236,27 @@
       </div>
 
       <!-- Visual -->
-      <div class="col-lg-5 order-1 order-lg-2 text-center position-relative">
+<div class="col-lg-5 order-1 order-lg-2 text-center position-relative">
+  <span class="flagship-badge" aria-hidden="true">Flagship</span>
+
+  <!-- Add this wrapper -->
+  <div class="halo-wrap d-inline-block">
+    <img class="hero-bottle img-fluid rounded-4 shadow-sm"
+         src="images/i-product/i-ReBuild-prod.png"
+         alt="i-ReBuild (重活寶) bottle" width="420" height="420" loading="eager">
+  </div>
+</div>
+
+
+
+
+      <!--<div class="col-lg-5 order-1 order-lg-2 text-center position-relative">
         <span class="flagship-badge" aria-hidden="true">Premium</span>
         <img class="hero-bottle img-fluid rounded-4 shadow-sm"
              src="images/i-product/i-ReBuild-prod.png"
              alt="Multi-Source Probiotic Nutritional Liquid illustration"
              width="420" height="420" loading="eager">
-      </div>
+      </div>-->
     </div>
   </div>
 </section>
