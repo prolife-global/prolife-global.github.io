@@ -14,7 +14,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body class="d-flex flex-column h-100">
+    <body class="d-flex flex-column h-100" data-page="vitamin-dk">
   <!-- 1) menu placeholder -->
   <div id="menu-placeholder"></div>
   			<!-- Company Name Banner -->
@@ -82,6 +82,7 @@
     </ul>
   </div>
 </nav>
+
 
     <div class="row gx-5 gy-4">
 
@@ -392,6 +393,34 @@
 <script src="/js/scripts.js"></script>
 <!-- Our translator (waits for the menu + handles Google/Baidu) -->
 <script src="js/translate.js" defer></script>
+
+<script>
+(function () {
+  // current file name (e.g., 'Positive-Reactions.html')
+  var current = decodeURIComponent(location.pathname.split('/').pop() || '').toLowerCase();
+
+  // if site uses directory-style URLs, fall back to index.html
+  if (!current) current = 'index.html';
+
+  document.querySelectorAll('#probioticsPills a.subnav-btn').forEach(function (a) {
+    var target = decodeURIComponent((a.getAttribute('href') || '').split('/').pop()).toLowerCase();
+
+    // also match when the current URL has query or hash
+    var isMatch = current === target ||
+                  current.startsWith(target + '?') ||
+                  current.startsWith(target + '#');
+
+    if (isMatch) {
+      a.classList.add('active');
+      a.setAttribute('aria-current', 'page');
+    } else {
+      a.classList.remove('active');
+      a.removeAttribute('aria-current');
+    }
+  });
+})();
+</script>
+
 
     </body>
 </html>
