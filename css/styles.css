@@ -12383,22 +12383,42 @@ html { font-size: 90%; }
 }
 
 
-/* Active state for green pills */
+
+/* Active appearance (reused via CSS vars) */
+.subnav-btn{
+  /* default gradient */
+  --pill-bg1: var(--green-600);
+  --pill-bg2: var(--green-700);
+  background-image: linear-gradient(180deg, var(--pill-bg1), var(--pill-bg2)) !important;
+}
+
+/* When a link is the current one (class or aria), or when we target via body[data-page] below */
 .subnav-btn.active,
-.subnav-btn[aria-current="page"]{
-  background-image: linear-gradient(180deg, var(--green-500), var(--green-600)) !important;
-  color: #fff !important;
+.subnav-btn[aria-current="page"],
+.subnav-btn.is-current{
+  --pill-bg1: var(--green-500);
+  --pill-bg2: var(--green-600);
+  color:#fff !important;
   box-shadow: 0 8px 18px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.15);
+  transform: translateY(-1px);
   border-color: rgba(0,0,0,.08) !important;
+}
+
+/* CSS-only activation by page flag */
+body[data-page="positive-reactions"]  #probioticsPills a[href$="Positive-Reactions.html"],
+body[data-page="probiotics"]          #probioticsPills a[href$="Harnessing-the-Full-Potential-of-Probiotics.html"],
+body[data-page="vitamin-dk"]          #probioticsPills a[href$="Vitamin-D3-&-K2.html"],
+body[data-page="improve-health"]      #probioticsPills a[href$="Improve-Health-home.html"],
+body[data-page="products"]            #probioticsPills a[href$="home-products.html"],
+body[data-page="citric"]              #probioticsPills a[href$="Citric-acid.html"],
+body[data-page="who"]                 #probioticsPills a[href$="Live-Well-Backed-by-WHO.html"]{
+  /* apply the active look without adding a class */
+  --pill-bg1: var(--green-500);
+  --pill-bg2: var(--green-600);
+  color:#fff !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.15);
   transform: translateY(-1px);
 }
-
-/* Optional: show focus on active too */
-.subnav-btn.active:focus-visible{
-  outline: 3px solid color-mix(in oklab, var(--green-600) 45%, white);
-  outline-offset: 2px;
-}
-
 
 
 
