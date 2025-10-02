@@ -1,711 +1,663 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>ProLife Global (活之寶環球健康有限公司) Website</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />-->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-			<!--<main class="flex-shrink-0">-->
-            <!-- Navigation-->
-			<!-- 1) menu placeholder -->
-			<div id="menu-placeholder"></div>
-			<!-- Company Name Banner -->
-		<div class="company-name-bar py-2 bg-white text-center shadow-sm">
-			<h4 class="mb-0 fw-bold text-success text-center">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>ProLife Global (活之寶環球健康有限公司) Website</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- Helpers for chips + nutrition table (move to css/styles.css when convenient) -->
+    <style>
+      .meta-chip{
+        display:inline-block;padding:.25rem .6rem;border:1px solid #dbe7e2;border-radius:999px;
+        font-size:.85rem;color:#0f4f3a;background:#f5faf7;margin-right:.25rem
+      }
+      .nutri-table{width:100%;border-collapse:collapse}
+      .nutri-table th,.nutri-table td{padding:.6rem .75rem;border-bottom:1px solid #eaeaea}
+      .nutri-table thead th{background:#f8f9fa;font-weight:600}
+      .nutri-note{font-size:.85rem;color:#6c757d}
+      @media (min-width: 992px){ .sticky-lg-top{ top: 90px; } }
+    </style>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <!-- Navigation placeholders -->
+    <div id="menu-placeholder"></div>
+
+    <!-- Company Name Banner -->
+    <div class="company-name-bar py-2 bg-white text-center shadow-sm">
+      <h4 class="mb-0 fw-bold text-success text-center">
         <span class="d-block d-lg-inline" translate="no">ProLife Global Health Ltd</span>
         <span class="d-block d-lg-inline" translate="no">（活之寶環球健康有限公司）</span>
       </h4>
-		</div>
-		
-<header class="hero-section py-1">
-  <div class="container px-5">
-    <div class="row gx-5 align-items-center justify-content-between">
-
-      <!-- 👩‍🔬 Image First on Mobile, Right on Desktop -->
-      <div class="col-lg-6 text-center order-1 order-lg-2 mb-4 mb-lg-0">
-        <img 
-          src="images/i-rebuild-banner.png" 
-          alt="i-ReBuild product bottle" 
-          class="img-fluid rounded-3 shadow-sm"
-        >
-      </div>
-
-      <!-- 🧠 Text Second on Mobile, Left on Desktop -->
-      <div class="col-lg-6 order-2 order-lg-1">
-        <div class="mb-4">
-          <h1 class="display-5 fw-bold text-white mb-3">
-            <span translate="no">i-ReBuild® 重活寶</span> — Vital Organ Renewal Support
-          </h1>
-
-          <p class="lead fw-normal text-herbal-green mb-4">
-            <strong translate="no">i-ReBuild™ Multi-Source Probiotic Nutri-Liquid</strong> combines a precision Six-Strain Probiotic Blend with cell-supportive cofactors to reinforce the gut barrier, modulate inflammation, and support whole-body resilience.
-            <span translate="no">i-ReBuild® 重活寶</span> is a cutting-edge 
-            <strong translate="no">Probiotic Nutritional Drink (益生營養液飲料)</strong> 
-            crafted to support internal rejuvenation and cellular repair across key organs. With a focused blend of probiotics and essential nutrients,
-            <strong>it promotes visceral health—including the liver and heart—revitalizing energy, restoring balance, and enhancing functional resilience.</strong>
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</header>
-
-
-  <!-- i-Rebuild® Section -->
-<section id="flagship-formula" class="py-5 bg-light">
-  <div class="container px-5">
-
-          <!-- Section header -->
-      <div class="text-center mb-5">
-        <h2 class="fw-bold text-success">Why It Works: Mechanism of Action</h2>
-        <p class="lead text-muted">
-          i-Rebuild® combines precision-selected probiotic strains with cell-supportive cofactors to repair, protect, and revitalize at the cellular level.
-        </p>
-        <p class="lead text-muted">
-          Proudly <strong>Made in Hong Kong</strong>, our formulation marries cutting-edge science with natural care.
-        </p>
-        <p class="tagline">Proudly Made in Hong Kong — Repair at the Cellular Level</p>
-      </div>
-    <div class="mb-4">
-      <h3 class="fw-bold mb-1">Flagship Product Formula</h3>
-      <p class="text-muted mb-0">
-        Product Name: <strong>i-ReBuild™ Multi-Source Probiotic Nutri-Liquid</strong> •
-        Daily Dosage: <strong>30&nbsp;ml</strong>
-      </p>
     </div>
 
-    <!-- Six-Strain Overview -->
-    <div class="row gx-5 justify-content-center mb-5">
-      <div class="col-lg-10">
-        <h2 class="section-title">
-          <i class="bi bi-capsule me-2 icon-title"></i> Six-Strain Probiotic Blend
-        </h2>
-        <div class="small text-success fw-semibold mb-2">(Functional Role) Core Efficacy Engine</div>
-        <h5 class="h6 mb-1">Mechanism of Action</h5>
-        <ul>
-          <li><strong>Barrier integrity:</strong> Supports occludin/claudins and mucin to reduce gut permeability.</li>
-          <li><strong>Microbial balance:</strong> Competitive exclusion of harmful species; organic acids lower luminal pH.</li>
-          <li><strong>Postbiotic signaling:</strong> Short-chain fatty acids (esp. butyrate) modulate NF-κB and fuel mucosal repair.</li>
-          <li><strong>Immune modulation:</strong> Stimulates sIgA &amp; T-reg cells for calm, balanced immune responses.</li>
-          <li><strong>Motility &amp; comfort:</strong> Supports predictable intestinal transit and digestive comfort.</li>
-        </ul>
-        <p class="source small">*Educational statements only; not intended to diagnose, treat, cure, or prevent disease.</p>
-      </div>
-    </div>
+    <!-- MAIN WRAPPER -->
+    <main class="flex-shrink-0">
 
-    <!-- Pair 1: BB536™ vs NCFM® -->
-    <div class="row gx-5 justify-content-center mb-4">
-      <div class="col-lg-5 mb-4">
-        <h2 class="section-title">
-          <i class="bi bi-activity me-2 icon-title"></i>
-          <em>Bifidobacterium longum</em> BB536™
-        </h2>
-        <div class="small text-success fw-semibold mb-2">(Functional Role) Gut Health Foundation</div>
-        <h5 class="h6 mb-1">Mechanism</h5>
-        <ul>
-          <li>Strengthens tight-junction proteins and mucin for epithelial barrier integrity.</li>
-          <li>Produces acetate and SCFAs to nourish colonocytes &amp; balance pH.</li>
-        </ul>
-        <h5 class="h6 mb-1">Literature Support (Representative)</h5>
-        <p class="source">
-          <a href="https://pubmed.ncbi.nlm.nih.gov/21831700/" target="_blank" rel="noopener noreferrer">
-            Matsumoto et al., 2011 — Beneficial Microbes
-          </a>
-        </p>
-      </div>
-
-      <div class="col-lg-5 mb-4">
-        <h2 class="section-title">
-          <i class="bi bi-book me-2 icon-title"></i>
-          <em>Lactobacillus acidophilus</em> NCFM®
-        </h2>
-        <div class="small text-success fw-semibold mb-2">(Functional Role) Harmful Bacteria Inhibitor</div>
-        <h5 class="h6 mb-1">Mechanism</h5>
-        <ul>
-          <li>Provides competitive exclusion; secretes organic acids/bacteriocins to maintain healthy pH.</li>
-          <li>Enhances sIgA and epithelial immune crosstalk.</li>
-        </ul>
-        <h5 class="h6 mb-1">Literature Support (Representative)</h5>
-        <p class="source">
-          <a href="https://pubmed.ncbi.nlm.nih.gov/15939877/" target="_blank" rel="noopener noreferrer">
-            Altermann et al., 2005 — PNAS
-          </a>
-        </p>
-      </div>
-    </div>
-
-    <!-- Pair 2: Bi-07® vs HN019™ -->
-    <div class="row gx-5 justify-content-center mb-4">
-      <div class="col-lg-5 mb-4">
-        <h2 class="section-title">
-          <i class="bi bi-activity me-2 icon-title"></i>
-          <em>Bifidobacterium lactis</em> Bi-07®
-        </h2>
-        <div class="small text-success fw-semibold mb-2">(Functional Role) Immune Specialist</div>
-        <h5 class="h6 mb-1">Mechanism</h5>
-        <ul>
-          <li>Trains innate and adaptive immune pathways.</li>
-          <li>Promotes balanced cytokine signaling and sIgA production.</li>
-        </ul>
-        <h5 class="h6 mb-1">Literature Support (Representative)</h5>
-        <p class="source">
-          <a href="https://pubmed.ncbi.nlm.nih.gov/23446898/" target="_blank" rel="noopener noreferrer">
-            Dong et al., 2013 — Journal of Nutrition
-          </a>
-        </p>
-      </div>
-
-      <div class="col-lg-5 mb-4">
-        <h2 class="section-title">
-          <i class="bi bi-book me-2 icon-title"></i>
-          <em>Bifidobacterium lactis</em> HN019™
-        </h2>
-        <div class="small text-success fw-semibold mb-2">(Functional Role) Digestive Motility Support</div>
-        <h5 class="h6 mb-1">Mechanism</h5>
-        <ul>
-          <li>Associated with improved colonic transit time and regularity.</li>
-          <li>SCFA-mediated signaling enhances enteric nervous system comfort.</li>
-        </ul>
-        <h5 class="h6 mb-1">Literature Support (Representative)</h5>
-        <p class="source">
-          <a href="https://pubmed.ncbi.nlm.nih.gov/21999693/" target="_blank" rel="noopener noreferrer">
-            Waller et al., 2011 — Scandinavian Journal of Gastroenterology
-          </a>
-        </p>
-      </div>
-    </div>
-
-    <!-- Pair 3: HN001™ vs Lp-115® -->
-    <div class="row gx-5 justify-content-center mb-4">
-      <div class="col-lg-5 mb-4">
-        <h2 class="section-title">
-          <i class="bi bi-activity me-2 icon-title"></i>
-          <em>Lactobacillus rhamnosus</em> HN001™
-        </h2>
-        <div class="small text-success fw-semibold mb-2">(Functional Role) Barrier &amp; Mood Guardian</div>
-        <h5 class="h6 mb-1">Mechanism</h5>
-        <ul>
-          <li>Supports epithelial barrier function.</li>
-          <li>Modulates gut–brain communication (via GABA, tryptophan metabolism, and vagal pathways).</li>
-        </ul>
-        <h5 class="h6 mb-1">Literature Support (Representative)</h5>
-        <p class="source">
-          <a href="https://pubmed.ncbi.nlm.nih.gov/29310844/" target="_blank" rel="noopener noreferrer">
-            Wickens et al., 2018 — J Allergy &amp; Clinical Immunology
-          </a>
-        </p>
-      </div>
-
-      <div class="col-lg-5 mb-4">
-        <h2 class="section-title">
-          <i class="bi bi-book me-2 icon-title"></i>
-          <em>Lactobacillus plantarum</em> Lp-115®
-        </h2>
-        <div class="small text-success fw-semibold mb-2">(Functional Role) Anti-inflammatory Balancer</div>
-        <h5 class="h6 mb-1">Mechanism</h5>
-        <ul>
-          <li>SCFA and postbiotic signaling temper NF-κB activity.</li>
-          <li>Supports antioxidant enzyme systems and cellular redox balance.</li>
-        </ul>
-        <h5 class="h6 mb-1">Literature Support (Representative)</h5>
-        <p class="source">
-          <a href="https://pubmed.ncbi.nlm.nih.gov/29615902/" target="_blank" rel="noopener noreferrer">
-            Arena et al., 2018 — Frontiers in Microbiology
-          </a>
-        </p>
-      </div>
-    </div>
-
-    <!-- Compliance note -->
-    <div class="mt-4 small text-muted">
-      *These statements are for educational purposes only and are not intended to diagnose, treat, cure, or prevent any disease.
-      Always follow label directions and consult a healthcare professional.
-    </div>
-  </div>
-</section>
-
-  
-
-<!-- ===========================
-  i‑Rebuild® Website Sections (English)
-  Drop-in HTML for Bootstrap 5
-  =========================== -->
-
-<!-- Key Benefits Section -->
-<section class="key-benefits py-5 bg-light">
-  <div class="container px-5">
-    <h3 class="fw-bold text-success mb-4">🔑 Key Benefits of i‑Rebuild® (Cell Health)</h3>
-
-    <div class="row gy-3">
-      <div class="col-md-6">
-        <div class="benefit-item p-4 border rounded-3 bg-white h-100">
-          <h4 class="h5 mb-2">Strengthens Gut Barrier</h4>
-          <p class="mb-0">Restores tight junction integrity to help prevent “leaky gut” and reduce systemic inflammation.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="benefit-item p-4 border rounded-3 bg-white h-100">
-          <h4 class="h5 mb-2">Reduces Inflammatory Stress</h4>
-          <p class="mb-0">Enhanced butyrate production helps modulate NF‑κB signaling for faster recovery.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="benefit-item p-4 border rounded-3 bg-white h-100">
-          <h4 class="h5 mb-2">Boosts Antioxidant Defense</h4>
-          <p class="mb-0">Supports SOD activity and engages Nrf2 pathways to neutralize free radicals.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="benefit-item p-4 border rounded-3 bg-white h-100">
-          <h4 class="h5 mb-2">Supports Cellular Repair</h4>
-          <p class="mb-0">Helps reduce DNA oxidation markers so your cells can regenerate optimally.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Flagship Product Formula Section -->
-<section id="flagship-formula" class="py-5">
-  <div class="container px-5">
-    <div class="d-flex flex-column flex-md-row align-items-md-end mb-4 gap-3">
-      <div>
-        <h3 class="fw-bold mb-1">Flagship Product Formula</h3>
-        <p class="text-muted mb-0">Product Name: <strong>i‑Rebuild™ Multi‑Source Probiotic Nutri‑Liquid</strong></p>
-        <p class="text-muted mb-0">Daily Dosage: <strong>30&nbsp;ml</strong></p>
-      </div>
-    </div>
-
-    <!-- Functional Systems Grid -->
-    <div class="row g-3" role="list">
-      <!-- Core Efficacy Engine -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Core Efficacy Engine</h4>
-            <p class="mb-0">The central synergy of postbiotics, micronutrients, and fermentation actives designed to support whole‑body balance.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Gut Health Foundation -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Gut Health Foundation</h4>
-            <p class="mb-0">Supports a balanced microbiome and healthy intestinal lining for nutrient absorption and comfort.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Harmful Bacteria Inhibitor -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Harmful Bacteria Inhibitor</h4>
-            <p class="mb-0">Promotes a favorable environment that limits the growth of unwanted microbes.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Immune Specialist -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Immune Specialist</h4>
-            <p class="mb-0">Helps maintain normal immune readiness and balanced cytokine signaling.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Digestive Motility Support -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Digestive Motility Support</h4>
-            <p class="mb-0">Supports comfortable, regular transit and digestive enzyme activity.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Barrier & Mood Guardian -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Barrier & Mood Guardian</h4>
-            <p class="mb-0">Supports gut‑brain axis communication and healthy epithelial barrier function.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Anti‑inflammatory Balancer -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Anti‑inflammatory Balancer</h4>
-            <p class="mb-0">Helps maintain a healthy inflammatory response to everyday stressors.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Metabolic Synergy System -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Metabolic Synergy System</h4>
-            <p class="mb-0">Supports energy production, glucose‑fat balance, and micronutrient utilization.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Calcium Commander -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Calcium Commander</h4>
-            <p class="mb-0">Provides key cofactors that help maintain normal calcium deposition and use.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Calcium Navigator -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Calcium Navigator</h4>
-            <p class="mb-0">Guides calcium to where it’s needed most with support from synergistic nutrients.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Whole‑Body Support System -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Whole‑Body Support System</h4>
-            <p class="mb-0">Broad micronutrient coverage for daily wellness across organs and tissues.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Liver Support -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Liver Support</h4>
-            <p class="mb-0">Supports natural detoxification and healthy bile flow.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Antioxidant & Metabolic Support -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Antioxidant &amp; Metabolic Support</h4>
-            <p class="mb-0">Provides antioxidant capacity while aiding cellular energy pathways.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cardiovascular Support -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Cardiovascular Support</h4>
-            <p class="mb-0">Helps maintain normal circulation and vascular integrity.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Kidney & Antioxidant Support -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Kidney &amp; Antioxidant Support</h4>
-            <p class="mb-0">Supports healthy filtration and oxidative balance.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Respiratory Immune Support -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Respiratory Immune Support</h4>
-            <p class="mb-0">Supports upper‑airway immune defenses and comfort.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cellular Protection System -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Cellular Protection System</h4>
-            <p class="mb-0">Nutrients and postbiotic factors that help protect cells from everyday oxidative stress.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cellular Antioxidant -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Cellular Antioxidant</h4>
-            <p class="mb-0">Targets intracellular redox balance to support healthy aging.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Skin Health & Immunity -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Skin Health &amp; Immunity</h4>
-            <p class="mb-0">Supports skin barrier integrity and a calm, balanced complexion.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mood & Sleep Support -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Mood &amp; Sleep Support</h4>
-            <p class="mb-0">Nutrients that support relaxation, quality sleep, and daytime focus.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Delivery & Preservation System -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Delivery &amp; Preservation System</h4>
-            <p class="mb-0">Thoughtful format and stabilizers designed to maintain potency through shelf life.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fermented Nutrient Base -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Fermented Nutrient Base</h4>
-            <p class="mb-0">A fermented matrix delivering beneficial postbiotics and bio‑available nutrients.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Prebiotic & Dietary Fiber -->
-      <div class="col-md-6 col-lg-4" role="listitem">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h4 class="h6 fw-bold">Prebiotic &amp; Dietary Fiber</h4>
-            <p class="mb-0">Feeds beneficial microbes and supports regularity.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Compliance Note (optional, non‑claim) -->
-    <div class="mt-4 small text-muted">
-      *These statements are for educational purposes and are not intended to diagnose, treat, cure, or prevent any disease. Always follow label directions and consult a healthcare professional.
-    </div>
-  </div>
-</section>
-
-<section class="i-rebuild-threecol py-5 bg-white">
-  <div class="container px-5">
-    <div class="text-center mb-5">
-        <h2 class="fw-bold text-success">i-Rebuild® 重活寶</h2>
-          <p class="lead text-muted">
-            Formulated to restore resilience and inner vitality, i-Rebuild® blends premium probiotics, antioxidant-rich botanicals, and essential nutrients like Selenium and Vitamins D3 & K1. It supports gut balance, immune defense, and daily energy metabolism.
-          </p>
-    </div>
-    <div class="row gx-5 align-items-start">
-      <!-- LEFT: Bottle image -->
-      <div class="col-lg-4 mb-4 text-center">
-        <img src="images/i-rebuild-bottle.png"
-             alt="i-ReBuild Product Bottle"
-             class="img-fluid rounded shadow-sm">
-        <p class="text-muted mt-2 small">Probiotic + Green Tea + Citrus Fiber Formula</p>
-      </div>
-
-      <!-- MIDDLE: Key Ingredients -->
-      <div class="col-lg-4 mb-4">
-        <h4 class="fw-bold text-success mb-3">Key Ingredients</h4>
-        <ul class="list-unstyled ingredient-icons">
-          <li><i class="bi bi-droplet-half me-2"></i><strong>Water:</strong> Clean delivery base for actives</li>
-          <li><i class="bi bi-emoji-sunglasses me-2"></i><strong>Organic Lemon Enzyme:</strong> Supports metabolism and digestion</li>
-          <li><i class="bi bi-sun me-2"></i><strong>Vitamin D3:</strong> Vital for immunity and bone strength</li>
-          <li><i class="bi bi-bone me-2"></i><strong>Vitamin K1:</strong> Helps calcium absorption and circulatory health</li>
-          <li><i class="bi bi-bug me-2"></i><strong>Probiotics:</strong> Restore gut balance and enhance resilience</li>
-          <li><i class="bi bi-capsule me-2"></i><strong>Selenium Yeast:</strong> Antioxidant protection at the cellular level</li>
-          <li><i class="bi bi-cup-hot me-2"></i><strong>Green Tea Powder:</strong> Natural catechins help protect against oxidative stress</li>
-          <li><i class="bi bi-tree me-2"></i><strong>Citrus Fiber:</strong> Boosts fiber intake and supports microbiota</li>
-        </ul>
-
-        <p class="lead text-muted mt-4">
-          Whether you’re rebuilding after stress, fatigue, or digestive imbalance—<strong>i-ReBuild®</strong>
-          helps replenish what matters most. Clean, vegan-friendly, and scientifically grounded.
-        </p>
-      </div>
-
-      <!-- RIGHT: Packaging Label (accordion) -->
-      <div class="col-lg-4 mb-4">
-        <div class="d-flex align-items-center justify-content-between mb-2">
-          <h5 class="fw-bold text-success mb-0">i-ReBuild® 重活寶 — 包装标签 / Packaging Label</h5>
-        </div>
-        <div class="mb-3">
-          <span class="meta-chip">30 ml / bottle</span>
-          <span class="meta-chip">Made in Hong Kong</span>
-        </div>
-
-        <div class="accordion pro-accordion" id="accordionIrebuild">
-          <!-- Nutrition Facts -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingNutri">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseNutri" aria-expanded="true" aria-controls="collapseNutri">
-                <span><i class="bi bi-nutrition me-2"></i>营养成分表 / Nutrition Information</span>
-                <span class="label-sub">Per 30 ml</span>
-              </button>
-            </h2>
-            <div id="collapseNutri" class="accordion-collapse collapse show"
-                 aria-labelledby="headingNutri" data-bs-parent="#accordionIrebuild">
-              <div class="accordion-body">
-                <div class="table-responsive">
-                  <table class="nutri-table">
-                    <thead>
-                      <tr>
-                        <th scope="col">项目 / Item</th>
-                        <th scope="col">每份 / Amount Per Serving (30&nbsp;ml)</th>
-                        <th scope="col">营养素参考值% / NRV%</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr><td>能量 / Energy</td><td>50 kJ / 12 kcal</td><td>1%</td></tr>
-                      <tr><td>蛋白质 / Protein</td><td>0.2 g</td><td>0%</td></tr>
-                      <tr><td>脂肪 / Total Fat</td><td>0 g</td><td>0%</td></tr>
-                      <tr><td>碳水化合物 / Carbohydrate</td><td>2.0 g</td><td>1%</td></tr>
-                      <tr><td>膳食纤维 / Dietary Fiber</td><td>1.5 g</td><td>6%</td></tr>
-                      <tr><td>钠 / Sodium</td><td>5 mg</td><td>0%</td></tr>
-                      <tr><td>维生素 C / Vitamin C</td><td>50 mg</td><td>50%</td></tr>
-                      <tr><td>维生素 D / Vitamin D</td><td>50&nbsp;µg</td><td>1000%</td></tr>
-                      <tr><td>维生素 K / Vitamin K</td><td>120&nbsp;µg</td><td>160%</td></tr>
-                      <tr>
-                        <td>活性益生菌 / Live Probiotics</td>
-                        <td>≥ 250 亿 CFU <span class="nutri-note">(≥ 2.5 × 10<sup>10</sup> CFU)</span></td>
-                        <td>— <span class="nutri-note">无 NRV 标准 / No NRV established</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p class="nutri-note mt-3 mb-0">
-                  ** NRV% 基于每日 2000 kcal；活性益生菌无 NRV 标准。<br>
-                  ** Daily Value (NRV%) is based on a 2000-calorie diet. NRV for live probiotics is not established.
+      <header class="hero-section py-1">
+        <div class="container px-5">
+          <div class="row gx-5 align-items-center justify-content-between">
+            <!-- Image First on Mobile, Right on Desktop -->
+            <div class="col-lg-6 text-center order-1 order-lg-2 mb-4 mb-lg-0">
+              <img src="images/i-rebuild-banner.png" alt="i-ReBuild product bottle" class="img-fluid rounded-3 shadow-sm">
+            </div>
+            <!-- Text Second on Mobile, Left on Desktop -->
+            <div class="col-lg-6 order-2 order-lg-1">
+              <div class="mb-4">
+                <h1 class="display-5 fw-bold text-white mb-3">
+                  <span translate="no">i-ReBuild® 重活寶</span> — Vital Organ Renewal Support
+                </h1>
+                <p class="lead fw-normal text-herbal-green mb-4">
+                  <strong translate="no">i-ReBuild™ Multi-Source Probiotic Nutri-Liquid</strong> combines a precision Six-Strain Probiotic Blend with cell-supportive cofactors to reinforce the gut barrier, modulate inflammation, and support whole-body resilience.
+                  <span translate="no">i-ReBuild® 重活寶</span> is a cutting-edge
+                  <strong translate="no">Probiotic Nutritional Drink (益生營養液飲料)</strong>
+                  crafted to support internal rejuvenation and cellular repair across key organs. With a focused blend of probiotics and essential nutrients,
+                  <strong>it promotes visceral health—including the liver and heart—revitalizing energy, restoring balance, and enhancing functional resilience.</strong>
                 </p>
               </div>
             </div>
           </div>
+        </div>
+      </header>
 
-          <!-- Mandatory label info -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingLabel">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseLabel" aria-expanded="false" aria-controls="collapseLabel">
-                <span><i class="bi bi-card-checklist me-2"></i>其他强制性标签信息 / Other Mandatory Label Information</span>
-              </button>
-            </h2>
-            <div id="collapseLabel" class="accordion-collapse collapse" aria-labelledby="headingLabel"
-                 data-bs-parent="#accordionIrebuild">
-              <div class="accordion-body">
-                <ul class="mb-0">
-                  <li><strong>净含量 / Net Content：</strong>30 毫升 × 30 瓶（30 ml × 30 bottles）</li>
-                  <li><strong>食用方法 / Directions：</strong>每日一瓶，开启后轻轻摇匀即刻饮用；建议冷藏保存，并于开封后 24 小时内饮用完毕。<br>
-                    <em>Shake gently and consume one bottle daily. Refrigerate; consume within 24 hours after opening.</em></li>
-                  <li><strong>贮存条件 / Storage：</strong>置于阴凉干燥处；开封后需冷藏。<br>
-                    <em>Store in a cool, dry place. Refrigerate after opening.</em></li>
-                  <li><strong>生产商及地址 / Manufacturer & Address：</strong>（待填 / To be completed）</li>
-                  <li><strong>原产国 / Country of Origin：</strong>香港制造（Made in Hong Kong）</li>
-                  <li><strong>生产日期及保质期：</strong>见包装盒（See package box）</li>
-                  <li><strong>产品标准代码 / License：</strong>（待填 / To be completed）</li>
-                </ul>
-                <hr class="my-3">
-                <h6 class="mb-2">温馨提示 / Important Notice</h6>
-                <ul class="mb-0">
-                  <li>本品为膳食补充剂，不能替代药品和均衡饮食。</li>
-                  <li>对配料过敏者慎用。</li>
-                  <li>孕妇、哺乳期、婴幼儿及服药者（特别是抗凝药物）食用前请咨询医生。</li>
-                </ul>
-                <p class="mt-2 mb-0"><em>
-                  This product is a dietary supplement, not a substitute for a varied diet.
-                  If you are pregnant, nursing, taking medication, or have a condition, consult your physician.
-                </em></p>
+      <!-- i-Rebuild® Section -->
+      <section id="flagship-formula" class="py-5 bg-light">
+        <div class="container px-5">
+          <!-- Section header -->
+          <div class="text-center mb-5">
+            <h2 class="fw-bold text-success">Why It Works: Mechanism of Action</h2>
+            <p class="lead text-muted">
+              i-Rebuild® combines precision-selected probiotic strains with cell-supportive cofactors to repair, protect, and revitalize at the cellular level.
+            </p>
+            <p class="lead text-muted">
+              Proudly <strong>Made in Hong Kong</strong>, our formulation marries cutting-edge science with natural care.
+            </p>
+            <p class="tagline">Proudly Made in Hong Kong — Repair at the Cellular Level</p>
+          </div>
+
+          <div class="mb-4">
+            <h3 class="fw-bold mb-1">Flagship Product Formula</h3>
+            <p class="text-muted mb-0">
+              Product Name: <strong>i-ReBuild™ Multi-Source Probiotic Nutri-Liquid</strong> •
+              Daily Dosage: <strong>30&nbsp;ml</strong>
+            </p>
+          </div>
+
+          <!-- Six-Strain Overview -->
+          <div class="row gx-5 justify-content-center mb-5">
+            <div class="col-lg-10">
+              <h2 class="section-title">
+                <i class="bi bi-capsule me-2 icon-title"></i> Six-Strain Probiotic Blend
+              </h2>
+              <div class="small text-success fw-semibold mb-2">(Functional Role) Core Efficacy Engine</div>
+              <h5 class="h6 mb-1">Mechanism of Action</h5>
+              <ul>
+                <li><strong>Barrier integrity:</strong> Supports occludin/claudins and mucin to reduce gut permeability.</li>
+                <li><strong>Microbial balance:</strong> Competitive exclusion of harmful species; organic acids lower luminal pH.</li>
+                <li><strong>Postbiotic signaling:</strong> Short-chain fatty acids (esp. butyrate) modulate NF-κB and fuel mucosal repair.</li>
+                <li><strong>Immune modulation:</strong> Stimulates sIgA &amp; T-reg cells for calm, balanced immune responses.</li>
+                <li><strong>Motility &amp; comfort:</strong> Supports predictable intestinal transit and digestive comfort.</li>
+              </ul>
+              <p class="source small">*Educational statements only; not intended to diagnose, treat, cure, or prevent disease.</p>
+            </div>
+          </div>
+
+          <!-- Pair 1: BB536™ vs NCFM® -->
+          <div class="row gx-5 justify-content-center mb-4">
+            <div class="col-lg-5 mb-4">
+              <h2 class="section-title">
+                <i class="bi bi-activity me-2 icon-title"></i>
+                <em>Bifidobacterium longum</em> BB536™
+              </h2>
+              <div class="small text-success fw-semibold mb-2">(Functional Role) Gut Health Foundation</div>
+              <h5 class="h6 mb-1">Mechanism</h5>
+              <ul>
+                <li>Strengthens tight-junction proteins and mucin for epithelial barrier integrity.</li>
+                <li>Produces acetate and SCFAs to nourish colonocytes &amp; balance pH.</li>
+              </ul>
+              <h5 class="h6 mb-1">Literature Support (Representative)</h5>
+              <p class="source">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/21831700/" target="_blank" rel="noopener noreferrer">
+                  Matsumoto et al., 2011 — Beneficial Microbes
+                </a>
+              </p>
+            </div>
+
+            <div class="col-lg-5 mb-4">
+              <h2 class="section-title">
+                <i class="bi bi-book me-2 icon-title"></i>
+                <em>Lactobacillus acidophilus</em> NCFM®
+              </h2>
+              <div class="small text-success fw-semibold mb-2">(Functional Role) Harmful Bacteria Inhibitor</div>
+              <h5 class="h6 mb-1">Mechanism</h5>
+              <ul>
+                <li>Provides competitive exclusion; secretes organic acids/bacteriocins to maintain healthy pH.</li>
+                <li>Enhances sIgA and epithelial immune crosstalk.</li>
+              </ul>
+              <h5 class="h6 mb-1">Literature Support (Representative)</h5>
+              <p class="source">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/15939877/" target="_blank" rel="noopener noreferrer">
+                  Altermann et al., 2005 — PNAS
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Pair 2: Bi-07® vs HN019™ -->
+          <div class="row gx-5 justify-content-center mb-4">
+            <div class="col-lg-5 mb-4">
+              <h2 class="section-title">
+                <i class="bi bi-activity me-2 icon-title"></i>
+                <em>Bifidobacterium lactis</em> Bi-07®
+              </h2>
+              <div class="small text-success fw-semibold mb-2">(Functional Role) Immune Specialist</div>
+              <h5 class="h6 mb-1">Mechanism</h5>
+              <ul>
+                <li>Trains innate and adaptive immune pathways.</li>
+                <li>Promotes balanced cytokine signaling and sIgA production.</li>
+              </ul>
+              <h5 class="h6 mb-1">Literature Support (Representative)</h5>
+              <p class="source">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/23446898/" target="_blank" rel="noopener noreferrer">
+                  Dong et al., 2013 — Journal of Nutrition
+                </a>
+              </p>
+            </div>
+
+            <div class="col-lg-5 mb-4">
+              <h2 class="section-title">
+                <i class="bi bi-book me-2 icon-title"></i>
+                <em>Bifidobacterium lactis</em> HN019™
+              </h2>
+              <div class="small text-success fw-semibold mb-2">(Functional Role) Digestive Motility Support</div>
+              <h5 class="h6 mb-1">Mechanism</h5>
+              <ul>
+                <li>Associated with improved colonic transit time and regularity.</li>
+                <li>SCFA-mediated signaling enhances enteric nervous system comfort.</li>
+              </ul>
+              <h5 class="h6 mb-1">Literature Support (Representative)</h5>
+              <p class="source">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/21999693/" target="_blank" rel="noopener noreferrer">
+                  Waller et al., 2011 — Scandinavian Journal of Gastroenterology
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Pair 3: HN001™ vs Lp-115® -->
+          <div class="row gx-5 justify-content-center mb-4">
+            <div class="col-lg-5 mb-4">
+              <h2 class="section-title">
+                <i class="bi bi-activity me-2 icon-title"></i>
+                <em>Lactobacillus rhamnosus</em> HN001™
+              </h2>
+              <div class="small text-success fw-semibold mb-2">(Functional Role) Barrier &amp; Mood Guardian</div>
+              <h5 class="h6 mb-1">Mechanism</h5>
+              <ul>
+                <li>Supports epithelial barrier function.</li>
+                <li>Modulates gut–brain communication (via GABA, tryptophan metabolism, and vagal pathways).</li>
+              </ul>
+              <h5 class="h6 mb-1">Literature Support (Representative)</h5>
+              <p class="source">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/29310844/" target="_blank" rel="noopener noreferrer">
+                  Wickens et al., 2018 — J Allergy &amp; Clinical Immunology
+                </a>
+              </p>
+            </div>
+
+            <div class="col-lg-5 mb-4">
+              <h2 class="section-title">
+                <i class="bi bi-book me-2 icon-title"></i>
+                <em>Lactobacillus plantarum</em> Lp-115®
+              </h2>
+              <div class="small text-success fw-semibold mb-2">(Functional Role) Anti-inflammatory Balancer</div>
+              <h5 class="h6 mb-1">Mechanism</h5>
+              <ul>
+                <li>SCFA and postbiotic signaling temper NF-κB activity.</li>
+                <li>Supports antioxidant enzyme systems and cellular redox balance.</li>
+              </ul>
+              <h5 class="h6 mb-1">Literature Support (Representative)</h5>
+              <p class="source">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/29615902/" target="_blank" rel="noopener noreferrer">
+                  Arena et al., 2018 — Frontiers in Microbiology
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Compliance note -->
+          <div class="mt-4 small text-muted">
+            *These statements are for educational purposes only and are not intended to diagnose, treat, cure, or prevent any disease.
+            Always follow label directions and consult a healthcare professional.
+          </div>
+        </div>
+      </section>
+
+      <!-- Functional Systems Grid (renamed id to avoid duplication) -->
+      <section id="functional-systems" class="py-5">
+        <div class="container px-5">
+          <div class="d-flex flex-column flex-md-row align-items-md-end mb-4 gap-3">
+            <div>
+              <h3 class="fw-bold mb-1">Flagship Product Formula</h3>
+              <p class="text-muted mb-0">Product Name: <strong>i-Rebuild™ Multi-Source Probiotic Nutri-Liquid</strong></p>
+              <p class="text-muted mb-0">Daily Dosage: <strong>30&nbsp;ml</strong></p>
+            </div>
+          </div>
+
+          <!-- Functional Systems Grid -->
+          <div class="row g-3" role="list">
+            <!-- Core Efficacy Engine -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Core Efficacy Engine</h4>
+                  <p class="mb-0">The central synergy of postbiotics, micronutrients, and fermentation actives designed to support whole-body balance.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gut Health Foundation -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Gut Health Foundation</h4>
+                  <p class="mb-0">Supports a balanced microbiome and healthy intestinal lining for nutrient absorption and comfort.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Harmful Bacteria Inhibitor -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Harmful Bacteria Inhibitor</h4>
+                  <p class="mb-0">Promotes a favorable environment that limits the growth of unwanted microbes.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Immune Specialist -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Immune Specialist</h4>
+                  <p class="mb-0">Helps maintain normal immune readiness and balanced cytokine signaling.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Digestive Motility Support -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Digestive Motility Support</h4>
+                  <p class="mb-0">Supports comfortable, regular transit and digestive enzyme activity.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Barrier & Mood Guardian -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Barrier & Mood Guardian</h4>
+                  <p class="mb-0">Supports gut-brain axis communication and healthy epithelial barrier function.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anti-inflammatory Balancer -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Anti-inflammatory Balancer</h4>
+                  <p class="mb-0">Helps maintain a healthy inflammatory response to everyday stressors.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Metabolic Synergy System -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Metabolic Synergy System</h4>
+                  <p class="mb-0">Supports energy production, glucose-fat balance, and micronutrient utilization.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Calcium Commander -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Calcium Commander</h4>
+                  <p class="mb-0">Provides key cofactors that help maintain normal calcium deposition and use.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Calcium Navigator -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Calcium Navigator</h4>
+                  <p class="mb-0">Guides calcium to where it’s needed most with support from synergistic nutrients.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Whole-Body Support System -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Whole-Body Support System</h4>
+                  <p class="mb-0">Broad micronutrient coverage for daily wellness across organs and tissues.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Liver Support -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Liver Support</h4>
+                  <p class="mb-0">Supports natural detoxification and healthy bile flow.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Antioxidant & Metabolic Support -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Antioxidant &amp; Metabolic Support</h4>
+                  <p class="mb-0">Provides antioxidant capacity while aiding cellular energy pathways.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cardiovascular Support -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Cardiovascular Support</h4>
+                  <p class="mb-0">Helps maintain normal circulation and vascular integrity.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kidney & Antioxidant Support -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Kidney &amp; Antioxidant Support</h4>
+                  <p class="mb-0">Supports healthy filtration and oxidative balance.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Respiratory Immune Support -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Respiratory Immune Support</h4>
+                  <p class="mb-0">Supports upper-airway immune defenses and comfort.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cellular Protection System -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Cellular Protection System</h4>
+                  <p class="mb-0">Nutrients and postbiotic factors that help protect cells from everyday oxidative stress.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cellular Antioxidant -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Cellular Antioxidant</h4>
+                  <p class="mb-0">Targets intracellular redox balance to support healthy aging.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Skin Health & Immunity -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Skin Health &amp; Immunity</h4>
+                  <p class="mb-0">Supports skin barrier integrity and a calm, balanced complexion.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mood & Sleep Support -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Mood &amp; Sleep Support</h4>
+                  <p class="mb-0">Nutrients that support relaxation, quality sleep, and daytime focus.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Delivery & Preservation System -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Delivery &amp; Preservation System</h4>
+                  <p class="mb-0">Thoughtful format and stabilizers designed to maintain potency through shelf life.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fermented Nutrient Base -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Fermented Nutrient Base</h4>
+                  <p class="mb-0">A fermented matrix delivering beneficial postbiotics and bio-available nutrients.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Prebiotic & Dietary Fiber -->
+            <div class="col-md-6 col-lg-4" role="listitem">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h4 class="h6 fw-bold">Prebiotic &amp; Dietary Fiber</h4>
+                  <p class="mb-0">Feeds beneficial microbes and supports regularity.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div><!-- /accordion -->
-      </div>
-    </div>
-  </div>
-</section>
 
-        </main>
-		
-  <!-- footer placeholder -->
-  <div id="footer-placeholder"></div>
+          <!-- Compliance Note -->
+          <div class="mt-4 small text-muted">
+            *These statements are for educational purposes and are not intended to diagnose, treat, cure, or prevent any disease.
+            Always follow label directions and consult a healthcare professional.
+          </div>
+        </div>
+      </section>
 
-  <!-- 3) Fetch & inject menu -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      fetch('/menu.html')
-        .then(r => {
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return r.text();
-        })
-        .then(html => {
-          document.getElementById('menu-placeholder').innerHTML = html;
-        })
-        .catch(err => {
-          console.error('Failed to load menu.html:', err);
-        });
-    });
-  </script>
-  
-   <!-- load footer.html -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      fetch('/footer.html')
-        .then(r => {
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return r.text();
-        })
-        .then(html => {
-          document.getElementById('footer-placeholder').innerHTML = html;
-        })
-        .catch(err => console.error('Could not load footer:', err));
-    });
-  </script>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="/js/scripts.js"></script>
-<!-- Our translator (waits for the menu + handles Google/Baidu) -->
-<script src="js/translate.js" defer></script>
-    </body>
+      <!-- Three-column: image | Key Ingredients | Packaging Label -->
+      <section class="i-rebuild-threecol py-5 bg-white">
+        <div class="container px-5">
+          <div class="text-center mb-5">
+            <h2 class="fw-bold text-success">i-Rebuild® 重活寶</h2>
+            <p class="lead text-muted">
+              Formulated to restore resilience and inner vitality, i-Rebuild® blends premium probiotics, antioxidant-rich botanicals, and essential nutrients like Selenium and Vitamins D3 & K1. It supports gut balance, immune defense, and daily energy metabolism.
+            </p>
+          </div>
+
+          <div class="row gx-5 align-items-start">
+            <!-- LEFT: Bottle image -->
+            <div class="col-lg-4 mb-4 text-center">
+              <img src="images/i-rebuild-bottle.png" alt="i-ReBuild Product Bottle" class="img-fluid rounded shadow-sm">
+              <p class="text-muted mt-2 small">Probiotic + Green Tea + Citrus Fiber Formula</p>
+            </div>
+
+            <!-- MIDDLE: Key Ingredients -->
+            <div class="col-lg-4 mb-4">
+              <h4 class="fw-bold text-success mb-3">Key Ingredients</h4>
+              <ul class="list-unstyled ingredient-icons">
+                <li><i class="bi bi-droplet-half me-2"></i><strong>Water:</strong> Clean delivery base for actives</li>
+                <li><i class="bi bi-emoji-sunglasses me-2"></i><strong>Organic Lemon Enzyme:</strong> Supports metabolism and digestion</li>
+                <li><i class="bi bi-sun me-2"></i><strong>Vitamin D3:</strong> Vital for immunity and bone strength</li>
+                <li><i class="bi bi-bone me-2"></i><strong>Vitamin K1:</strong> Helps calcium absorption and circulatory health</li>
+                <li><i class="bi bi-bug me-2"></i><strong>Probiotics:</strong> Restore gut balance and enhance resilience</li>
+                <li><i class="bi bi-capsule me-2"></i><strong>Selenium Yeast:</strong> Antioxidant protection at the cellular level</li>
+                <li><i class="bi bi-cup-hot me-2"></i><strong>Green Tea Powder:</strong> Natural catechins help protect against oxidative stress</li>
+                <li><i class="bi bi-tree me-2"></i><strong>Citrus Fiber:</strong> Boosts fiber intake and supports microbiota</li>
+              </ul>
+
+              <p class="lead text-muted mt-4">
+                Whether you’re rebuilding after stress, fatigue, or digestive imbalance—<strong>i-ReBuild®</strong>
+                helps replenish what matters most. Clean, vegan-friendly, and scientifically grounded.
+              </p>
+            </div>
+
+            <!-- RIGHT: Packaging Label (accordion) -->
+            <div class="col-lg-4 mb-4">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h5 class="fw-bold text-success mb-0">i-ReBuild® 重活寶 — 包装标签 / Packaging Label</h5>
+              </div>
+              <div class="mb-3">
+                <span class="meta-chip">30 ml / bottle</span>
+                <span class="meta-chip">Made in Hong Kong</span>
+              </div>
+
+              <div class="accordion pro-accordion" id="accordionIrebuild">
+                <!-- Nutrition Facts -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingNutri">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseNutri" aria-expanded="true" aria-controls="collapseNutri">
+                      <span><i class="bi bi-nutrition me-2"></i>营养成分表 / Nutrition Information</span>
+                      <span class="label-sub">Per 30 ml</span>
+                    </button>
+                  </h2>
+                  <div id="collapseNutri" class="accordion-collapse collapse show" aria-labelledby="headingNutri" data-bs-parent="#accordionIrebuild">
+                    <div class="accordion-body">
+                      <div class="table-responsive">
+                        <table class="nutri-table">
+                          <thead>
+                            <tr>
+                              <th scope="col">项目 / Item</th>
+                              <th scope="col">每份 / Amount Per Serving (30&nbsp;ml)</th>
+                              <th scope="col">营养素参考值% / NRV%</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr><td>能量 / Energy</td><td>50 kJ / 12 kcal</td><td>1%</td></tr>
+                            <tr><td>蛋白质 / Protein</td><td>0.2 g</td><td>0%</td></tr>
+                            <tr><td>脂肪 / Total Fat</td><td>0 g</td><td>0%</td></tr>
+                            <tr><td>碳水化合物 / Carbohydrate</td><td>2.0 g</td><td>1%</td></tr>
+                            <tr><td>膳食纤维 / Dietary Fiber</td><td>1.5 g</td><td>6%</td></tr>
+                            <tr><td>钠 / Sodium</td><td>5 mg</td><td>0%</td></tr>
+                            <tr><td>维生素 C / Vitamin C</td><td>50 mg</td><td>50%</td></tr>
+                            <tr><td>维生素 D / Vitamin D</td><td>50&nbsp;µg</td><td>1000%</td></tr>
+                            <tr><td>维生素 K / Vitamin K</td><td>120&nbsp;µg</td><td>160%</td></tr>
+                            <tr>
+                              <td>活性益生菌 / Live Probiotics</td>
+                              <td>≥ 250 亿 CFU <span class="nutri-note">(≥ 2.5 × 10<sup>10</sup> CFU)</span></td>
+                              <td>— <span class="nutri-note">无 NRV 标准 / No NRV established</span></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="nutri-note mt-3 mb-0">
+                        ** NRV% 基于每日 2000 kcal；活性益生菌无 NRV 标准。<br>
+                        ** Daily Value (NRV%) is based on a 2000-calorie diet. NRV for live probiotics is not established.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mandatory label info -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingLabel">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLabel" aria-expanded="false" aria-controls="collapseLabel">
+                      <span><i class="bi bi-card-checklist me-2"></i>其他强制性标签信息 / Other Mandatory Label Information</span>
+                    </button>
+                  </h2>
+                  <div id="collapseLabel" class="accordion-collapse collapse" aria-labelledby="headingLabel" data-bs-parent="#accordionIrebuild">
+                    <div class="accordion-body">
+                      <ul class="mb-0">
+                        <li><strong>净含量 / Net Content：</strong>30 毫升 × 30 瓶（30 ml × 30 bottles）</li>
+                        <li><strong>食用方法 / Directions：</strong>每日一瓶，开启后轻轻摇匀即刻饮用；建议冷藏保存，并于开封后 24 小时内饮用完毕。<br>
+                          <em>Shake gently and consume one bottle daily. Refrigerate; consume within 24 hours after opening.</em></li>
+                        <li><strong>贮存条件 / Storage：</strong>置于阴凉干燥处；开封后需冷藏。<br>
+                          <em>Store in a cool, dry place. Refrigerate after opening.</em></li>
+                        <li><strong>生产商及地址 / Manufacturer & Address：</strong>（待填 / To be completed）</li>
+                        <li><strong>原产国 / Country of Origin：</strong>香港制造（Made in Hong Kong）</li>
+                        <li><strong>生产日期及保质期：</strong>见包装盒（See package box）</li>
+                        <li><strong>产品标准代码 / License：</strong>（待填 / To be completed）</li>
+                      </ul>
+                      <hr class="my-3">
+                      <h6 class="mb-2">温馨提示 / Important Notice</h6>
+                      <ul class="mb-0">
+                        <li>本品为膳食补充剂，不能替代药品和均衡饮食。</li>
+                        <li>对配料过敏者慎用。</li>
+                        <li>孕妇、哺乳期、婴幼儿及服药者（特别是抗凝药物）食用前请咨询医生。</li>
+                      </ul>
+                      <p class="mt-2 mb-0"><em>
+                        This product is a dietary supplement, not a substitute for a varied diet.
+                        If you are pregnant, nursing, taking medication, or have a condition, consult your physician.
+                      </em></p>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /accordion -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Fetch & inject menu -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        fetch('/menu.html')
+          .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+          .then(html => { document.getElementById('menu-placeholder').innerHTML = html; })
+          .catch(err => { console.error('Failed to load menu.html:', err); });
+      });
+    </script>
+
+    <!-- load footer.html -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        fetch('/footer.html')
+          .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+          .then(html => { document.getElementById('footer-placeholder').innerHTML = html; })
+          .catch(err => console.error('Could not load footer:', err));
+      });
+    </script>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/js/scripts.js"></script>
+    <!-- Our translator (waits for the menu + handles Google/Baidu) -->
+    <script src="js/translate.js" defer></script>
+  </body>
 </html>
