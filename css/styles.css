@@ -11076,6 +11076,11 @@ body {
   margin-bottom: 40px;
 }
 
+.benefits-rebuild .benefit-item {
+  border-left: 6px solid #28a745;
+}
+
+
 .benefit-item {
   margin-bottom: 30px;
   background: #fff;
