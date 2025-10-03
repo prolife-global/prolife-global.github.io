@@ -12726,3 +12726,10 @@ body[data-page="who"]                 #probioticsPills a[href$="Live-Well-Backed
           mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/dot.svg) center/contain no-repeat;
   border-radius:50%;
 }
+
+/* Show exactly one language */
+#irebuild-accordion [data-l]{display:none;}
+#irebuild-accordion[data-locale="en"]      [data-l="en"]{display:initial;}
+#irebuild-accordion[data-locale="zh-Hant"] [data-l="zh-Hant"]{display:initial;}
+#irebuild-accordion[data-locale="zh-Hans"] [data-l="zh-Hans"]{display:initial;}
+#irebuild-accordion .i18n-block{display:block;} /* blocks like paragraphs */
