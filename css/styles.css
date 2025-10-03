@@ -12530,3 +12530,48 @@ body[data-page="who"]                 #probioticsPills a[href$="Live-Well-Backed
 @media (min-width: 992px){
   #flagship-formula .card-body h4{ font-size:1.12rem; }
 }
+
+
+/* optional: generic title icon */
+#flagship-formula .card-body h4::before{
+  content:"";
+  display:inline-block;
+  width:1.05em; height:1.05em;
+  margin-right:.45rem;
+  vertical-align:-.15em;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M8 .5l6 2v4.6c0 3.1-2.2 5.9-6 8.4-3.8-2.5-6-5.3-6-8.4V2.5l6-2Zm3.53 4.72L7.5 9.25 5.47 7.22 4.53 8.16 7.5 11.12l4.97-4.97- .94-.93Z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M8 .5l6 2v4.6c0 3.1-2.2 5.9-6 8.4-3.8-2.5-6-5.3-6-8.4V2.5l6-2Zm3.53 4.72L7.5 9.25 5.47 7.22 4.53 8.16 7.5 11.12l4.97-4.97- .94-.93Z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+
+#flagship-formula .card-body h4::before{
+  content:"";
+  display:inline-block;
+  width:1.05em;height:1.05em;margin-right:.45rem;vertical-align:-.15em;
+  background: currentColor;
+}
+
+#flagship-formula .row[role="list"]>:nth-child(1)  h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/cpu.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/cpu.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(2)  h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/shield-check.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/shield-check.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(3)  h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/bug.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/bug.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(4)  h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/shield-plus.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/shield-plus.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(5)  h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/arrow-left-right.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/arrow-left-right.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(6)  h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/shield-heart.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/shield-heart.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(7)  h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/sliders2-vertical.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/sliders2-vertical.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(8)  h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/lightning-charge.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/lightning-charge.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(9)  h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/bullseye.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/bullseye.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(10) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/compass.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/compass.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(11) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/grid-3x3-gap.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/grid-3x3-gap.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(12) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/droplet-half.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/droplet-half.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(13) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/stars.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/stars.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(14) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/heart-pulse.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/heart-pulse.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(15) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/water.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/water.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(16) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/wind.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/wind.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(17) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/shield-check.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/shield-check.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(18) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/sun.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/sun.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(19) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/patch-check.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/patch-check.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(20) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/moon-stars.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/moon-stars.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(21) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/box-seam.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/box-seam.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(22) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/cup-hot.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/cup-hot.svg) center/contain no-repeat;}
+#flagship-formula .row[role="list"]>:nth-child(23) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/tree.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/tree.svg) center/contain no-repeat;}
