@@ -12455,3 +12455,78 @@ body[data-page="who"]                 #probioticsPills a[href$="Live-Well-Backed
 /* Optional: keep flagship card first in the grid visually (works if grid is flex) */
 .product-grid { display:flex; flex-wrap:wrap; gap:var(--gap,1.5rem); }
 .product-grid .product-card.flagship{ order:-1; }
+
+
+
+/* ===== Flagship Product Formula – visual refresh ===== */
+:root{
+  --brand:#198754;          /* Bootstrap success green */
+  --brand-ink:#0f5132;      /* darker green for text */
+  --card-ring:#e8f5ee;      /* soft green border */
+}
+
+#flagship-formula{
+  background: linear-gradient(180deg,#f7fbf9 0%,#ffffff 65%);
+}
+
+#flagship-formula .card{
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid var(--card-ring);
+  background: #fff;
+  box-shadow: 0 6px 14px rgba(16,88,55,.06);
+  transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease;
+}
+
+/* subtle green accent bar on the left (grows on hover) */
+#flagship-formula .card::before{
+  content:"";
+  position:absolute;
+  top:0; left:0; bottom:0;
+  width:6px;
+  border-radius:16px 0 0 16px;
+  background: linear-gradient(180deg, var(--brand) 0%, #9be2b4 100%);
+  opacity:.85;
+  transition: width .2s ease, opacity .2s ease;
+}
+
+#flagship-formula .card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(25,135,84,.35);
+  box-shadow: 0 14px 32px rgba(25,135,84,.15);
+}
+#flagship-formula .card:hover::before{ width:9px; opacity:1; }
+
+#flagship-formula .card-body{
+  padding: 1.1rem 1.25rem;
+}
+
+#flagship-formula .card-body h4{
+  color:#173f2e;
+  font-size:1.075rem;
+  letter-spacing:.2px;
+  margin-bottom:.35rem;
+}
+
+#flagship-formula .card-body p{
+  color:#5b6e63;
+  line-height:1.55;
+  /* 3-line clamp so cards stay even */
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* nicer spacing on dense grids */
+#flagship-formula .row.g-3{ row-gap: 1rem; }
+
+/* keyboard focus */
+#flagship-formula .card:focus-within{
+  outline: 2px solid rgba(25,135,84,.25);
+  outline-offset: 2px;
+}
+
+@media (min-width: 992px){
+  #flagship-formula .card-body h4{ font-size:1.12rem; }
+}
