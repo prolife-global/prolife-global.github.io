@@ -12575,3 +12575,90 @@ body[data-page="who"]                 #probioticsPills a[href$="Live-Well-Backed
 #flagship-formula .row[role="list"]>:nth-child(21) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/box-seam.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/box-seam.svg) center/contain no-repeat;}
 #flagship-formula .row[role="list"]>:nth-child(22) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/cup-hot.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/cup-hot.svg) center/contain no-repeat;}
 #flagship-formula .row[role="list"]>:nth-child(23) h4::before{-webkit-mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/tree.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/tree.svg) center/contain no-repeat;}
+
+
+/* ===== Key Benefits – visual refresh ===== */
+:root{
+  --brand:#198754;               /* Bootstrap success */
+  --brand-ink:#0f5132;           /* deep green for headings */
+  --ring:#e8f5ee;                /* soft green border */
+}
+
+.key-benefits{
+  background: linear-gradient(180deg,#f7fbf9 0%, #ffffff 65%);
+}
+
+/* Title with key icon */
+.key-benefits h3{
+  display:flex; align-items:center; gap:.6rem;
+  color:var(--brand-ink);
+}
+.key-benefits h3::before{
+  content:"";
+  width:1.6rem;height:1.6rem; flex:0 0 1.6rem;
+  background: currentColor;
+  -webkit-mask:url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/key.svg") center/contain no-repeat;
+          mask:url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/key.svg") center/contain no-repeat;
+}
+
+/* Benefit cards */
+.key-benefits .benefit-item{
+  position:relative;
+  border:1px solid var(--ring); border-radius:16px; background:#fff;
+  box-shadow:0 6px 14px rgba(16,88,55,.06);
+  transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease;
+  padding:1.25rem 1.25rem 1.25rem 1.1rem;
+}
+
+/* Left accent bar */
+.key-benefits .benefit-item::before{
+  content:"";
+  position:absolute; inset:0 auto 0 0; width:6px; border-radius:16px 0 0 16px;
+  background: linear-gradient(180deg, var(--brand) 0%, #9be2b4 100%);
+  opacity:.9; transition:width .2s ease, opacity .2s ease;
+}
+
+.key-benefits .benefit-item:hover{
+  transform:translateY(-2px);
+  border-color:rgba(25,135,84,.35);
+  box-shadow:0 14px 32px rgba(25,135,84,.15);
+}
+.key-benefits .benefit-item:hover::before{ width:9px; opacity:1; }
+
+/* Typography */
+.key-benefits .benefit-item h4{
+  color:#173f2e; margin-bottom:.35rem;
+}
+.key-benefits .benefit-item p{
+  color:#5b6e63; line-height:1.55; max-width:58ch; margin-bottom:0;
+}
+
+/* Title icons (per card) */
+.key-benefits .row>.col-md-6:nth-child(1) h4::before,
+.key-benefits .row>.col-md-6:nth-child(2) h4::before,
+.key-benefits .row>.col-md-6:nth-child(3) h4::before,
+.key-benefits .row>.col-md-6:nth-child(4) h4::before{
+  content:""; display:inline-block; width:1.15em;height:1.15em; margin-right:.45rem; vertical-align:-.15em;
+  background: currentColor;
+}
+
+/* 1) Strengthens Gut Barrier -> shield-check */
+.key-benefits .row>.col-md-6:nth-child(1) h4::before{
+  -webkit-mask:url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/shield-check.svg") center/contain no-repeat;
+          mask:url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/shield-check.svg") center/contain no-repeat;
+}
+/* 2) Reduces Inflammatory Stress -> fire */
+.key-benefits .row>.col-md-6:nth-child(2) h4::before{
+  -webkit-mask:url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/fire.svg") center/contain no-repeat;
+          mask:url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/fire.svg") center/contain no-repeat;
+}
+/* 3) Boosts Antioxidant Defense -> stars */
+.key-benefits .row>.col-md-6:nth-child(3) h4::before{
+  -webkit-mask:url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/stars.svg") center/contain no-repeat;
+          mask:url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/stars.svg") center/contain no-repeat;
+}
+/* 4) Supports Cellular Repair -> patch-check */
+.key-benefits .row>.col-md-6:nth-child(4) h4::before{
+  -webkit-mask:url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/patch-check.svg") center/contain no-repeat;
+          mask:url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/patch-check.svg") center/contain no-repeat;
+}
