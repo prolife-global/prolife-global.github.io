@@ -12685,7 +12685,9 @@ body[data-page="who"]                 #probioticsPills a[href$="Live-Well-Backed
   box-shadow:0 6px 14px rgba(16,88,55,.06);
 }
 #irebuild-accordion .label-list li strong{color:#0f5132; display:block; margin-bottom:.15rem;}
-#irebuild-accordion .label-list li em{display:block; color:#6c757d; margin-top:.15rem}
+#irebuild-accordion .label-list li em:not(.i18n-block){
+  display:block; color:#6c757d; margin-top:.15rem;
+}
 
 /* Left accent rail */
 #irebuild-accordion .label-list li::after{
@@ -12733,3 +12735,23 @@ body[data-page="who"]                 #probioticsPills a[href$="Live-Well-Backed
 #irebuild-accordion[data-locale="zh-Hant"] [data-l="zh-Hant"]{display:initial;}
 #irebuild-accordion[data-locale="zh-Hans"] [data-l="zh-Hans"]{display:initial;}
 #irebuild-accordion .i18n-block{display:block;} /* blocks like paragraphs */
+
+
+/* === Tri-lingual show/hide === */
+#irebuild-accordion [data-l] { display: none; }
+
+/* inline content (headings/labels inside <strong>) */
+#irebuild-accordion[data-locale="en"]      [data-l="en"]      { display: initial; }
+#irebuild-accordion[data-locale="zh-Hant"] [data-l="zh-Hant"] { display: initial; }
+#irebuild-accordion[data-locale="zh-Hans"] [data-l="zh-Hans"] { display: initial; }
+
+/* block content (paragraph-like lines marked with .i18n-block) */
+#irebuild-accordion .i18n-block { display: none; }
+#irebuild-accordion[data-locale="en"]      .i18n-block[data-l="en"]      { display: block; }
+#irebuild-accordion[data-locale="zh-Hant"] .i18n-block[data-l="zh-Hant"] { display: block; }
+#irebuild-accordion[data-locale="zh-Hans"] .i18n-block[data-l="zh-Hans"] { display: block; }
+
+/* active button styling */
+#irebuild-accordion .lang-switch .btn.active{
+  background:#198754; color:#fff; border-color:#198754;
+}
