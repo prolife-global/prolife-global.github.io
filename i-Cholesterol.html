@@ -292,6 +292,46 @@
         .catch(err => console.error('Could not load footer:', err));
     });
   </script>
+
+<script>
+(() => {
+  const root  = document.getElementById('irebuild-accordion');
+  if (!root) return;
+
+  const group = root.querySelector('.lang-switch');
+
+  function setLocale(loc){
+    root.setAttribute('data-locale', loc);
+    if (group){
+      group.querySelectorAll('button').forEach(b => {
+        const on = b.dataset.setLocale === loc;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on);
+      });
+    }
+  }
+
+  // click to switch
+  if (group){
+    group.addEventListener('click', e => {
+      const btn = e.target.closest('[data-set-locale]');
+      if (!btn) return;
+      setLocale(btn.dataset.setLocale);
+    });
+  }
+
+  // initialize (auto-detect, fallback to EN)
+  let init = 'en';
+  try {
+    const pref = (navigator.language || '').toLowerCase();
+    if (pref.includes('hant') || pref.includes('zh-tw') || pref.includes('zh-hk')) init = 'zh-Hant';
+    else if (pref.startsWith('zh')) init = 'zh-Hans';
+  } catch(_) {}
+  setLocale(init);
+})();
+</script>
+
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

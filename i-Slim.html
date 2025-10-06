@@ -239,50 +239,149 @@
     </p>
   </article>
 
-  <!-- Mandatory label info (reuse your existing list below if unchanged) -->
-  <article class="pro-accordion">
-    <header class="py-3">
-      <h4 class="h5 mb-0">
-        <i class="bi bi-card-checklist me-2"></i>其他强制性标签信息 / Other Mandatory Label Information
-      </h4>
-    </header>
+    <!-- Mandatory label info (now tri-lingual + nicer layout) -->
+<article class="pro-accordion">
+  <header class="py-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
+    <h4 class="h5 mb-0">
+      <i class="bi bi-card-checklist me-2"></i>
+      <span data-l="en">Other Mandatory Label Information</span>
+      <span data-l="zh-Hant">其他強制性標籤資訊</span>
+      <span data-l="zh-Hans">其他强制性标签信息</span>
+    </h4>
 
-    <div>
-      <ul class="mb-0">
-        <li><strong>净含量 / Net Content：</strong>30 毫升 × 30 瓶（30 ml × 30 bottles）</li>
-        <li>
-          <strong>食用方法 / Directions：</strong>
-          每日一瓶，开启后轻轻摇匀，即刻饮用；建议冷藏保存，并于开封后 24 小时内饮用完毕。<br>
-          <em>Shake gently and consume one bottle daily immediately after opening. Refrigerate; consume within 24 hours.</em>
-        </li>
-        <li>
-          <strong>贮存条件 / Storage：</strong>
-          置于阴凉干燥处，建议冷藏；开封后需冷藏。<br>
-          <em>Store in a cool, dry place. Refrigeration recommended. Refrigerate after opening.</em>
-        </li>
-        <li><strong>生产商及地址 / Manufacturer & Address：</strong>（待填 / To be completed）</li>
-        <li><strong>原产国 / Country of Origin：</strong>香港制造（Made in Hong Kong）</li>
-        <li><strong>生产日期及保质期 / Production Date & Shelf Life：</strong>见包装盒（See package box）</li>
-        <li><strong>产品标准代号 / Product Standard Code：</strong>（待填 / To be completed）</li>
-        <li><strong>生产许可证号 / Production License Number：</strong>（进口食品为《入境货物检验检疫证明》）</li>
-      </ul>
-
-      <hr class="my-3">
-
-      <h6 class="mb-2">温馨提示 / Important Notice</h6>
-      <ul class="mb-0">
-        <li>本品为膳食补充剂，不能替代药品和均衡饮食。</li>
-        <li>对配料过敏者慎用。</li>
-        <li>孕妇、哺乳期妇女、婴幼儿及正在服用药物（特别是抗凝血药华法林）者，食用前请咨询医生。</li>
-      </ul>
-      <p class="mt-2 mb-0">
-        <em>This product is a dietary supplement and is not intended to diagnose, treat, cure, or prevent any disease.
-        Not a substitute for a varied diet. If you are pregnant, nursing, taking medication, or have a medical condition,
-        please consult your physician before use. Those on anticoagulant therapy (e.g., Warfarin) should consult a doctor
-        due to Vitamin K content.</em>
-      </p>
+    <!-- Language switch (EN / 繁 / 简) -->
+    <div class="btn-group btn-group-sm lang-switch" role="group" aria-label="Language switch">
+      <button type="button" class="btn btn-outline-success active" data-set-locale="en">EN</button>
+      <button type="button" class="btn btn-outline-success" data-set-locale="zh-Hant">繁</button>
+      <button type="button" class="btn btn-outline-success" data-set-locale="zh-Hans">简</button>
     </div>
-  </article>
+  </header>
+
+  <div>
+    <!-- Carded grid list -->
+    <ul class="mb-0 label-list">
+      <li>
+        <strong>
+          <span data-l="en">Net Content</span>
+          <span data-l="zh-Hant">淨含量</span>
+          <span data-l="zh-Hans">净含量</span>：
+        </strong>
+        <span data-l="en">30 ml × 30 bottles</span>
+        <span data-l="zh-Hant">30 毫升 × 30 瓶</span>
+        <span data-l="zh-Hans">30 毫升 × 30 瓶</span>
+      </li>
+
+      <li>
+        <strong>
+          <span data-l="en">Directions</span>
+          <span data-l="zh-Hant">食用方法</span>
+          <span data-l="zh-Hans">食用方法</span>：
+        </strong>
+        <span class="i18n-block" data-l="zh-Hant">每日一瓶，開啟後輕輕搖勻，立即飲用；建議冷藏保存，並於開封後 24 小時內飲用完畢。</span>
+        <span class="i18n-block" data-l="zh-Hans">每日一瓶，开启后轻轻摇匀，立即饮用；建议冷藏保存，并于开封后 24 小时内饮用完毕。</span>
+        <em class="i18n-block" data-l="en">Shake gently and consume one bottle daily immediately after opening. Refrigerate; consume within 24 hours.</em>
+      </li>
+
+      <li>
+        <strong>
+          <span data-l="en">Storage</span>
+          <span data-l="zh-Hant">貯存條件</span>
+          <span data-l="zh-Hans">贮存条件</span>：
+        </strong>
+        <span class="i18n-block" data-l="zh-Hant">置於陰涼乾燥處，建議冷藏；開封後需冷藏。</span>
+        <span class="i18n-block" data-l="zh-Hans">置于阴凉干燥处，建议冷藏；开封后需冷藏。</span>
+        <em class="i18n-block" data-l="en">Store in a cool, dry place. Refrigeration recommended. Refrigerate after opening.</em>
+      </li>
+
+      <li>
+        <strong>
+          <span data-l="en">Manufacturer & Address</span>
+          <span data-l="zh-Hant">生產商及地址</span>
+          <span data-l="zh-Hans">生产商及地址</span>：
+        </strong>
+        <span data-l="en">To be completed</span>
+        <span data-l="zh-Hant">（待填）</span>
+        <span data-l="zh-Hans">（待填）</span>
+      </li>
+
+      <li>
+        <strong>
+          <span data-l="en">Country of Origin</span>
+          <span data-l="zh-Hant">原產國</span>
+          <span data-l="zh-Hans">原产国</span>：
+        </strong>
+        <span data-l="en">Made in Hong Kong</span>
+        <span data-l="zh-Hant">香港製造</span>
+        <span data-l="zh-Hans">香港制造</span>
+      </li>
+
+      <li>
+        <strong>
+          <span data-l="en">Production Date & Shelf Life</span>
+          <span data-l="zh-Hant">生產日期及保質期</span>
+          <span data-l="zh-Hans">生产日期及保质期</span>：
+        </strong>
+        <span data-l="en">See package box</span>
+        <span data-l="zh-Hant">見包裝盒</span>
+        <span data-l="zh-Hans">见包装盒</span>
+      </li>
+
+      <li>
+        <strong>
+          <span data-l="en">Product Standard Code</span>
+          <span data-l="zh-Hant">產品標準代號</span>
+          <span data-l="zh-Hans">产品标准代号</span>：
+        </strong>
+        <span data-l="en">To be completed</span>
+        <span data-l="zh-Hant">（待填）</span>
+        <span data-l="zh-Hans">（待填）</span>
+      </li>
+
+      <li>
+        <strong>
+          <span data-l="en">Production License Number</span>
+          <span data-l="zh-Hant">生產許可證號</span>
+          <span data-l="zh-Hans">生产许可证号</span>：
+        </strong>
+        <span class="i18n-block" data-l="zh-Hant">（進口食品為《入境貨物檢驗檢疫證明》）</span>
+        <span class="i18n-block" data-l="zh-Hans">（进口食品为《入境货物检验检疫证明》）</span>
+        <span class="i18n-block" data-l="en">(For imported food: “Entry Goods Inspection & Quarantine Certificate”)</span>
+      </li>
+    </ul>
+
+    <hr class="my-3">
+
+    <h6 class="mb-2">
+      <span data-l="en">Important Notice</span>
+      <span data-l="zh-Hant">溫馨提示</span>
+      <span data-l="zh-Hans">温馨提示</span>
+    </h6>
+
+    <ul class="mb-0 notice-list">
+      <li>
+        <span data-l="en">This product is a dietary supplement and not a substitute for medicine or a balanced diet.</span>
+        <span data-l="zh-Hant">本品為膳食補充劑，不能替代藥品和均衡飲食。</span>
+        <span data-l="zh-Hans">本品为膳食补充剂，不能替代药品和均衡饮食。</span>
+      </li>
+      <li>
+        <span data-l="en">Do not use if you are allergic to any ingredients.</span>
+        <span data-l="zh-Hant">對配料過敏者慎用。</span>
+        <span data-l="zh-Hans">对配料过敏者慎用。</span>
+      </li>
+      <li>
+        <span data-l="en">If you are pregnant, nursing, an infant/child, or taking medication (especially anticoagulants such as Warfarin), consult your physician before use.</span>
+        <span data-l="zh-Hant">孕婦、哺乳期婦女、嬰幼兒及正在服用藥物（特別是抗凝血藥華法林）者，食用前請諮詢醫生。</span>
+        <span data-l="zh-Hans">孕妇、哺乳期妇女、婴幼儿及正在服用药物（特别是抗凝血药华法林）者，食用前请咨询医生。</span>
+      </li>
+    </ul>
+
+    <p class="mt-2 mb-0 small">
+      <span data-l="en"><em>This product is not intended to diagnose, treat, cure, or prevent any disease. Not a substitute for a varied diet. Those on anticoagulant therapy (e.g., Warfarin) should consult a doctor due to Vitamin K content.</em></span>
+      <span data-l="zh-Hant"><em>本產品非用於診斷、治療、治癒或預防任何疾病。不能代替均衡飲食。因含維生素 K，正在接受抗凝治療（如：華法林）者請先諮詢醫生。</em></span>
+      <span data-l="zh-Hans"><em>本产品不用于诊断、治疗、治愈或预防任何疾病。不能代替均衡饮食。因含维生素 K，正在接受抗凝治疗（如：华法林）者请先咨询医生。</em></span>
+    </p>
+  </div>
+</article>
 </section>
 
         </main>
@@ -322,11 +421,44 @@
     });
   }
 </script>
+<script>
+(() => {
+  const root  = document.getElementById('irebuild-accordion');
+  if (!root) return;
 
+  const group = root.querySelector('.lang-switch');
 
+  function setLocale(loc){
+    root.setAttribute('data-locale', loc);
+    if (group){
+      group.querySelectorAll('button').forEach(b => {
+        const on = b.dataset.setLocale === loc;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on);
+      });
+    }
+  }
 
+  // click to switch
+  if (group){
+    group.addEventListener('click', e => {
+      const btn = e.target.closest('[data-set-locale]');
+      if (!btn) return;
+      setLocale(btn.dataset.setLocale);
+    });
+  }
 
-  
+  // initialize (auto-detect, fallback to EN)
+  let init = 'en';
+  try {
+    const pref = (navigator.language || '').toLowerCase();
+    if (pref.includes('hant') || pref.includes('zh-tw') || pref.includes('zh-hk')) init = 'zh-Hant';
+    else if (pref.startsWith('zh')) init = 'zh-Hans';
+  } catch(_) {}
+  setLocale(init);
+})();
+</script>
+
    <!-- load footer.html -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
