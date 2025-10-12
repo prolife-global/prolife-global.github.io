@@ -41,49 +41,90 @@
         .subnav-btn { width: 100%; } /* tidy wrapping on small screens */
       }
 
-
-
-
       /* Blue halo behind product images */
-.halo-wrap {
-  position: relative;
-  display: inline-block;
-}
+      .halo-wrap {
+        position: relative;
+        display: inline-block;
+      }
+      .halo-wrap::before {
+        content: "";
+        position: absolute;
+        inset: -14%;                  /* slightly larger than the image */
+        z-index: 0;
+        border-radius: 999px;
+        background:
+          radial-gradient(
+            circle at 50% 60%,
+            rgba(56,132,255,0.50) 0%,
+            rgba(56,132,255,0.30) 35%,
+            rgba(56,132,255,0.15) 55%,
+            rgba(56,132,255,0.00) 75%
+          );
+        filter: blur(12px);           /* soft glow */
+        pointer-events: none;
+      }
+      .halo-wrap img {
+        position: relative;
+        z-index: 1;                   /* sit above the halo */
+        /* Optional: a tiny outer glow */
+        box-shadow: 0 10px 28px rgba(0,0,0,.18);
+      }
+      /* (Optional) very subtle breathing effect */
+      /*
+      @keyframes halo-breathe {
+        0%, 100% { opacity: .9; transform: scale(1); }
+        50%      { opacity: 1;  transform: scale(1.02); }
+      }
+      .halo-wrap::before { animation: halo-breathe 6s ease-in-out infinite; }
+      */
 
-.halo-wrap::before {
-  content: "";
-  position: absolute;
-  inset: -14%;                  /* slightly larger than the image */
-  z-index: 0;
-  border-radius: 999px;
-  background:
-    radial-gradient(
-      circle at 50% 60%,
-      rgba(56,132,255,0.50) 0%,
-      rgba(56,132,255,0.30) 35%,
-      rgba(56,132,255,0.15) 55%,
-      rgba(56,132,255,0.00) 75%
-    );
-  filter: blur(12px);           /* soft glow */
-  pointer-events: none;
-}
+      /* ========== Emotive stack styles (scoped) ========== */
+      /* 1) Trust Strip */
+      .trust-strip .trust-item {
+        border: 1px solid #e6ece8; border-radius: .75rem; padding: 1rem;
+        background: #fff; height: 100%;
+        transition: transform .2s ease, box-shadow .2s ease;
+      }
+      .trust-strip .trust-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(0,0,0,.06);
+      }
 
-.halo-wrap img {
-  position: relative;
-  z-index: 1;                   /* sit above the halo */
-  /* Optional: a tiny outer glow */
-  box-shadow: 0 10px 28px rgba(0,0,0,.18);
-}
+      /* 2) Identity Badges */
+      .identity-badges .badge {
+        font-weight: 600; padding: .6rem 1rem;
+      }
 
-/* (Optional) very subtle breathing effect */
-/*
-@keyframes halo-breathe {
-  0%, 100% { opacity: .9; transform: scale(1); }
-  50%      { opacity: 1;  transform: scale(1.02); }
-}
-.halo-wrap::before { animation: halo-breathe 6s ease-in-out infinite; }
-*/
+      /* 3) Hope Block */
+      .hope-block .lead { color: #244f3b; }
+      .hope-block ul li { margin-bottom: .35rem; }
 
+      /* 4) Story + Founder */
+      .story-founder .card-green {
+        background: linear-gradient(135deg,#1e6b4f 0%, #2f8b66 100%);
+        color: #fff; border-radius: 1rem; box-shadow: 0 12px 28px rgba(0,0,0,.12);
+      }
+      .story-founder .card-green .btn-outline-light {
+        border-color: rgba(255,255,255,.6); color: #fff;
+      }
+      .story-founder .card-green .btn-outline-light:hover {
+        background: rgba(255,255,255,.12);
+      }
+
+      /* 5) Testimonials */
+      .testimonials blockquote {
+        border: 1px solid #e6ece8; border-radius: 1rem; background: #fff;
+      }
+      .testimonials .quote-mark {
+        font-size: 1.25rem; color: #198754;
+      }
+
+      /* Optional: gentle reveal on scroll */
+      .reveal { opacity: 0; transform: translateY(10px); transition: .6s ease;}
+      .reveal.in { opacity: 1; transform: none; }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { transition: none; transform: none; }
+      }
     </style>
   </head>
 
@@ -123,6 +164,170 @@
       </div>
     </header>
 
+    <!-- ================= EMOTIVE SECTIONS START ================= -->
+
+    <!-- 1) Trust Strip（信任感） -->
+    <!--<section class="trust-strip py-4 bg-white reveal" aria-label="Trust & Assurances">
+      <div class="container px-4 px-md-5">
+        <ul class="row g-3 list-unstyled align-items-stretch justify-content-center m-0">
+          <li class="col-6 col-md-3">
+            <div class="trust-item text-center">
+              <i class="bi bi-shield-check fs-3 text-success" aria-hidden="true"></i>
+              <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">香港研發・品質把關</p>
+              <small class="text-muted d-block">HK R&amp;D • Quality Assured</small>
+            </div>
+          </li>
+          <li class="col-6 col-md-3">
+            <div class="trust-item text-center">
+              <i class="bi bi-journal-check fs-3 text-success" aria-hidden="true"></i>
+              <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">有科學文獻支持</p>
+              <small class="text-muted d-block">Clinically Referenced</small>
+            </div>
+          </li>
+          <li class="col-6 col-md-3">
+            <div class="trust-item text-center">
+              <i class="bi bi-emoji-smile fs-3 text-success" aria-hidden="true"></i>
+              <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">真實用家好評</p>
+              <small class="text-muted d-block">Verified Reviews</small>
+            </div>
+          </li>
+          <li class="col-6 col-md-3">
+            <div class="trust-item text-center">
+              <i class="bi bi-flower3 fs-3 text-success" aria-hidden="true"></i>
+              <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">無糖・天然取向</p>
+              <small class="text-muted d-block">Sugar-Free • Natural</small>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>-->
+    <!-- 1) Trust Strip（信任感） — SEO-linked -->
+<section class="trust-strip py-4 bg-white reveal" aria-label="Trust & Assurances">
+  <div class="container px-4 px-md-5">
+    <ul class="row g-3 list-unstyled align-items-stretch justify-content-center m-0">
+      <li class="col-6 col-md-3">
+        <a class="trust-item text-center d-block text-decoration-none" href="about.html">
+          <i class="bi bi-shield-check fs-3 text-success" aria-hidden="true"></i>
+          <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">香港研發・品質把關</p>
+          <small class="text-muted d-block">HK R&amp;D • Quality Assured</small>
+        </a>
+      </li>
+      <li class="col-6 col-md-3">
+        <a class="trust-item text-center d-block text-decoration-none" href="Harnessing-the-Full-Potential-of-Probiotics.html">
+          <i class="bi bi-journal-check fs-3 text-success" aria-hidden="true"></i>
+          <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">有科學文獻支持</p>
+          <small class="text-muted d-block">Clinically Referenced</small>
+        </a>
+      </li>
+      <li class="col-6 col-md-3">
+        <a class="trust-item text-center d-block text-decoration-none" href="home-products.html">
+          <i class="bi bi-emoji-smile fs-3 text-success" aria-hidden="true"></i>
+          <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">真實用家好評</p>
+          <small class="text-muted d-block">Verified Reviews</small>
+        </a>
+      </li>
+      <li class="col-6 col-md-3">
+        <a class="trust-item text-center d-block text-decoration-none" href="Citric-acid.html">
+          <i class="bi bi-flower3 fs-3 text-success" aria-hidden="true"></i>
+          <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">無糖・天然取向</p>
+          <small class="text-muted d-block">Sugar-Free • Natural</small>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+    <!-- 2) Identity Badges（身份認同） -->
+    <section class="identity-badges py-4 bg-light reveal" aria-label="Identity Badges">
+      <div class="container px-4 px-md-5">
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          <span class="badge rounded-pill text-bg-success" lang="zh-Hant">香港研發 Hong Kong R&amp;D</span>
+          <span class="badge rounded-pill text-bg-success" lang="zh-Hant">天然健康 Natural Wellness</span>
+          <span class="badge rounded-pill text-bg-success" lang="zh-Hant">愛自己・愛家人 Love &amp; Care</span>
+          <span class="badge rounded-pill text-bg-success">Probiotic Nutritional Drinks</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Hope Block（希望感） -->
+    <section class="hope-block py-5 bg-white reveal" aria-label="Hope & Outcomes">
+      <div class="container px-4 px-md-5">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <h3 class="fw-bold mb-3" lang="zh-Hant">從今天開始，給自己一個更好的感覺</h3>
+            <p class="lead mb-3" lang="zh-Hant">
+              我們相信，健康應該令人放心、心情變好、狀態更亮。
+              由腸道出發，慢慢見到：肌膚更穩定、睡眠更踏實、精力更充沛。
+            </p>
+            <ul class="list-unstyled mb-4" lang="zh-Hant">
+              <li>✔ 由內而外的亮澤（變靚）</li>
+              <li>✔ 每天醒來更輕鬆（變健康）</li>
+              <li>✔ 活力循環回來（變年輕）</li>
+            </ul>
+            <a class="btn btn-success btn-lg" href="home-products.html">開始你的 ProLife 小改變 Start Now</a>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="images/Live-Well-Use-ProLife.PNG" class="img-fluid rounded-3 shadow-sm" alt="Feel better, live better">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) Story + Founder（故事連結） -->
+    <section class="story-founder py-5 reveal" aria-label="Story & Founder">
+      <div class="container px-4 px-md-5">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <div class="card-green p-4 p-lg-5">
+              <h3 class="fw-bold mb-3" lang="zh-Hant">我們的故事：科學 × 真誠</h3>
+              <p class="mb-3" lang="zh-Hant">
+                ProLife 活之寶從香港出發，團隊把微生物科研與發酵智慧結合，打造每日喝得到的益生營養液。
+                我們堅持清晰配方、文獻支持、真實體驗，因為你值得被好好對待。
+              </p>
+              <p class="mb-4">From Hong Kong, for whole-body wellness — science you can trust, sincerity you can feel.</p>
+              <a class="btn btn-outline-light" href="about.html">了解更多 Our Story</a>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="images/Hong-Kong-R&D-team-3.PNG" class="img-fluid rounded-4 shadow-sm" alt="R&D team">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Testimonials（用家故事） -->
+    <section class="testimonials py-5 bg-light reveal" aria-label="Testimonials">
+      <div class="container px-4 px-md-5">
+        <h3 class="fw-bold text-center mb-4" lang="zh-Hant">他們的感受，就是我們的動力</h3>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <blockquote class="p-4 h-100">
+              <div class="quote-mark">“</div>
+              <p class="mb-3" lang="zh-Hant">慢慢飲咗兩個星期，皮膚穩定咗，朝早醒來精神都好啲。</p>
+              <footer class="small text-muted">— K. Chan, Hong Kong</footer>
+            </blockquote>
+          </div>
+          <div class="col-md-4">
+            <blockquote class="p-4 h-100">
+              <div class="quote-mark">“</div>
+              <p class="mb-3">It feels gentle but real — I sleep deeper and wake clearer.</p>
+              <footer class="small text-muted">— L. Wong, Kowloon</footer>
+            </blockquote>
+          </div>
+          <div class="col-md-4">
+            <blockquote class="p-4 h-100">
+              <div class="quote-mark">“</div>
+              <p class="mb-3" lang="zh-Hant">最欣賞係透明，清楚講邊啲菌株、點樣配方。</p>
+              <footer class="small text-muted">— Mrs. Ho, Tsim Sha Tsui</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EMOTIVE SECTIONS END ================= -->
+
     <!-- Probiotics section with sticky sub-menu -->
     <section id="Probiotics" class="py-5 bg-white">
       <div class="container">
@@ -133,29 +338,28 @@
                  alt="Illustration: Healthy living icons"
                  class="img-fluid rounded shadow-sm">
 
-  <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-    <h2 style="font-size: 28px; color: #2f5335; margin-bottom: 10px;">🌿 Unlock the Full Potential of Probiotics</h2>
-    <p style="font-size: 20px; font-weight: bold; color: #333;">
-      Backed by Science. Rooted in Tradition. Focused on You.
-    </p>
-  </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+              <h2 style="font-size: 28px; color: #2f5335; margin-bottom: 10px;">🌿 Unlock the Full Potential of Probiotics</h2>
+              <p style="font-size: 20px; font-weight: bold; color: #333;">
+                Backed by Science. Rooted in Tradition. Focused on You.
+              </p>
+            </div>
           </div>
 
-<!-- In-page subnav (green buttons) -->
-<nav class="subnav-card sticky-top mb-3" aria-label="Section shortcuts">
-  <div class="subnav-inner">
-    <ul class="nav" id="probioticsPills">
-      <li class="nav-item"><a class="btn btn-success subnav-btn" href="Harnessing-the-Full-Potential-of-Probiotics.html">Probiotics</a></li>
-      <li class="nav-item"><a class="btn btn-success subnav-btn" href="Vitamin-D3-&-K2.html">Vitamin D &amp; K</a></li>
-      <li class="nav-item"><a class="btn btn-success subnav-btn" href="Improve-Health-home.html">Improve Health</a></li>
-      <li class="nav-item"><a class="btn btn-success subnav-btn" href="Positive-Reactions.html">Positive Reactions</a></li>
-      <li class="nav-item"><a class="btn btn-success subnav-btn" href="home-products.html">Our Product Line</a></li>
-      <li class="nav-item"><a class="btn btn-success subnav-btn" href="Citric-acid.html">Organic Lemon Enzyme</a></li>
-      <li class="nav-item"><a class="btn btn-success subnav-btn" href="Live-Well-Backed-by-WHO.html">Live Well, Backed by WHO</a></li>
-    </ul>
-  </div>
-</nav>
-
+          <!-- In-page subnav (green buttons) -->
+          <nav class="subnav-card sticky-top mb-3" aria-label="Section shortcuts">
+            <div class="subnav-inner">
+              <ul class="nav" id="probioticsPills">
+                <li class="nav-item"><a class="btn btn-success subnav-btn" href="Harnessing-the-Full-Potential-of-Probiotics.html">Probiotics</a></li>
+                <li class="nav-item"><a class="btn btn-success subnav-btn" href="Vitamin-D3-&-K2.html">Vitamin D &amp; K</a></li>
+                <li class="nav-item"><a class="btn btn-success subnav-btn" href="Improve-Health-home.html">Improve Health</a></li>
+                <li class="nav-item"><a class="btn btn-success subnav-btn" href="Positive-Reactions.html">Positive Reactions</a></li>
+                <li class="nav-item"><a class="btn btn-success subnav-btn" href="home-products.html">Our Product Line</a></li>
+                <li class="nav-item"><a class="btn btn-success subnav-btn" href="Citric-acid.html">Organic Lemon Enzyme</a></li>
+                <li class="nav-item"><a class="btn btn-success subnav-btn" href="Live-Well-Backed-by-WHO.html">Live Well, Backed by WHO</a></li>
+              </ul>
+            </div>
+          </nav>
 
           <!-- Text -->
           <div class="col-lg-8 order-2 order-lg-1">
@@ -185,10 +389,9 @@
               </li>
             </ul>
 
-            
-          <a href="Harnessing-the-Full-Potential-of-Probiotics.html" class="btn btn-success">Why Probiotics Work? Unlock the Full Potential of Probiotics</a><br/>
-        
-          <a href="Improve-Health-home.html" class="btn btn-primary mt-3">
+            <a href="Harnessing-the-Full-Potential-of-Probiotics.html" class="btn btn-success">Why Probiotics Work? Unlock the Full Potential of Probiotics</a><br/>
+
+            <a href="Improve-Health-home.html" class="btn btn-primary mt-3">
               Learn More Improve Health — Unlock Pathways to Wellness
             </a>
           </div>
@@ -197,79 +400,66 @@
     </section>
 
     <!-- ===== Multi-Source Probiotic Nutritional Liquid (多源益生營養液) ===== -->
-<section class="flagship-strip py-4 border-top border-bottom" id="multi-source">
-  <div class="container px-5">
-    <div class="row align-items-center g-4">
-      <!-- Copy -->
-      <div class="col-lg-7 order-2 order-lg-1">
-        <div class="mb-1">
-          <span class="pill" aria-label="Concept">Concept</span>
-          <span class="pill">Precision</span>
-          <span class="pill">Premium</span>
-          <span class="pill" aria-label="Flagship">旗艦</span>
-          <span class="pill">Best-Seller</span>
-          <span class="pill">Daily Base</span>
-        </div>
+    <section class="flagship-strip py-4 border-top border-bottom" id="multi-source">
+      <div class="container px-5">
+        <div class="row align-items-center g-4">
+          <!-- Copy -->
+          <div class="col-lg-7 order-2 order-lg-1">
+            <div class="mb-1">
+              <span class="pill" aria-label="Concept">Concept</span>
+              <span class="pill">Precision</span>
+              <span class="pill">Premium</span>
+              <span class="pill" aria-label="Flagship">旗艦</span>
+              <span class="pill">Best-Seller</span>
+              <span class="pill">Daily Base</span>
+            </div>
 
-        <h2 class="h1 fw-bold mt-1 mb-2">🔄 i-ReBuild <small class="text-muted">(重活寶)</small></h2>
+            <h2 class="h1 fw-bold mt-1 mb-2">🔄 i-ReBuild <small class="text-muted">(重活寶)</small></h2>
 
-        <h2 class="h1 fw-bold mt-1 mb-2">
-          Multi-Source Probiotic Nutritional Liquid<small class="text-muted d-block">(多源益生營養液)</small>
-        </h2>
+            <h2 class="h1 fw-bold mt-1 mb-2">
+              Multi-Source Probiotic Nutritional Liquid<small class="text-muted d-block">(多源益生營養液)</small>
+            </h2>
 
-        <p class="lead text-ink-80 mb-2">
-          The name <strong>Multi-Source Probiotic Nutritional Liquid</strong> is a masterstroke in brand positioning—accurate, scientific, and engaging. It clearly sets our product apart from ordinary “probiotic drinks” or “enzyme beverages,” signaling a complex, high-tech, and comprehensive wellness solution.
-        </p>
+            <p class="lead text-ink-80 mb-2">
+              The name <strong>Multi-Source Probiotic Nutritional Liquid</strong> is a masterstroke in brand positioning—accurate, scientific, and engaging. It clearly sets our product apart from ordinary “probiotic drinks” or “enzyme beverages,” signaling a complex, high-tech, and comprehensive wellness solution.
+            </p>
 
-        <p class="mb-3"><strong>Multi-Source</strong> means the formula goes beyond probiotics alone, integrating diverse nutrition:</p>
-        <ul class="mb-3">
-          <li><strong>Multi-strain probiotics:</strong> 6 patented strains</li>
-          <li><strong>Vitamins &amp; minerals:</strong> D3, K2, Zinc, Vitamin C</li>
-          <li><strong>Botanical extracts:</strong> artichoke, green tea, hawthorn, goji berry, and more</li>
-          <li><strong>Fermented nutrients:</strong> organic lemon fermentation liquid</li>
-          <li><strong>Prebiotics &amp; fibers:</strong> citrus fiber</li>
-        </ul>
+            <p class="mb-3"><strong>Multi-Source</strong> means the formula goes beyond probiotics alone, integrating diverse nutrition:</p>
+            <ul class="mb-3">
+              <li><strong>Multi-strain probiotics:</strong> 6 patented strains</li>
+              <li><strong>Vitamins &amp; minerals:</strong> D3, K2, Zinc, Vitamin C</li>
+              <li><strong>Botanical extracts:</strong> artichoke, green tea, hawthorn, goji berry, and more</li>
+              <li><strong>Fermented nutrients:</strong> organic lemon fermentation liquid</li>
+              <li><strong>Prebiotics &amp; fibers:</strong> citrus fiber</li>
+            </ul>
 
-        <p class="mb-3">
-          <strong>Probiotic</strong> anchors the core—beneficial strains and their symbiotic prebiotic ecosystem. 
-          <strong>Nutritional Liquid</strong> communicates a professional, functional format that aligns with a premium positioning.
-        </p>
+            <p class="mb-3">
+              <strong>Probiotic</strong> anchors the core—beneficial strains and their symbiotic prebiotic ecosystem. 
+              <strong>Nutritional Liquid</strong> communicates a professional, functional format that aligns with a premium positioning.
+            </p>
 
-        <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-success btn-lg" href="Improve-Health-home.html">
-            <i class="bi bi-rocket-takeoff"></i> Explore the Benefits
-          </a>
-          <a class="btn btn-outline-success btn-lg" href="home-products.html">
-            Compare in product line
-          </a>
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-success btn-lg" href="Improve-Health-home.html">
+                <i class="bi bi-rocket-takeoff"></i> Explore the Benefits
+              </a>
+              <a class="btn btn-outline-success btn-lg" href="home-products.html">
+                Compare in product line
+              </a>
+            </div>
+          </div>
+
+          <!-- Visual -->
+          <div class="col-lg-5 order-1 order-lg-2 text-center position-relative">
+            <span class="flagship-badge" aria-hidden="true">Flagship</span>
+            <div class="halo-wrap d-inline-block">
+              <img class="hero-bottle img-fluid rounded-4 shadow-sm"
+                   src="images/i-product/i-ReBuild-blue-themed-prod.png"
+                   alt="i-ReBuild (重活寶) bottle" width="420" height="420" loading="eager">
+            </div>
+          </div>
         </div>
       </div>
-
-      <!-- Visual -->
-<div class="col-lg-5 order-1 order-lg-2 text-center position-relative">
-  <span class="flagship-badge" aria-hidden="true">Flagship</span>
-
-  <!-- Add this wrapper -->
-  <div class="halo-wrap d-inline-block">
-    <img class="hero-bottle img-fluid rounded-4 shadow-sm"
-         src="images/i-product/i-ReBuild-blue-themed-prod.png"
-         alt="i-ReBuild (重活寶) bottle" width="420" height="420" loading="eager">
-  </div>
-</div>
-
-
-
-
-      <!--<div class="col-lg-5 order-1 order-lg-2 text-center position-relative">
-        <span class="flagship-badge" aria-hidden="true">Premium</span>
-        <img class="hero-bottle img-fluid rounded-4 shadow-sm"
-             src="images/i-product/i-ReBuild-prod.png"
-             alt="Multi-Source Probiotic Nutritional Liquid illustration"
-             width="420" height="420" loading="eager">
-      </div>-->
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- CTA / Explore -->
     <section id="wellness" class="py-5 bg-white">
@@ -306,6 +496,16 @@
 
         inject('menu.html',   'menu-placeholder');
         inject('footer.html', 'footer-placeholder');
+      });
+    </script>
+
+    <!-- Optional: gentle reveal on scroll for .reveal sections -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
       });
     </script>
 
