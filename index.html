@@ -16,6 +16,45 @@
     <!-- Core theme CSS (includes Bootstrap) -->
     <link href="css/styles.css" rel="stylesheet" />
 
+    <!-- ✅ Product Review JSON-LD (Rich Results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "@id": "https://www.prolife-global.com/products/i-rebuild",
+      "name": "ProLife i-ReBuild (重活寶)",
+      "image": "https://www.prolife-global.com/images/i-product/i-ReBuild-prod.png",
+      "brand": { "@type": "Brand", "name": "ProLife Global Health Ltd" },
+      "description": "A Multi-Source Probiotic Nutritional Liquid supporting organ vitality and detox.",
+      "sku": "i-rebuild",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "124"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": "K. Chan",
+          "reviewBody": "皮膚穩定咗，朝早醒來精神都好啲。",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "author": "L. Wong",
+          "reviewBody": "Sleep deeper and wake clearer.",
+          "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "author": "Mrs. Ho",
+          "reviewBody": "最欣賞係透明，清楚講邊啲菌株、點樣配方。",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        }
+      ]
+    }
+    </script>
+
     <!-- Page-only CSS (minimal) -->
     <style>
       html { scroll-behavior: smooth; }
@@ -28,103 +67,59 @@
         padding-left: 0; padding-right: 0;
       }
       .subnav-btn {
-        border-radius: .75rem;     /* rounded like screenshot */
+        border-radius: .75rem;
         font-weight: 600;
         padding: .55rem 1rem;
         box-shadow: 0 1px 0 rgba(0,0,0,.08) inset;
       }
       .subnav-btn:focus {
         outline: 0;
-        box-shadow: 0 0 0 .2rem rgba(25,135,84,.25); /* accessible focus ring */
+        box-shadow: 0 0 0 .2rem rgba(25,135,84,.25);
       }
       @media (max-width: 576px){
-        .subnav-btn { width: 100%; } /* tidy wrapping on small screens */
+        .subnav-btn { width: 100%; }
       }
 
       /* Blue halo behind product images */
-      .halo-wrap {
-        position: relative;
-        display: inline-block;
-      }
+      .halo-wrap { position: relative; display: inline-block; }
       .halo-wrap::before {
-        content: "";
-        position: absolute;
-        inset: -14%;                  /* slightly larger than the image */
-        z-index: 0;
-        border-radius: 999px;
-        background:
-          radial-gradient(
-            circle at 50% 60%,
-            rgba(56,132,255,0.50) 0%,
-            rgba(56,132,255,0.30) 35%,
-            rgba(56,132,255,0.15) 55%,
-            rgba(56,132,255,0.00) 75%
-          );
-        filter: blur(12px);           /* soft glow */
-        pointer-events: none;
+        content: ""; position: absolute; inset: -14%; z-index: 0; border-radius: 999px;
+        background: radial-gradient(circle at 50% 60%,
+                    rgba(56,132,255,0.50) 0%,
+                    rgba(56,132,255,0.30) 35%,
+                    rgba(56,132,255,0.15) 55%,
+                    rgba(56,132,255,0.00) 75%);
+        filter: blur(12px); pointer-events: none;
       }
-      .halo-wrap img {
-        position: relative;
-        z-index: 1;                   /* sit above the halo */
-        /* Optional: a tiny outer glow */
-        box-shadow: 0 10px 28px rgba(0,0,0,.18);
-      }
-      /* (Optional) very subtle breathing effect */
-      /*
-      @keyframes halo-breathe {
-        0%, 100% { opacity: .9; transform: scale(1); }
-        50%      { opacity: 1;  transform: scale(1.02); }
-      }
-      .halo-wrap::before { animation: halo-breathe 6s ease-in-out infinite; }
-      */
+      .halo-wrap img { position: relative; z-index: 1; box-shadow: 0 10px 28px rgba(0,0,0,.18); }
 
-      /* ========== Emotive stack styles (scoped) ========== */
-      /* 1) Trust Strip */
+      /* Emotive stack styles */
       .trust-strip .trust-item {
         border: 1px solid #e6ece8; border-radius: .75rem; padding: 1rem;
         background: #fff; height: 100%;
         transition: transform .2s ease, box-shadow .2s ease;
       }
-      .trust-strip .trust-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 22px rgba(0,0,0,.06);
-      }
+      .trust-strip .trust-item:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,.06); }
 
-      /* 2) Identity Badges */
-      .identity-badges .badge {
-        font-weight: 600; padding: .6rem 1rem;
-      }
+      .identity-badges .badge { font-weight: 600; padding: .6rem 1rem; }
 
-      /* 3) Hope Block */
       .hope-block .lead { color: #244f3b; }
       .hope-block ul li { margin-bottom: .35rem; }
 
-      /* 4) Story + Founder */
       .story-founder .card-green {
         background: linear-gradient(135deg,#1e6b4f 0%, #2f8b66 100%);
         color: #fff; border-radius: 1rem; box-shadow: 0 12px 28px rgba(0,0,0,.12);
       }
-      .story-founder .card-green .btn-outline-light {
-        border-color: rgba(255,255,255,.6); color: #fff;
-      }
-      .story-founder .card-green .btn-outline-light:hover {
-        background: rgba(255,255,255,.12);
-      }
+      .story-founder .card-green .btn-outline-light { border-color: rgba(255,255,255,.6); color: #fff; }
+      .story-founder .card-green .btn-outline-light:hover { background: rgba(255,255,255,.12); }
 
-      /* 5) Testimonials */
-      .testimonials blockquote {
-        border: 1px solid #e6ece8; border-radius: 1rem; background: #fff;
-      }
-      .testimonials .quote-mark {
-        font-size: 1.25rem; color: #198754;
-      }
+      .testimonials blockquote { border: 1px solid #e6ece8; border-radius: 1rem; background: #fff; }
+      .testimonials .quote-mark { font-size: 1.25rem; color: #198754; }
 
       /* Optional: gentle reveal on scroll */
       .reveal { opacity: 0; transform: translateY(10px); transition: .6s ease;}
       .reveal.in { opacity: 1; transform: none; }
-      @media (prefers-reduced-motion: reduce) {
-        .reveal { transition: none; transform: none; }
-      }
+      @media (prefers-reduced-motion: reduce) { .reveal { transition: none; transform: none; } }
     </style>
   </head>
 
@@ -166,77 +161,41 @@
 
     <!-- ================= EMOTIVE SECTIONS START ================= -->
 
-    <!-- 1) Trust Strip（信任感） -->
-    <!--<section class="trust-strip py-4 bg-white reveal" aria-label="Trust & Assurances">
+    <!-- 1) Trust Strip（信任感） — SEO-linked -->
+    <section class="trust-strip py-4 bg-white reveal" aria-label="Trust & Assurances">
       <div class="container px-4 px-md-5">
         <ul class="row g-3 list-unstyled align-items-stretch justify-content-center m-0">
           <li class="col-6 col-md-3">
-            <div class="trust-item text-center">
+            <a class="trust-item text-center d-block text-decoration-none" href="about.html">
               <i class="bi bi-shield-check fs-3 text-success" aria-hidden="true"></i>
               <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">香港研發・品質把關</p>
               <small class="text-muted d-block">HK R&amp;D • Quality Assured</small>
-            </div>
+            </a>
           </li>
           <li class="col-6 col-md-3">
-            <div class="trust-item text-center">
+            <a class="trust-item text-center d-block text-decoration-none" href="Harnessing-the-Full-Potential-of-Probiotics.html">
               <i class="bi bi-journal-check fs-3 text-success" aria-hidden="true"></i>
               <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">有科學文獻支持</p>
               <small class="text-muted d-block">Clinically Referenced</small>
-            </div>
+            </a>
           </li>
           <li class="col-6 col-md-3">
-            <div class="trust-item text-center">
+            <a class="trust-item text-center d-block text-decoration-none" href="home-products.html">
               <i class="bi bi-emoji-smile fs-3 text-success" aria-hidden="true"></i>
               <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">真實用家好評</p>
               <small class="text-muted d-block">Verified Reviews</small>
-            </div>
+            </a>
           </li>
           <li class="col-6 col-md-3">
-            <div class="trust-item text-center">
+            <a class="trust-item text-center d-block text-decoration-none" href="Citric-acid.html">
               <i class="bi bi-flower3 fs-3 text-success" aria-hidden="true"></i>
               <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">無糖・天然取向</p>
               <small class="text-muted d-block">Sugar-Free • Natural</small>
-            </div>
+            </a>
           </li>
         </ul>
       </div>
-    </section>-->
-    <!-- 1) Trust Strip（信任感） — SEO-linked -->
-<section class="trust-strip py-4 bg-white reveal" aria-label="Trust & Assurances">
-  <div class="container px-4 px-md-5">
-    <ul class="row g-3 list-unstyled align-items-stretch justify-content-center m-0">
-      <li class="col-6 col-md-3">
-        <a class="trust-item text-center d-block text-decoration-none" href="about.html">
-          <i class="bi bi-shield-check fs-3 text-success" aria-hidden="true"></i>
-          <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">香港研發・品質把關</p>
-          <small class="text-muted d-block">HK R&amp;D • Quality Assured</small>
-        </a>
-      </li>
-      <li class="col-6 col-md-3">
-        <a class="trust-item text-center d-block text-decoration-none" href="Harnessing-the-Full-Potential-of-Probiotics.html">
-          <i class="bi bi-journal-check fs-3 text-success" aria-hidden="true"></i>
-          <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">有科學文獻支持</p>
-          <small class="text-muted d-block">Clinically Referenced</small>
-        </a>
-      </li>
-      <li class="col-6 col-md-3">
-        <a class="trust-item text-center d-block text-decoration-none" href="home-products.html">
-          <i class="bi bi-emoji-smile fs-3 text-success" aria-hidden="true"></i>
-          <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">真實用家好評</p>
-          <small class="text-muted d-block">Verified Reviews</small>
-        </a>
-      </li>
-      <li class="col-6 col-md-3">
-        <a class="trust-item text-center d-block text-decoration-none" href="Citric-acid.html">
-          <i class="bi bi-flower3 fs-3 text-success" aria-hidden="true"></i>
-          <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">無糖・天然取向</p>
-          <small class="text-muted d-block">Sugar-Free • Natural</small>
-        </a>
-      </li>
-    </ul>
-  </div>
-</section>
-
+    </section>
 
     <!-- 2) Identity Badges（身份認同） -->
     <section class="identity-badges py-4 bg-light reveal" aria-label="Identity Badges">
@@ -297,98 +256,67 @@
     </section>
 
     <!-- 5) Testimonials（用家故事） — Carousel -->
-<section class="testimonials py-5 bg-light reveal" aria-label="Testimonials">
-  <div class="container px-4 px-md-5">
-    <h3 class="fw-bold text-center mb-4" lang="zh-Hant">他們的感受，就是我們的動力</h3>
-
-    <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Customer testimonials carousel">
-      <!-- Dots (indicators) -->
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonial 1"></button>
-        <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
-        <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="2" aria-label="Testimonial 3"></button>
-      </div>
-
-      <!-- Slides -->
-      <div class="carousel-inner">
-        <!-- Slide 1 -->
-        <div class="carousel-item active">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <blockquote class="p-4">
-                <div class="quote-mark">“</div>
-                <p class="mb-3" lang="zh-Hant">慢慢飲咗兩個星期，皮膚穩定咗，朝早醒來精神都好啲。</p>
-                <footer class="small text-muted">— K. Chan, Hong Kong</footer>
-              </blockquote>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <blockquote class="p-4">
-                <div class="quote-mark">“</div>
-                <p class="mb-3">It feels gentle but real — I sleep deeper and wake clearer.</p>
-                <footer class="small text-muted">— L. Wong, Kowloon</footer>
-              </blockquote>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <blockquote class="p-4">
-                <div class="quote-mark">“</div>
-                <p class="mb-3" lang="zh-Hant">最欣賞係透明，清楚講邊啲菌株、點樣配方。</p>
-                <footer class="small text-muted">— Mrs. Ho, Tsim Sha Tsui</footer>
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Arrows -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev" aria-label="Previous testimonial">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next" aria-label="Next testimonial">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </button>
-    </div>
-  </div>
-</section>
-
-
-    <!-- 5) Testimonials（用家故事） -->
     <section class="testimonials py-5 bg-light reveal" aria-label="Testimonials">
       <div class="container px-4 px-md-5">
         <h3 class="fw-bold text-center mb-4" lang="zh-Hant">他們的感受，就是我們的動力</h3>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <blockquote class="p-4 h-100">
-              <div class="quote-mark">“</div>
-              <p class="mb-3" lang="zh-Hant">慢慢飲咗兩個星期，皮膚穩定咗，朝早醒來精神都好啲。</p>
-              <footer class="small text-muted">— K. Chan, Hong Kong</footer>
-            </blockquote>
+
+        <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Customer testimonials carousel">
+          <!-- Dots (indicators) -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonial 1"></button>
+            <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
+            <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="2" aria-label="Testimonial 3"></button>
           </div>
-          <div class="col-md-4">
-            <blockquote class="p-4 h-100">
-              <div class="quote-mark">“</div>
-              <p class="mb-3">It feels gentle but real — I sleep deeper and wake clearer.</p>
-              <footer class="small text-muted">— L. Wong, Kowloon</footer>
-            </blockquote>
+
+          <!-- Slides -->
+          <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <blockquote class="p-4">
+                    <div class="quote-mark">“</div>
+                    <p class="mb-3" lang="zh-Hant">慢慢飲咗兩個星期，皮膚穩定咗，朝早醒來精神都好啲。</p>
+                    <footer class="small text-muted">— K. Chan, Hong Kong</footer>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <blockquote class="p-4">
+                    <div class="quote-mark">“</div>
+                    <p class="mb-3">It feels gentle but real — I sleep deeper and wake clearer.</p>
+                    <footer class="small text-muted">— L. Wong, Kowloon</footer>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <blockquote class="p-4">
+                    <div class="quote-mark">“</div>
+                    <p class="mb-3" lang="zh-Hant">最欣賞係透明，清楚講邊啲菌株、點樣配方。</p>
+                    <footer class="small text-muted">— Mrs. Ho, Tsim Sha Tsui</footer>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-md-4">
-            <blockquote class="p-4 h-100">
-              <div class="quote-mark">“</div>
-              <p class="mb-3" lang="zh-Hant">最欣賞係透明，清楚講邊啲菌株、點樣配方。</p>
-              <footer class="small text-muted">— Mrs. Ho, Tsim Sha Tsui</footer>
-            </blockquote>
-          </div>
+
+          <!-- Arrows -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev" aria-label="Previous testimonial">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next" aria-label="Next testimonial">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
         </div>
       </div>
     </section>
