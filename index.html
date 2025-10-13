@@ -120,6 +120,71 @@
       .reveal { opacity: 0; transform: translateY(10px); transition: .6s ease;}
       .reveal.in { opacity: 1; transform: none; }
       @media (prefers-reduced-motion: reduce) { .reveal { transition: none; transform: none; } }
+
+      /* ===== Trust Strip v2 ===== */
+.trust-strip-v2 {
+  background: linear-gradient(180deg,#f5fbf7 0%, #f3f7ff 100%);
+}
+.trust-strip-v2 .decor-divider{
+  position:absolute;inset:0 0 auto 0;height:6px;
+  background: linear-gradient(90deg,#2fbf71, #2c87ff, #ffb300, #19c3c0);
+  opacity:.25;
+}
+.trust-card{
+  border-radius: 1rem; padding: 1.25rem; height: 100%;
+  background: #fff; position: relative; overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+  border: 1px solid rgba(0,0,0,.05);
+}
+.trust-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 28px rgba(0,0,0,.10); }
+.trust-card .icon-chip{
+  width: 48px; height: 48px; border-radius: 12px;
+  display:inline-flex; align-items:center; justify-content:center;
+  color:#fff; font-size: 22px; margin-bottom:.5rem;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.35), 0 8px 16px rgba(0,0,0,.12);
+}
+.trust-card .title{ font-weight: 700; margin: .25rem 0 .15rem; color:#0b3a2b; }
+.trust-card .subtitle{ margin: 0; color:#6a7a73; }
+
+/* color themes */
+.tc-hk .icon-chip{
+  background: linear-gradient(135deg,#1bb36b 0%, #00a66c 100%);
+}
+.tc-research .icon-chip{
+  background: linear-gradient(135deg,#2d8cff 0%, #1b6cff 100%);
+}
+.tc-reviews .icon-chip{
+  background: linear-gradient(135deg,#ffb300 0%, #ff8f3a 100%);
+}
+.tc-natural .icon-chip{
+  background: linear-gradient(135deg,#1ec9bb 0%, #0fb398 100%);
+}
+
+/* ===== Identity chips v2 ===== */
+.identity-badges-v2{ background: #f7faf9; }
+.identity-badges-v2 .chip{
+  --padY:.55rem; --padX:1rem;
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding: var(--padY) var(--padX);
+  border-radius: 999px; color:#fff; font-weight: 700;
+  box-shadow: 0 10px 18px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.25);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.identity-badges-v2 .chip i{ font-size: 1rem; opacity:.95; }
+.identity-badges-v2 .chip:hover{ transform: translateY(-2px); filter: saturate(1.05); }
+.chip-hk  { background: linear-gradient(135deg,#1bb36b 0%, #00a66c 100%); }
+.chip-nat { background: linear-gradient(135deg,#0fb398 0%, #19c3c0 100%); }
+.chip-love{ background: linear-gradient(135deg,#ff6a88 0%, #ff8e53 100%); }
+.chip-pro { background: linear-gradient(135deg,#2d8cff 0%, #1b6cff 100%); }
+
+/* optional: subtle entrance */
+.trust-strip-v2 .trust-card,
+.identity-badges-v2 .chip{ opacity:0; transform: translateY(8px); }
+.reveal.in .trust-card,
+.reveal.in .chip{ opacity:1; transform:none; transition: .6s ease; }
+
+
     </style>
   </head>
 
@@ -159,55 +224,57 @@
       </div>
     </header>
 
-    <!-- ================= EMOTIVE SECTIONS START ================= -->
+    <!-- TRUST STRIP — Color / Gradient version -->
+<section class="trust-strip-v2 py-5 position-relative reveal" aria-label="Trust & Assurances">
+  <div class="decor-divider"></div>
+  <div class="container px-4 px-md-5">
+    <ul class="row g-4 list-unstyled m-0">
+      <!-- HK R&D -->
+      <li class="col-12 col-sm-6 col-lg-3">
+        <a class="trust-card tc-hk d-block text-decoration-none" href="about.html">
+          <span class="icon-chip">
+            <i class="bi bi-shield-check"></i>
+          </span>
+          <h5 class="title" lang="zh-Hant">香港研發・品質把關</h5>
+          <p class="subtitle">HK R&amp;D • Quality Assured</p>
+        </a>
+      </li>
 
-    <!-- 1) Trust Strip（信任感） — SEO-linked -->
-    <section class="trust-strip py-4 bg-white reveal" aria-label="Trust & Assurances">
-      <div class="container px-4 px-md-5">
-        <ul class="row g-3 list-unstyled align-items-stretch justify-content-center m-0">
-          <li class="col-6 col-md-3">
-            <a class="trust-item text-center d-block text-decoration-none" href="about.html">
-              <i class="bi bi-shield-check fs-3 text-success" aria-hidden="true"></i>
-              <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">香港研發・品質把關</p>
-              <small class="text-muted d-block">HK R&amp;D • Quality Assured</small>
-            </a>
-          </li>
-          <li class="col-6 col-md-3">
-            <a class="trust-item text-center d-block text-decoration-none" href="Harnessing-the-Full-Potential-of-Probiotics.html">
-              <i class="bi bi-journal-check fs-3 text-success" aria-hidden="true"></i>
-              <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">有科學文獻支持</p>
-              <small class="text-muted d-block">Clinically Referenced</small>
-            </a>
-          </li>
-          <li class="col-6 col-md-3">
-            <a class="trust-item text-center d-block text-decoration-none" href="home-products.html">
-              <i class="bi bi-emoji-smile fs-3 text-success" aria-hidden="true"></i>
-              <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">真實用家好評</p>
-              <small class="text-muted d-block">Verified Reviews</small>
-            </a>
-          </li>
-          <li class="col-6 col-md-3">
-            <a class="trust-item text-center d-block text-decoration-none" href="Citric-acid.html">
-              <i class="bi bi-flower3 fs-3 text-success" aria-hidden="true"></i>
-              <p class="mb-0 fw-semibold mt-2" lang="zh-Hant">無糖・天然取向</p>
-              <small class="text-muted d-block">Sugar-Free • Natural</small>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
+      <!-- Clinically Referenced -->
+      <li class="col-12 col-sm-6 col-lg-3">
+        <a class="trust-card tc-research d-block text-decoration-none" href="Harnessing-the-Full-Potential-of-Probiotics.html">
+          <span class="icon-chip">
+            <i class="bi bi-journal-check"></i>
+          </span>
+          <h5 class="title" lang="zh-Hant">有科學文獻支持</h5>
+          <p class="subtitle">Clinically Referenced</p>
+        </a>
+      </li>
 
-    <!-- 2) Identity Badges（身份認同） -->
-    <section class="identity-badges py-4 bg-light reveal" aria-label="Identity Badges">
-      <div class="container px-4 px-md-5">
-        <div class="d-flex flex-wrap gap-2 justify-content-center">
-          <span class="badge rounded-pill text-bg-success" lang="zh-Hant">香港研發 Hong Kong R&amp;D</span>
-          <span class="badge rounded-pill text-bg-success" lang="zh-Hant">天然健康 Natural Wellness</span>
-          <span class="badge rounded-pill text-bg-success" lang="zh-Hant">愛自己・愛家人 Love &amp; Care</span>
-          <span class="badge rounded-pill text-bg-success">Probiotic Nutritional Drinks</span>
-        </div>
-      </div>
-    </section>
+      <!-- Verified Reviews -->
+      <li class="col-12 col-sm-6 col-lg-3">
+        <a class="trust-card tc-reviews d-block text-decoration-none" href="home-products.html">
+          <span class="icon-chip">
+            <i class="bi bi-emoji-smile"></i>
+          </span>
+          <h5 class="title" lang="zh-Hant">真實用家好評</h5>
+          <p class="subtitle">Verified Reviews</p>
+        </a>
+      </li>
+
+      <!-- Sugar-Free / Natural -->
+      <li class="col-12 col-sm-6 col-lg-3">
+        <a class="trust-card tc-natural d-block text-decoration-none" href="Citric-acid.html">
+          <span class="icon-chip">
+            <i class="bi bi-flower3"></i>
+          </span>
+          <h5 class="title" lang="zh-Hant">無糖・天然取向</h5>
+          <p class="subtitle">Sugar-Free • Natural</p>ffff
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
 
     <!-- 3) Hope Block（希望感） -->
     <section class="hope-block py-5 bg-white reveal" aria-label="Hope & Outcomes">
