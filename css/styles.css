@@ -12776,3 +12776,38 @@ body[data-page="who"]                 #probioticsPills a[href$="Live-Well-Backed
 }
 
 
+/* --- Colored backgrounds for the 4 trust cards --- */
+/* Subtle light gradients + matching borders + title colors */
+
+.trust-card.tc-hk{
+  background: linear-gradient(180deg,#EAF8F1 0%, #FFFFFF 85%);
+  border-color: #CFEDE1;
+}
+.trust-card.tc-hk .title{ color:#0b5137; }            /* deep herbal green */
+
+.trust-card.tc-research{
+  background: linear-gradient(180deg,#EEF5FF 0%, #FFFFFF 85%);
+  border-color: #D6E6FF;
+}
+.trust-card.tc-research .title{ color:#11468F; }      /* research blue */
+
+.trust-card.tc-reviews{
+  background: linear-gradient(180deg,#FFF5E6 0%, #FFFFFF 85%);
+  border-color: #FFE2B8;
+}
+.trust-card.tc-reviews .title{ color:#8A4F00; }       /* warm amber */
+
+.trust-card.tc-natural{
+  background: linear-gradient(180deg,#E8FBF6 0%, #FFFFFF 85%);
+  border-color: #C8F1EC;
+}
+.trust-card.tc-natural .title{ color:#0b6458; }       /* teal-green */
+
+/* keep body text legible on all */
+.trust-card .subtitle{ color:#5e706a; }
+
+/* a tiny glow that matches each theme on hover */
+.trust-card.tc-hk:hover      { box-shadow: 0 16px 28px rgba(27,179,107,.18); }
+.trust-card.tc-research:hover{ box-shadow: 0 16px 28px rgba(45,140,255,.18); }
+.trust-card.tc-reviews:hover { box-shadow: 0 16px 28px rgba(255,179,0,.18); }
+.trust-card.tc-natural:hover { box-shadow: 0 16px 28px rgba(25,195,192,.18); }
