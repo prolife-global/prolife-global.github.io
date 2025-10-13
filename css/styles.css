@@ -12755,3 +12755,22 @@ body[data-page="who"]                 #probioticsPills a[href$="Live-Well-Backed
 #irebuild-accordion .lang-switch .btn.active{
   background:#198754; color:#fff; border-color:#198754;
 }
+
+
+/* Make carousel arrows and dots more visible */
+.testimonials .carousel-control-prev-icon,
+.testimonials .carousel-control-next-icon {
+  filter: invert(1) drop-shadow(0 1px 2px rgba(0,0,0,.25));
+  opacity: .9;
+}
+.testimonials .carousel-indicators [data-bs-target] {
+  background-color: #9fd8b7;   /* inactive dot (soft green) */
+}
+.testimonials .carousel-indicators .active {
+  background-color: #198754;   /* active dot (brand green) */
+}
+.testimonials blockquote {
+  border: 1px solid #e3eee8;
+  border-radius: 1rem;
+  background: #fff;
+}
