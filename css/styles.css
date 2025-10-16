@@ -12811,3 +12811,16 @@ body[data-page="who"]                 #probioticsPills a[href$="Live-Well-Backed
 .trust-card.tc-research:hover{ box-shadow: 0 16px 28px rgba(45,140,255,.18); }
 .trust-card.tc-reviews:hover { box-shadow: 0 16px 28px rgba(255,179,0,.18); }
 .trust-card.tc-natural:hover { box-shadow: 0 16px 28px rgba(25,195,192,.18); }
+
+
+  .buy-btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .55rem .9rem; border-radius: .75rem; font-weight: 600;
+    border: 0; cursor: pointer; text-decoration: none;
+    background: #0f4f3a; color: #fff; box-shadow: 0 6px 14px rgba(15,79,58,.18);
+  }
+  .buy-btn:hover { filter: brightness(1.05); }
+  .buy-btn .bi { font-size: 1rem; }
+  /* keep actions on top of any overlay */
+  .card-actions { position: relative; z-index: 2; }
+

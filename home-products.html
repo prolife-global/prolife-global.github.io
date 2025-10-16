@@ -379,6 +379,51 @@ document.addEventListener('DOMContentLoaded', () => {
   if (grid && flagship) grid.prepend(flagship); // pin to first slot
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.querySelector('.product-grid');
+  if (!grid) return;
+
+  // Use your WhatsApp “message” link + prefilled text
+  const WA_BASE = 'https://wa.me/message/WGSQAVC7IGQYJ1'; // from your Contact page
+  const FALLBACK_EMAIL = 'prolifewilson@gmail.com';
+
+  grid.querySelectorAll('.product-card').forEach(card => {
+    const actions = card.querySelector('.card-actions');
+    const name = card.dataset.productName || 'ProLife Product';
+    const id = card.dataset.productId || 'unknown';
+
+    // Make and append the Buy button
+    const buy = document.createElement('a');
+    buy.className = 'buy-btn';
+    buy.href = '#';
+    buy.setAttribute('role', 'button');
+    buy.setAttribute('aria-label', `Buy ${name}`);
+    buy.innerHTML = '<i class="bi bi-bag-check"></i><span>Buy</span>';
+    actions.appendChild(buy);
+
+    // Click -> open WhatsApp with prefilled message. Fallback to mailto.
+    buy.addEventListener('click', (e) => {
+      e.preventDefault();
+      const msg = encodeURIComponent(
+        `I'd like to buy: ${name} (ID: ${id})\nQuantity: 1\nPlease advise payment & delivery.`
+      );
+      const waUrl = `${WA_BASE}?text=${msg}`;
+
+      // Try to open WhatsApp chat
+      const newWin = window.open(waUrl, '_blank', 'noopener,noreferrer');
+      if (!newWin) {
+        // Fallback to email
+        const subject = encodeURIComponent(`Order: ${name}`);
+        const body = encodeURIComponent(
+          `Product: ${name}\nID: ${id}\nQuantity: 1\n\nMy name:\nMy phone:\nDelivery address:\n`
+        );
+        window.location.href = `mailto:${FALLBACK_EMAIL}?subject=${subject}&body=${body}`;
+      }
+    });
+  });
+});
+</script>
 
 
   <script src="js/scripts.js"></script>
