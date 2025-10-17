@@ -184,6 +184,18 @@
 .reveal.in .trust-card,
 .reveal.in .chip{ opacity:1; transform:none; transition: .6s ease; }
 
+/* Home-only: make the hero title smaller */
+.home-hero-title{
+  font-size: 2rem;         /* ~32px on mobile */
+  line-height: 1.25;
+  margin-bottom: .75rem;
+}
+@media (min-width: 768px){
+  .home-hero-title{ font-size: 2.25rem; }   /* ~36px on tablet */
+}
+@media (min-width: 1200px){
+  .home-hero-title{ font-size: 2.5rem; }    /* ~40px on desktop (was ~48px) */
+}
 
     </style>
   </head>
@@ -212,7 +224,7 @@
 
           <div class="col-lg-6 order-2 order-lg-1">
             <div class="mb-4">
-              <h1 class="display-5 fw-bold text-white mb-3">
+              <h1 class="display-5 fw-bold text-white mb-3 home-hero-title">
                 <span translate="no">Multi-Source Probiotic Nutritional Liquid 多源益生菌營養液</span>
               </h1>
               <p class="lead fw-normal text-herbal-green mb-4">
