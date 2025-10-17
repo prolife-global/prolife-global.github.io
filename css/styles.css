@@ -12824,3 +12824,10 @@ body[data-page="who"]                 #probioticsPills a[href$="Live-Well-Backed
   /* keep actions on top of any overlay */
   .card-actions { position: relative; z-index: 2; }
 
+.card-title span[lang="zh-Hant"] {
+  display: block;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #0f4f3a;
+  margin-top: 0.15rem;
+}
