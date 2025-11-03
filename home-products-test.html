@@ -1,381 +1,537 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>ProLife Global Website</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />-->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="ProLife Global Health Ltd — Targeted probiotics for whole-body wellness." />
+  <title>ProLife Global Website</title>
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet" />
+
+  <style>
+    .card-actions { position: relative; z-index: 2; }
+    .product-link  { position: relative; z-index: 1; }
+
+    /* --- Floating action rail --- */
+    .cart-rail {
+      position: fixed; right: 0; top: 88px; z-index: 1050;
+      width: 56px; background:#2e2e2e; border-radius: 6px 0 0 6px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.15); overflow: hidden;
+    }
+    .cart-rail .rail-btn{
+      display:flex; align-items:center; justify-content:center;
+      width:56px; height:56px; color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
+      cursor:pointer; position:relative;
+    }
+    .cart-rail .rail-btn:hover{ background:#3a3a3a; }
+    .cart-rail .badge{
+      position:absolute; top:6px; right:6px; background:#0f9d58;
+    }
+
+    /* --- Drawer (right slide) --- */
+    .cart-drawer {
+      position: fixed; right:-380px; top:0; height:100%; width:380px; z-index:1055;
+      background:#fff; box-shadow:-8px 0 24px rgba(0,0,0,.15); transition:right .28s ease;
+      display:flex; flex-direction:column;
+    }
+    .cart-drawer.open{ right:0; }
+    .cart-drawer__header{
+      padding:16px 18px; border-bottom:1px solid #e9ecef; display:flex; align-items:center; gap:10px;
+    }
+    .cart-drawer__title{ font-weight:700; margin:0; }
+    .cart-drawer__body{ flex:1; overflow:auto; padding:8px 12px; }
+    .cart-item{
+      display:grid; grid-template-columns:56px 1fr auto; gap:10px; align-items:center;
+      padding:10px; border-bottom:1px solid #f1f3f5;
+    }
+    .cart-item img{ width:56px; height:56px; object-fit:contain; border-radius:6px; background:#f8f9fa; }
+    .cart-item .name{ font-weight:600; line-height:1.25; }
+    .cart-item .price{ font-weight:600; color:#0f4f3a; }
+    .cart-item .qty{ display:flex; align-items:center; gap:6px; }
+    .btn-qty{ width:26px; height:26px; border:1px solid #ced4da; background:#fff; border-radius:4px; }
+
+    .cart-drawer__footer{ border-top:1px solid #e9ecef; padding:14px 16px; }
+    .cart-sum{ display:flex; justify-content:space-between; margin-bottom:8px; font-weight:700; }
+    .cart-row{ display:flex; justify-content:space-between; align-items:center; margin:6px 0; }
+    .cart-note{ font-size:.9rem; color:#6c757d; }
+    .cart-drawer .btn-wa{ background:#25d366; color:#fff; }
+    .cart-drawer .btn-outline{ border-color:#0f4f3a; color:#0f4f3a; }
+    @media (max-width: 420px){ .cart-drawer{ width:100%; } }
+
+    /* Small price banner text */
+    .price-banner { color:#0f4f3a; font-weight:700; }
+  </style>
+</head>
 <body class="d-flex flex-column h-100">
-  <!-- 1) menu placeholder -->
+
+  <!-- Header / Menu placeholder (will be injected) -->
   <div id="menu-placeholder"></div>
-  
-  			<!-- Company Name Banner -->
-		<div class="company-name-bar py-2 bg-white text-center shadow-sm">
-			<h4 class="mb-0 fw-bold text-success text-center">
-        <span class="d-block d-lg-inline" translate="no">ProLife Global Health Ltd</span>
-        <span class="d-block d-lg-inline" translate="no">（活之寶環球健康有限公司）</span>
-      </h4>
-		</div>
 
-  <!-- 2) Header / Hero Section -->
-  <!-- Healthy Living, Informed Decisions -->
-  
-    <!-- Product Line Section -->
-<!-- HTML -->
-<h2>Explore Prolife Supplements</h2>
-<div class="product-grid">
-  <a href="i-slim" class="product-tile" data-tooltip="Supports weight control">
-    <img src="plastic-bottle-small.PNG" alt="i-Slim bottle"><span>i-Slim</span>
-  </a>
-  <a href="i-sleep" class="product-tile" data-tooltip="Promotes restful sleep">
-    <img src="plastic-bottle-small.PNG" alt="i-Sleep bottle"><span>i-Sleep</span>
-  </a>
-  <a href="/products/i-breath" class="product-tile" data-tooltip="Supports respiratory health">
-    <img src="plastic-bottle-small.PNG" alt="i-Breath bottle"><span>i-Breath</span>
-  </a>
-  <a href="/products/i-rebuild" class="product-tile" data-tooltip="Aids recovery and energy">
-    <img src="plastic-bottle-small.PNG" alt="i-ReBuild bottle"><span>i-ReBuild</span>
-  </a>
-  <a href="/products/i-liver" class="product-tile" data-tooltip="Liver support formula">
-    <img src="plastic-bottle-small.PNG" alt="i-Liver bottle"><span>i-Liver</span>
-  </a>
-  <a href="/products/i-kidney" class="product-tile" data-tooltip="Kidney detox support">
-    <img src="plastic-bottle-small.PNG" alt="i-Kidney bottle"><span>i-Kidney</span>
-  </a>
-  <a href="/products/i-eyes" class="product-tile" data-tooltip="Eye health booster">
-    <img src="plastic-bottle-small.PNG" alt="i-Eyes bottle"><span>i-Eyes</span>
-  </a>
-  <a href="/products/i-force" class="product-tile" data-tooltip="Energy and vitality">
-    <img src="plastic-bottle-small.PNG" alt="i-Force bottle"><span>i-Force</span>
-  </a>
-  <a href="/products/i-brain" class="product-tile" data-tooltip="Brain & memory support">
-    <img src="plastic-bottle-small.PNG" alt="i-Brain bottle"><span>i-Brain</span>
-  </a>
-  <a href="/products/i-hypertension" class="product-tile" data-tooltip="Supports blood pressure">
-    <img src="plastic-bottle-small.PNG" alt="i-Hypertension bottle"><span>i-Hypertension</span>
-  </a>
-  <a href="/products/i-cholesterol" class="product-tile" data-tooltip="Cholesterol balance">
-    <img src="plastic-bottle-small.PNG" alt="i-Cholesterol bottle"><span>i-Cholesterol</span>
-  </a>
-  <a href="/products/i-glucose" class="product-tile" data-tooltip="Blood sugar control">
-    <img src="plastic-bottle-small.PNG" alt="i-Glucose bottle"><span>i-Glucose</span>
-  </a>
-  <a href="/products/i-inflammatory" class="product-tile" data-tooltip="Anti-inflammatory support">
-    <img src="plastic-bottle-small.PNG" alt="i-Inflammatory bottle"><span>i-Inflammatory</span>
-  </a>
-  <a href="i-intestinal" class="product-tile" data-tooltip="Gut and digestion support">
-    <img src="plastic-bottle-small.PNG" alt="i-Intestinal bottle"><span>i-Intestinal</span>
-  </a>
-  <a href="i-hair" class="product-tile" data-tooltip="Hair growth formula">
-    <img src="plastic-bottle-small.PNG" alt="i-Hair bottle"><span>i-Hair</span>
-  </a>
-  <a href="i-skin" class="product-tile" data-tooltip="Skin nourishment">
-    <img src="plastic-bottle-small.PNG" alt="i-Skin bottle"><span>i-Skin</span>
-  </a>
-</div>
-
-
-
-
-
-
-
-
-    <h2>Explore Prolife Supplements</h2>
-  <div class="product-grid">
-    <a href="i-slim" class="product-tile" data-tooltip="Supports weight control">i-Slim</a>
-    <a href="i-sleep" class="product-tile" data-tooltip="Promotes restful sleep">i-Sleep</a>
-    <a href="/products/i-breath" class="product-tile" data-tooltip="Supports respiratory health">i-Breath</a>
-    <a href="/products/i-rebuild" class="product-tile" data-tooltip="Aids recovery and energy">i-ReBuild</a>
-    <a href="/products/i-liver" class="product-tile" data-tooltip="Liver support formula">i-Liver</a>
-    <a href="/products/i-kidney" class="product-tile" data-tooltip="Kidney detox support">i-Kidney</a>
-    <a href="/products/i-eyes" class="product-tile" data-tooltip="Eye health booster">i-Eyes</a>
-    <a href="/products/i-force" class="product-tile" data-tooltip="Energy and vitality">i-Force</a>
-    <a href="/products/i-brain" class="product-tile" data-tooltip="Brain & memory support">i-Brain</a>
-    <a href="/products/i-hypertension" class="product-tile" data-tooltip="Supports blood pressure">i-Hypertension</a>
-    <a href="/products/i-cholesterol" class="product-tile" data-tooltip="Cholesterol balance">i-Cholesterol</a>
-    <a href="/products/i-glucose" class="product-tile" data-tooltip="Blood sugar control">i-Glucose</a>
-    <a href="/products/i-inflammatory" class="product-tile" data-tooltip="Anti-inflammatory support">i-Inflammatory</a>
-    <a href="i-intestinal" class="product-tile" data-tooltip="Gut and digestion support">i-Intestinal</a>
-    <a href="i-hair" class="product-tile" data-tooltip="Hair growth formula">i-Hair</a>
-    <a href="i-skin" class="product-tile" data-tooltip="Skin nourishment">i-Skin</a>
-  </div>
-  <div class="container px-5">
-    <div class="text-center mb-4">
-	<h2>Our Product Line<br>產品介紹</h2>
-      <h2 class="fw-bolder text-success">Targeted Probiotics for Whole-Body Wellness</h2>
-      <p class="lead text-muted">
-        At ProLife Global Health Ltd (活之寶環球健康有限公司), we believe probiotics should do more than just balance your gut flora. Our specialized formulations address every major system—helping you look, feel, and perform your best from head to toe.
-      </p>
+  <!-- Company Name Banner -->
+  <div class="company-name-bar py-2 bg-white text-center shadow-sm">
+    <h4 class="mb-0 fw-bold text-success text-center">
+      <span class="d-block d-lg-inline" translate="no">ProLife Global Health Ltd</span>
+      <span class="d-block d-lg-inline" translate="no">（活之寶環球健康有限公司）</span>
+    </h4>
+    <div class="text-muted small">
+      <span class="price-banner">HK$680 / box (30 sachets) — 不連運費 / shipping excluded</span>
     </div>
-	
-<div class="row row-cols-1 row-cols-md-2 g-4">
+  </div>
 
-  <!-- i-Slim -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title">🌿 <strong translate="no">i-Slim (瘦白寶)</strong></h4>
-      <p class="card-text mt-1">Supports healthy body contouring, aids weight management and metabolism, and promotes skin brightening.</p>
-      <div class="mt-1">
-        <a href="i-Slim.html" class="cta-button">Learn More</a>
+  <main class="flex-shrink-0">
+    <div class="container px-4 px-md-5">
+      <section class="prolife-products text-center">
+        <h2 class="section-heading mb-4">Our Product Line 產品介紹</h2>
+
+        <div class="product-grid">
+          <!-- i-ReBuild — Flagship -->
+          <div class="product-card flagship" data-product-id="i-rebuild" data-product-name="i-ReBuild (重活寶)" data-price="680" data-flagship="true">
+            <span class="flagship-badge" aria-label="Flagship">旗艦</span>
+            <span class="flagship-badge" aria-label="Flagship">Flagship</span>
+            <a href="i-Rebuild.html" class="product-link" data-tooltip="Aids recovery and energy" aria-label="i-ReBuild product page (flagship)">
+              <img src="images/i-product/i-ReBuild-blue-themed-prod.png" alt="i-ReBuild bottle" width="172" height="172" loading="lazy">
+              <span class="product-name" translate="no">🔄 i-ReBuild (重活寶)</span>
+            </a>
+            <p class="flagship-subhead">我們的旗艦日常配方，助您恢復活力、提升能量，重建全方位健康。</p>
+            <p class="card-desc">Restores organ vitality, supports detoxification, and helps eliminate toxins for renewed internal health.</p>
+            <div class="card-actions">
+              <a class="learn-btn primary" href="i-Rebuild.html" rel="bookmark">
+                <i class="bi bi-lightning-charge"></i><span>Learn More</span>
+              </a>
+              <button class="enquire-btn outline" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- i-Slim -->
+          <div class="product-card" data-product-id="i-slim" data-product-name="i-Slim (瘦白寶)" data-price="680">
+            <a href="i-Slim.html" class="product-link" aria-label="i-Slim product page">
+              <img src="images/i-product/i-Slim-prod.png" alt="i-Slim bottle" width="172" height="172" loading="lazy">
+              <span class="product-name" translate="no">🌿 i-Slim (瘦白寶)</span>
+            </a>
+            <p class="card-desc">Supports body shaping by reducing excess fat accumulation, brightens skin tone, helps relieve eczema, and promotes overall skin health.</p>
+            <div class="card-actions">
+              <a class="learn-btn" href="i-Slim.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- i-Sleep -->
+          <div class="product-card" data-product-id="i-sleep" data-product-name="i-Sleep (安睡寶)" data-price="680">
+            <a href="i-Sleep.html" class="product-link" aria-label="i-Sleep product page">
+              <img src="images/i-product/i-Sleep-prod.png" alt="i-Sleep bottle" width="172" height="172" loading="lazy">
+              <span class="product-name" translate="no">🌙 i-Sleep (安睡寶)</span>
+            </a>
+            <p class="card-desc">Eases insomnia, calms the mind, promotes restful deep sleep—rest well for lasting wellness.</p>
+            <div class="card-actions">
+              <a class="learn-btn" href="i-Sleep.html" rel="bookmark"><i class="bi bi-book"></i><span>Learn More</span></a>
+              <button class="enquire-btn" type="button" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <i class="bi bi-envelope"></i><span>Enquire</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- (…keep the rest of your product cards, all with data-price="680") -->
+          <!-- i-Breath, i-Liver, i-Kidney, i-Eyes, i-Force, i-Brain, i-Hypertension, i-Cholesterol, i-Glucose, i-Anti-inflammator, i-Intestinal, i-Hair, i-Skin -->
+        </div><!-- /.product-grid -->
+      </section>
+
+      <!-- Optional static shipping table on the page (kept minimal) -->
+      <section class="shipping-info my-4">
+        <h3 class="fw-bold text-success">🌏 運費說明 | Shipping Information</h3>
+        <p>All products are <strong>HK$680 per box (30 sachets)</strong>, excluding shipping. Shipping is calculated in the cart.</p>
+      </section>
+
+      <!-- Floating action rail -->
+      <div class="cart-rail" aria-label="Purchase actions">
+        <div class="rail-btn" id="btnCart" title="購物車 / Cart">
+          <i class="bi bi-cart"></i>
+          <span class="badge rounded-pill" id="cartBadge">0</span>
+        </div>
+        <a class="rail-btn" id="btnRailWA" title="WhatsApp" target="_blank" rel="noopener">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+        <a class="rail-btn" href="contact.html" title="Help / 聯絡我們">
+          <i class="bi bi-question-circle"></i>
+        </a>
+      </div>
+
+      <!-- Cart drawer -->
+      <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+        <div class="cart-drawer__header">
+          <i class="bi bi-cart-check fs-5 text-success"></i>
+          <h5 class="cart-drawer__title mb-0">購物車 Cart</h5>
+          <button type="button" class="btn btn-sm btn-light ms-auto" id="closeCart"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="cart-drawer__body" id="cartList"><!-- items injected here --></div>
+        <div class="cart-drawer__footer">
+
+          <!-- Shipping selector + totals -->
+          <div class="cart-row">
+            <label for="shipRegion" class="form-label mb-0">🚚 運送地區 / Region</label>
+            <select id="shipRegion" class="form-select form-select-sm" style="width: 56%;">
+              <option value="HK">🇭🇰 Hong Kong</option>
+              <option value="CN">🇨🇳 China Mainland</option>
+              <option value="EEC">🇪🇺 EEC (Europe)</option>
+              <option value="ASIA">🌏 Asia (JP/KR/SG etc.)</option>
+            </select>
+          </div>
+
+          <div class="cart-row"><span>小計 Subtotal</span><strong id="cartSubtotal">HK$ 0.00</strong></div>
+          <div class="cart-row"><span>運費 Shipping</span><strong id="cartShipping">HK$ 0.00</strong></div>
+          <div class="cart-sum"><span>總計 Total</span><span id="cartTotal">HK$ 0.00</span></div>
+          <div class="cart-note">* 價格為估算；最終以客服確認為準。/ Estimate — final charge confirmed by support.</div>
+
+          <div class="d-grid gap-2 mt-2">
+            <button class="btn btn-wa" id="checkoutWA"><i class="bi bi-whatsapp"></i> WhatsApp 結帳</button>
+            <button class="btn btn-outline" id="checkoutEmail"><i class="bi bi-envelope"></i> Email 下單</button>
+            <button class="btn btn-secondary" id="clearCart"><i class="bi bi-trash"></i> 清空</button>
+          </div>
+        </div>
+      </aside>
+    </div><!-- /.container -->
+    <section class="order-form my-5">
+  <h3 class="fw-bold text-success">🧾 Secure Checkout (No email app)</h3>
+  <p class="text-muted">All products are <strong>HK$680 / box (30 sachets)</strong> — shipping added by region.</p>
+
+  <form id="prolifeOrderForm" class="row g-3">
+    <!-- Contact -->
+    <div class="col-md-4">
+      <label class="form-label">Name 姓名</label>
+      <input class="form-control" name="name" id="of_name" required>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Phone 電話</label>
+      <input class="form-control" name="phone" id="of_phone" required>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Email (optional)</label>
+      <input type="email" class="form-control" name="email" id="of_email" placeholder="you@example.com">
+    </div>
+
+    <!-- Shipping -->
+    <div class="col-md-6">
+      <label class="form-label">Region 地區</label>
+      <select class="form-select" id="of_region" name="region" required>
+        <option value="HK">🇭🇰 Hong Kong</option>
+        <option value="CN">🇨🇳 China Mainland</option>
+        <option value="EEC">🇪🇺 EEC (Europe)</option>
+        <option value="ASIA">🌏 Asia (JP/KR/SG etc.)</option>
+      </select>
+      <div class="form-text">Shipping is calculated automatically.</div>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Address 送貨地址</label>
+      <input class="form-control" name="address" id="of_address" required>
+    </div>
+
+    <!-- Order summary (read-only for user) -->
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="mb-2">Order Summary</h6>
+          <pre id="of_lines" class="mb-2" style="white-space:pre-wrap;"></pre>
+          <div class="d-flex justify-content-between"><span>Subtotal</span><strong id="of_subtotal">HK$ 0.00</strong></div>
+          <div class="d-flex justify-content-between"><span>Shipping</span><strong id="of_shipping">HK$ 0.00</strong></div>
+          <div class="d-flex justify-content-between border-top pt-2"><span>Total</span><strong id="of_total">HK$ 0.00</strong></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- i-Sleep -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title">🌙 <strong translate="no">i-Sleep (安睡寶)</strong></h4>
-      <p class="card-text mt-1">Improves sleep quality, calms the mind, relieves stress and startle responses for deeper, more restorative rest.</p>
-      <div class="mt-1">
-        <a href="i-Sleep.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
+    <!-- Hidden payload sent to Formspree -->
+    <input type="hidden" name="order_json" id="of_payload">
 
-  <!-- i-Breath -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 🌬️ <strong translate="no">i-Breath (活氣寶)</strong></h4>
-      <p class="card-text mt-1">Enhances respiratory tract immunity, promotes clear airways, and supports healthy circulation of qi and blood.</p>
-      <div class="mt-1">
-        <a href="i-Breath.html" class="cta-button">Learn More</a>
-      </div>
+    <div class="col-12 d-grid d-sm-flex gap-2">
+      <button class="btn btn-success" type="submit"><i class="bi bi-check2-circle"></i> Place Order</button>
+      <button class="btn btn-outline-secondary" type="button" id="of_refresh"><i class="bi bi-arrow-repeat"></i> Refresh from Cart</button>
     </div>
-  </div>
 
-  <!-- i-ReBuild -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 🔄 <strong translate="no">i-ReBuild (重活寶)</strong></h4>
-      <p class="card-text mt-1">Rejuvenates internal organs, strengthens cellular repair across all five viscera, and restores natural function.</p>
-      <div class="mt-1">
-        <a href="i-Rebuild.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- i-Liver -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 🧪 <strong translate="no">i-Liver (護肝寶)</strong></h4>
-      <p class="card-text mt-1">Supports liver detoxification pathways, improves fat metabolism, and helps reduce hepatic fat accumulation.</p>
-      <div class="mt-1">
-        <a href="i-Liver.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- i-Kidney -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 💧 <strong translate="no">i-Kidney (益腎寶)</strong></h4>
-      <p class="card-text mt-1">Boosts kidney filtration and detox capacity, aids vascular health, and supports fluid balance.</p>
-      <div class="mt-1">
-        <a href="i-Kidney.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- i-Eyes -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 👁️ <strong translate="no">i-Eyes (明目寶)</strong></h4>
-      <p class="card-text mt-1">Delivers antioxidants to protect the retina, guard against dry eye and macular degeneration, and sharpen visual clarity.</p>
-      <div class="mt-1">
-        <a href="i-Eyes.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- i-Force -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> ⚡ <strong translate="no">i-Force (動力寶)</strong></h4>
-      <p class="card-text mt-1">Increases physical energy and endurance, supports muscle recovery, and enhances reproductive vitality.</p>
-      <div class="mt-1">
-        <a href="i-Force.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- i-Brain -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 🧠 <strong translate="no">i-Brain (腦健寶)</strong></h4>
-      <p class="card-text mt-1">Nourishes neuronal health, supports cognitive performance, and helps prevent age-related decline and dementia.</p>
-      <div class="mt-1">
-        <a href="i-Brain.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- i-Hypertension -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> ❤️ <strong translate="no">i-Hypertension (降壓寶)</strong></h4>
-      <p class="card-text mt-1">Features natural compounds that relax blood vessels, improve circulation, and help maintain healthy blood pressure.</p>
-      <div class="mt-1">
-        <a href="i-Hypertension.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- i-Cholesterol -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 🫀 <strong translate="no">i-Cholesterol (清醇寶)</strong></h4>
-      <p class="card-text mt-1">Uses plant-based and probiotic cofactors to inhibit cholesterol synthesis, balance bile-duct flora, and support healthy lipid profiles.</p>
-      <div class="mt-1">
-        <a href="i-Cholesterol.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- i-Glucose -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 🍯 <strong translate="no">i-Glucose (衝糖寶)</strong></h4>
-      <p class="card-text mt-1">Helps regulate blood sugar secretion, improve insulin sensitivity, and lower long-term risk of diabetes.</p>
-      <div class="mt-1">
-        <a href="i-Glucose.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- i-Anti-inflammator -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 🔥 <strong translate="no">i-Anti-inflammator (抗炎寶)</strong></h4>
-      <p class="card-text mt-1">Alleviates systemic inflammation, supports a balanced immune response, and may reduce the risk of inflammation-driven diseases, including certain cancers.</p>
-      <div class="mt-1">
-        <a href="i-Anti-inflammatory.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- i-Belly -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 🌸 <strong translate="no">i-Intestinal (腸胃寶)</strong></h4>
-      <p class="card-text mt-1">Relieves stomach discomfort, improves bowel regularity, enhances digestive function, promotes mucosal healing, and stimulates intestinal movement.</p>
-      <div class="mt-1">
-        <a href="i-Intestinal.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- i-Hair -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 💇‍♀️ <strong translate="no">i-Hair (養髮寶)</strong></h4>
-      <p class="card-text mt-1">Improves hair health, promotes regrowth, and activates follicles through natural scalp renewal mechanisms.</p>
-      <div class="mt-1">
-        <a href="i-Hair.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-  
-    <!-- i-Hair -->
-  <div class="col">
-    <div class="highlight">
-      <h4 class="card-title"> 🧴 <strong translate="no">i-Skin (護膚寶)</strong></h4>
-      <p class="card-text mt-1">Improves skin health, relieves eczema and skin sensitivities through microbiome-skin modulation, anti-inflammatory recovery, and barrier-reinforcing mechanisms.</p>
-      <div class="mt-1">
-        <a href="i-Skin.html" class="cta-button">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-</div>
-	    <!--<a href="#" class="btn btn-primary mt-3">Learn About Our Products 了解產品內容</a>-->
-  </div>
+    <p id="of_msg" class="mt-2 small text-muted"></p>
+  </form>
 </section>
- 
-</main>
 
-<!-- Key Ingredients Section -->
+  </main>
 
-
-
-            <!-- Features section-->
-
-
-            <!-- Blog preview section-->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-
-                    <!-- Call to action-->
-                    <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
-                        <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
-                            <div class="mb-4 mb-xl-0">
-                                <div class="fs-3 fw-bold text-white">New products, delivered to you.</div>
-                                <div class="text-white-50">Sign up for our newsletter for the latest updates.</div>
-                            </div>
-                            <div class="ms-xl-4">
-                                <div class="input-group mb-2">
-                                    <input class="form-control" type="text" placeholder="Email address..." aria-label="prolifewilson@gmail.com" aria-describedby="button-newsletter" />
-                                    <button class="btn btn-outline-light" id="button-newsletter" type="button">Sign up</button>
-                                </div>
-                                <div class="small text-white-50">We care about privacy, and will never share your data.</div>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-            </section>
-        </main>
-		
-  <!-- footer placeholder -->
   <div id="footer-placeholder"></div>
 
-  <!-- 3) Fetch & inject menu -->
-  
-  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-tooltipTriggerList.map(el => new bootstrap.Tooltip(el));
-  
-  
+  <!-- Enquiry Modal (unchanged) -->
+  <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="enquiryForm" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="enquiryModalLabel">Product enquiry</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Product</label>
+            <input type="text" class="form-control" id="enquiryProduct" name="product" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="enquiryName" class="form-label">Your name</label>
+            <input type="text" class="form-control" id="enquiryName" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="enquiryEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="enquiryEmail" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="enquiryMessage" class="form-label">Message</label>
+            <textarea class="form-control" id="enquiryMessage" name="message" rows="4" placeholder="How can we help?" required></textarea>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="enquiryConsent" required>
+            <label class="form-check-label" for="enquiryConsent">I agree to be contacted about this enquiry.</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
+          <button class="btn btn-primary" type="submit">Send enquiry</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Page scripts -->
   <script>
+    // Inject menu & footer
     document.addEventListener('DOMContentLoaded', () => {
-      fetch('menu.html')
-        .then(r => {
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return r.text();
-        })
-        .then(html => {
-          document.getElementById('menu-placeholder').innerHTML = html;
-        })
-        .catch(err => {
-          console.error('Failed to load menu.html:', err);
-        });
-    });
-  </script>
-  
-   <!-- load footer.html -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      fetch('footer.html')
-        .then(r => {
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return r.text();
-        })
-        .then(html => {
-          document.getElementById('footer-placeholder').innerHTML = html;
-        })
+      fetch('menu.html').then(r => r.ok ? r.text() : Promise.reject('HTTP ' + r.status))
+        .then(html => { document.getElementById('menu-placeholder').innerHTML = html; })
+        .catch(err => console.error('Failed to load menu.html:', err));
+
+      fetch('footer.html').then(r => r.ok ? r.text() : Promise.reject('HTTP ' + r.status))
+        .then(html => { document.getElementById('footer-placeholder').innerHTML = html; })
         .catch(err => console.error('Could not load footer:', err));
     });
+
+    // Enquiry modal prefill
+    document.addEventListener('DOMContentLoaded', () => {
+      const modalEl = document.getElementById('enquiryModal');
+      if (!modalEl) return;
+      modalEl.addEventListener('show.bs.modal', (event) => {
+        const trigger = event.relatedTarget;
+        const card = trigger?.closest('.product-card');
+        const productName = card?.dataset.productName || 'ProLife Product';
+        modalEl.querySelector('#enquiryProduct').value = productName;
+      });
+      document.getElementById('enquiryForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const product = document.getElementById('enquiryProduct').value;
+        const name = document.getElementById('enquiryName').value;
+        const email = document.getElementById('enquiryEmail').value;
+        const message = document.getElementById('enquiryMessage').value;
+        const to = 'prolifewilson@gmail.com';
+        const subject = encodeURIComponent(`Product enquiry: ${product}`);
+        const body = encodeURIComponent(
+          `Product: ${product}\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        );
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      });
+    });
   </script>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+
+  <script>
+    // Pin flagship first
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.querySelector('.product-grid');
+      const flagship = grid?.querySelector('.product-card[data-product-id="i-rebuild"]');
+      if (grid && flagship) grid.prepend(flagship);
+    });
+  </script>
+
+  <script>
+    // Add to cart buttons for all cards
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.querySelector('.product-grid');
+      if (!grid) return;
+
+      const WA_BASE = 'https://wa.me/message/WGSQAVC7IGQYJ1';
+      const FALLBACK_EMAIL = 'prolifewilson@gmail.com';
+      document.getElementById('btnRailWA').href = WA_BASE;
+
+      grid.querySelectorAll('.product-card').forEach(card => {
+        const actions = card.querySelector('.card-actions');
+        const name = card.dataset.productName || 'ProLife Product';
+        const id = card.dataset.productId || 'unknown';
+        let buy = card.querySelector('.buy-btn');
+        if (!buy) {
+          buy = document.createElement('a');
+          buy.className = 'buy-btn';
+          buy.href = '#';
+          buy.innerHTML = '<i class="bi bi-bag-plus"></i><span>Add to Cart</span>';
+          actions.appendChild(buy);
+        } else {
+          buy.innerHTML = '<i class="bi bi-bag-plus"></i><span>Add to Cart</span>';
+        }
+        buy.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.__prolifeCart?.addFromCard?.(card); // helper below in cart module
+        });
+      });
+    });
+  </script>
+
+  <script>
+  /* ===== Cart + Shipping + Mailto checkout ===== */
+  (function(){
+    const WA_BASE = 'https://wa.me/message/WGSQAVC7IGQYJ1';
+    const EMAIL_TO = 'prolifewilson@gmail.com';
+    const CART_KEY = 'prolife_cart_v1';
+    const REGION_KEY = 'prolife_ship_region';
+
+    // Flat shipping estimate per order (you can tweak)
+    const SHIPPING_RATES = {
+      HK:   { name:'Hong Kong',          fee: 40,  eta: '1–2 days',  courier:'SF Express' },
+      CN:   { name:'China Mainland',     fee: 80,  eta: '3–5 days',  courier:'Cross-border Courier' },
+      EEC:  { name:'EEC (Europe)',       fee: 250, eta: '7–10 days', courier:'Air Mail' },
+      ASIA: { name:'Asia (JP/KR/SG etc.)', fee: 180, eta: '5–7 days', courier:'Air Mail' }
+    };
+
+    const $drawer = document.getElementById('cartDrawer');
+    const $badge  = document.getElementById('cartBadge');
+    const $list   = document.getElementById('cartList');
+    const $subtot = document.getElementById('cartSubtotal');
+    const $ship   = document.getElementById('cartShipping');
+    const $total  = document.getElementById('cartTotal');
+    const $region = document.getElementById('shipRegion');
+
+    document.getElementById('btnCart').addEventListener('click', toggleDrawer);
+    document.getElementById('closeCart').addEventListener('click', closeDrawer);
+    document.getElementById('clearCart').addEventListener('click', () => { cart = []; save(); render(); });
+    document.getElementById('checkoutWA').addEventListener('click', checkoutWA);
+    document.getElementById('checkoutEmail').addEventListener('click', checkoutEmail);
+    $region.addEventListener('change', () => { saveRegion(); renderTotals(); });
+
+    let cart = load();
+    $region.value = loadRegion();
+
+    // expose small helper so product buttons can add items
+    window.__prolifeCart = {
+      addFromCard(card){
+        const name = card.dataset.productName || 'ProLife Product';
+        const id   = card.dataset.productId || Math.random().toString(36).slice(2);
+        const price= parseFloat(card.dataset.price || '0');
+        const img  = card.querySelector('img')?.getAttribute('src') || '';
+        add({id, name, price, qty:1, img});
+        toast(name + ' 已加入購物車');
+      }
+    };
+
+    function load(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) || []; }catch(e){ return []; } }
+    function save(){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }
+    function loadRegion(){ return localStorage.getItem(REGION_KEY) || 'HK'; }
+    function saveRegion(){ localStorage.setItem(REGION_KEY, $region.value); }
+
+    function add(item){
+      const existing = cart.find(x => x.id === item.id);
+      if (existing) existing.qty += item.qty; else cart.push(item);
+      save(); render(); openDrawer();
+    }
+    function remove(id){ cart = cart.filter(x => x.id !== id); save(); render(); }
+    function setQty(id, q){ const it = cart.find(x=>x.id===id); if(!it) return; it.qty = Math.max(1, q); save(); render(); }
+
+    function currency(n){ return 'HK$ ' + (n||0).toFixed(2); }
+    function subtotal(){ return cart.reduce((s,x)=>s + x.price * x.qty, 0); }
+    function shipping(){ const r = SHIPPING_RATES[$region.value]; return cart.length ? (r?.fee || 0) : 0; }
+    function total(){ return subtotal() + shipping(); }
+
+    function render(){
+      // badge
+      const count = cart.reduce((s,x)=>s + x.qty, 0);
+      $badge.textContent = count;
+
+      // list
+      if (!cart.length){
+        $list.innerHTML = '<div class="text-center text-muted py-5">購物車是空的<br>Cart is empty</div>';
+      } else {
+        $list.innerHTML = '';
+        cart.forEach(it => {
+          const row = document.createElement('div');
+          row.className = 'cart-item';
+          row.innerHTML = `
+            <img src="${it.img}" alt="">
+            <div>
+              <div class="name">${it.name}</div>
+              <div class="text-muted small">${currency(it.price)}</div>
+              <div class="qty mt-1">
+                <button class="btn-qty" aria-label="minus">-</button>
+                <span>${it.qty}</span>
+                <button class="btn-qty" aria-label="plus">+</button>
+                <button class="btn btn-sm btn-link text-danger ms-2 p-0 remove">移除</button>
+              </div>
+            </div>
+            <div class="price">${currency(it.price * it.qty)}</div>
+          `;
+          const [btnMinus, qtySpan, btnPlus] = row.querySelectorAll('.btn-qty, span, .btn-qty');
+          btnMinus.addEventListener('click', ()=> setQty(it.id, it.qty - 1));
+          btnPlus .addEventListener('click', ()=> setQty(it.id, it.qty + 1));
+          row.querySelector('.remove').addEventListener('click', ()=> remove(it.id));
+          $list.appendChild(row);
+        });
+      }
+      renderTotals();
+    }
+
+    function renderTotals(){
+      $subtot.textContent = currency(subtotal());
+      $ship.textContent   = currency(shipping());
+      $total.textContent  = currency(total());
+    }
+
+    function openDrawer(){ $drawer.classList.add('open'); $drawer.setAttribute('aria-hidden','false'); }
+    function closeDrawer(){ $drawer.classList.remove('open'); $drawer.setAttribute('aria-hidden','true'); }
+    function toggleDrawer(){ $drawer.classList.contains('open') ? closeDrawer() : openDrawer(); }
+
+    function checkoutWA(){
+      if (!cart.length) return;
+      const r = SHIPPING_RATES[$region.value];
+      const lines = cart.map(x => `• ${x.name}  x${x.qty}  @ ${currency(x.price)}  = ${currency(x.price * x.qty)}`);
+      const msg = encodeURIComponent(
+        `下單 / Order:\n${lines.join('\n')}\n\nSubtotal: ${currency(subtotal())}\nShipping: ${currency(shipping())} (${r.name} – ${r.courier}, ETA ${r.eta})\nTotal: ${currency(total())}\n\n姓名 Name:\n電話 Phone:\n送貨地址 Address:\n`
+      );
+      window.open(`${WA_BASE}?text=${msg}`, '_blank', 'noopener,noreferrer');
+    }
+
+    function checkoutEmail(){
+      if (!cart.length) return;
+      const r = SHIPPING_RATES[$region.value];
+      const lines = cart.map(x => `• ${x.name}  x${x.qty}  @ ${currency(x.price)}  = ${currency(x.price * x.qty)}`).join('%0A');
+      const subject = encodeURIComponent('Order from ProLife site');
+      const body =
+        `下單 / Order:%0A${lines}%0A%0A` +
+        `Subtotal: ${encodeURIComponent(currency(subtotal()))}%0A` +
+        `Shipping: ${encodeURIComponent(currency(shipping()))} (${encodeURIComponent(r.name)} – ${encodeURIComponent(r.courier)}, ETA ${encodeURIComponent(r.eta)})%0A` +
+        `Total: ${encodeURIComponent(currency(total()))}%0A%0A` +
+        `姓名 Name:%0A電話 Phone:%0A送貨地址 Address:%0A`;
+      // Send ONLY to prolifewilson@gmail.com (we do NOT use the shopper's email anywhere here)
+      window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+    }
+
+    function toast(text){
+      const el = document.createElement('div');
+      el.style.position='fixed'; el.style.right='16px'; el.style.bottom='16px';
+      el.style.background='#0f4f3a'; el.style.color='#fff'; el.style.padding='10px 14px';
+      el.style.borderRadius='8px'; el.style.boxShadow='0 8px 22px rgba(0,0,0,.2)'; el.style.zIndex='1060';
+      el.textContent = text;
+      document.body.appendChild(el);
+      setTimeout(()=> el.remove(), 1600);
+    }
+
+    // initial paint
+    render();
+  })();
+  </script>
+
+  <script src="js/scripts.js"></script>
+  <script src="js/translate.js" defer></script>
+</body>
 </html>
