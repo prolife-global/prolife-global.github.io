@@ -377,43 +377,49 @@
       <!-- Floating action rail (keep this after the shipping section) -->
       <div class="cart-rail" aria-label="Purchase actions">
 
-
-      <!-- Floating action rail -->
+        <!-- Floating action rail -->
 <div class="cart-rail" aria-label="Purchase actions">
   <div class="rail-btn" id="btnCart" title="購物車 / Cart">
     <i class="bi bi-cart"></i>
     <span class="badge rounded-pill" id="cartBadge">0</span>
   </div>
-  <a class="rail-btn" id="btnRailWA" title="WhatsApp" target="_blank" rel="noopener">
-    <i class="bi bi-whatsapp"></i>
-  </a>
   <a class="rail-btn" href="contact.html" title="Help / 聯絡我們">
     <i class="bi bi-question-circle"></i>
   </a>
 </div>
+
+
+
 
 <!-- Cart drawer -->
 <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
   <div class="cart-drawer__header">
     <i class="bi bi-cart-check fs-5 text-success"></i>
     <h5 class="cart-drawer__title mb-0">購物車 Cart</h5>
-    <button type="button" class="btn btn-sm btn-light ms-auto" id="closeCart"><i class="bi bi-x-lg"></i></button>
+    <button type="button" class="btn btn-sm btn-light ms-auto" id="closeCart">
+      <i class="bi bi-x-lg"></i>
+    </button>
   </div>
-  <div class="cart-drawer__body" id="cartList">
-    <!-- items injected here -->
-  </div>
+
+  <div class="cart-drawer__body" id="cartList"><!-- items injected here --></div>
+
   <div class="cart-drawer__footer">
     <div class="cart-sum">
       <span>小計 Subtotal</span>
       <span id="cartSubtotal">HK$ 0.00</span>
     </div>
     <div class="d-grid gap-2">
-      <button class="btn btn-wa" id="checkoutWA"><i class="bi bi-whatsapp"></i> WhatsApp 結帳</button>
-      <button class="btn btn-outline" id="checkoutEmail"><i class="bi bi-envelope"></i> Email 下單</button>
-      <button class="btn btn-secondary" id="clearCart"><i class="bi bi-trash"></i> 清空</button>
+      <button class="btn btn-success" id="proceedCheckout">
+        <i class="bi bi-box-arrow-right"></i> 去購物車結算
+      </button>
+      <button class="btn btn-secondary" id="clearCart">
+        <i class="bi bi-trash"></i> 清空
+      </button>
     </div>
   </div>
 </aside>
+
+
 
     </div><!-- /.container -->
   </main>
@@ -505,58 +511,7 @@
       });
     });
   </script>
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const grid = document.querySelector('.product-grid');
-  const flagship = grid?.querySelector('.product-card[data-product-id="i-rebuild"]');
-  if (grid && flagship) grid.prepend(flagship); // pin to first slot
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const grid = document.querySelector('.product-grid');
-  if (!grid) return;
 
-  // Use your WhatsApp “message” link + prefilled text
-  const WA_BASE = 'https://wa.me/message/WGSQAVC7IGQYJ1'; // from your Contact page
-  const FALLBACK_EMAIL = 'prolifewilson@gmail.com';
-
-  grid.querySelectorAll('.product-card').forEach(card => {
-    const actions = card.querySelector('.card-actions');
-    const name = card.dataset.productName || 'ProLife Product';
-    const id = card.dataset.productId || 'unknown';
-
-    // Make and append the Buy button
-    const buy = document.createElement('a');
-    buy.className = 'buy-btn';
-    buy.href = '#';
-    buy.setAttribute('role', 'button');
-    buy.setAttribute('aria-label', `Buy ${name}`);
-    buy.innerHTML = '<i class="bi bi-bag-check"></i><span>Buy</span>';
-    actions.appendChild(buy);
-
-    // Click -> open WhatsApp with prefilled message. Fallback to mailto.
-    buy.addEventListener('click', (e) => {
-      e.preventDefault();
-      const msg = encodeURIComponent(
-        `I'd like to buy: ${name} (ID: ${id})\nQuantity: 1\nPlease advise payment & delivery.`
-      );
-      const waUrl = `${WA_BASE}?text=${msg}`;
-
-      // Try to open WhatsApp chat
-      const newWin = window.open(waUrl, '_blank', 'noopener,noreferrer');
-      if (!newWin) {
-        // Fallback to email
-        const subject = encodeURIComponent(`Order: ${name}`);
-        const body = encodeURIComponent(
-          `Product: ${name}\nID: ${id}\nQuantity: 1\n\nMy name:\nMy phone:\nDelivery address:\n`
-        );
-        window.location.href = `mailto:${FALLBACK_EMAIL}?subject=${subject}&body=${body}`;
-      }
-    });
-  });
-});
-</script>
 <script>
 /* ===== Purchase Model (cart) ===== */
 (function(){
@@ -701,6 +656,130 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 
+<script>
+/* ===== Cart only (no WA/Email) ===== */
+(function(){
+  const CART_KEY = 'prolife_cart_v1';
+
+  const $drawer = document.getElementById('cartDrawer');
+  const $badge  = document.getElementById('cartBadge');
+  const $list   = document.getElementById('cartList');
+  const $subtot = document.getElementById('cartSubtotal');
+
+  // Rail buttons
+  document.getElementById('btnCart').addEventListener('click', toggleDrawer);
+  document.getElementById('closeCart').addEventListener('click', closeDrawer);
+  document.getElementById('clearCart').addEventListener('click', () => { cart = []; save(); render(); });
+  document.getElementById('proceedCheckout').addEventListener('click', proceedCheckout);
+
+  // Load cart
+  let cart = load();
+
+  // Inject Add to Cart buttons
+  document.querySelectorAll('.product-card').forEach(card => {
+    const name = card.dataset.productName || 'ProLife Product';
+    const id   = card.dataset.productId || Math.random().toString(36).slice(2);
+    const price= parseFloat(card.dataset.price || '0');
+    const img  = card.querySelector('img')?.getAttribute('src') || '';
+
+    let btn = card.querySelector('.buy-btn');
+    if (!btn) {
+      btn = document.createElement('a');
+      btn.className = 'buy-btn';
+      btn.href = '#';
+      btn.innerHTML = '<i class="bi bi-bag-plus"></i><span>Add to Cart</span>';
+      card.querySelector('.card-actions')?.appendChild(btn);
+    } else {
+      btn.innerHTML = '<i class="bi bi-bag-plus"></i><span>Add to Cart</span>';
+    }
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      add({id, name, price, qty:1, img});
+      toast(name + ' 已加入購物車');
+    });
+  });
+
+  // Core helpers
+  function load(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) || []; }catch(e){ return []; } }
+  function save(){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }
+  function add(item){
+    const existing = cart.find(x => x.id === item.id);
+    if (existing) existing.qty += item.qty;
+    else cart.push(item);
+    save(); render(); openDrawer();
+  }
+  function remove(id){ cart = cart.filter(x => x.id !== id); save(); render(); }
+  function setQty(id, q){ const it = cart.find(x=>x.id===id); if(!it) return; it.qty = Math.max(1, q); save(); render(); }
+
+  function currency(n){ return 'HK$ ' + (n||0).toFixed(2); }
+  function subtotal(){ return cart.reduce((s,x)=>s + x.price * x.qty, 0); }
+
+  function render(){
+    // badge
+    const count = cart.reduce((s,x)=>s + x.qty, 0);
+    $badge.textContent = count;
+
+    // list
+    if (!cart.length){
+      $list.innerHTML = '<div class="text-center text-muted py-5">購物車是空的<br>Cart is empty</div>';
+      $subtot.textContent = currency(0);
+      return;
+    }
+    $list.innerHTML = '';
+    cart.forEach(it => {
+      const row = document.createElement('div');
+      row.className = 'cart-item';
+      row.innerHTML = `
+        <img src="${it.img}" alt="">
+        <div>
+          <div class="name">${it.name}</div>
+          <div class="text-muted small">${currency(it.price)}</div>
+          <div class="qty mt-1">
+            <button class="btn-qty" aria-label="minus">-</button>
+            <span>${it.qty}</span>
+            <button class="btn-qty" aria-label="plus">+</button>
+            <button class="btn btn-sm btn-link text-danger ms-2 p-0 remove">移除</button>
+          </div>
+        </div>
+        <div class="price">${currency(it.price * it.qty)}</div>
+      `;
+      const [btnMinus, qtySpan, btnPlus] = row.querySelectorAll('.btn-qty, span, .btn-qty');
+      btnMinus.addEventListener('click', ()=> setQty(it.id, it.qty - 1));
+      btnPlus .addEventListener('click', ()=> setQty(it.id, it.qty + 1));
+      row.querySelector('.remove').addEventListener('click', ()=> remove(it.id));
+      $list.appendChild(row);
+    });
+
+    $subtot.textContent = currency(subtotal());
+  }
+
+  // Drawer controls
+  function openDrawer(){ $drawer.classList.add('open'); $drawer.setAttribute('aria-hidden','false'); }
+  function closeDrawer(){ $drawer.classList.remove('open'); $drawer.setAttribute('aria-hidden','true'); }
+  function toggleDrawer(){ $drawer.classList.contains('open') ? closeDrawer() : openDrawer(); }
+
+  // Proceed to checkout (no WA/Email)
+  function proceedCheckout(){
+    // TODO: Replace with your real checkout URL/page
+    window.location.href = 'cart.html';
+  }
+
+  // Tiny toast
+  function toast(text){
+    const el = document.createElement('div');
+    el.style.position='fixed'; el.style.right='16px'; el.style.bottom='16px';
+    el.style.background='#0f4f3a'; el.style.color='#fff'; el.style.padding='10px 14px';
+    el.style.borderRadius='8px'; el.style.boxShadow='0 8px 22px rgba(0,0,0,.2)'; el.style.zIndex='1060';
+    el.textContent = text;
+    document.body.appendChild(el);
+    setTimeout(()=> el.remove(), 1600);
+  }
+
+  // initial paint
+  render();
+})();
+</script>
 
 
   <script src="js/scripts.js"></script>
