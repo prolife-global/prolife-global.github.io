@@ -118,6 +118,11 @@
                   <i class="bi bi-plus-circle"></i> 繼續選購 Continue shopping
                 </a>
               </div>
+              <div class="text-center my-3 text-muted">— or —</div>
+              <button type="button" id="btnPayPalStd" class="btn btn-warning w-100">
+              <i class="bi bi-paypal"></i> Pay with PayPal
+              </button>
+
 
               <div class="form-text mt-2">
                 下單後我們將盡快與您聯絡以確認運費與交付安排。We’ll contact you to confirm shipping & delivery.
@@ -164,9 +169,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- PayPal JS SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=YOUR_PRODUCTION_CLIENT_ID&currency=HKD&intent=capture"></script>
-
+  
   <script>
   (function(){
     const CART_KEY = 'prolife_cart_v1';
@@ -336,5 +339,76 @@
     render();
   })();
   </script>
+  <!-- PayPal Standard (email-only) -->
+<script>
+(function(){
+  const CART_KEY = 'prolife_cart_v1';
+  const SELLER_EMAIL = '98wilson98@gmail.com';  // your PayPal account
+
+  function loadCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) || []; }catch(e){ return []; } }
+  function subtotal(c){ return c.reduce((s,x)=> s + Number(x.price||0)*Number(x.qty||0), 0); }
+
+  // Build a lightweight order object from current form + cart
+  function buildOrder(){
+    const cart = loadCart();
+    const ref  = 'PL' + Date.now().toString(36).toUpperCase();
+    return {
+      ref,
+      items: cart.map(x => ({ name:x.name, price:+x.price, qty:+x.qty })),
+      total: subtotal(cart)
+    };
+  }
+
+  // Create and post a PayPal Standard form
+  function submitToPayPal(order){
+    if (!order.items.length){ alert('購物車是空的 / Cart is empty'); return; }
+
+    const form = document.createElement('form');
+    form.method = 'post';
+    form.action = 'https://www.paypal.com/cgi-bin/webscr';
+
+    const base = {
+      cmd: '_cart',
+      upload: '1',
+      business: SELLER_EMAIL,
+      currency_code: 'HKD',
+      no_shipping: '1',
+      rm: '2',
+      return: location.origin + location.pathname.replace('cart.html','thankyou.html') + '?status=success&ref=' + encodeURIComponent(order.ref),
+      cancel_return: location.href,
+      custom: order.ref
+    };
+    Object.entries(base).forEach(([k,v])=>{
+      const i=document.createElement('input'); i.type='hidden'; i.name=k; i.value=v; form.appendChild(i);
+    });
+
+    // Add each cart line
+    order.items.forEach((it, idx)=>{
+      const n = idx + 1;
+      [['item_name_'+n, it.name],
+       ['amount_'+n,    it.price.toFixed(2)],
+       ['quantity_'+n,  String(it.qty)]
+      ].forEach(([k,v])=>{
+        const i=document.createElement('input');
+        i.type='hidden'; i.name=k; i.value=v;
+        form.appendChild(i);
+      });
+    });
+
+    document.body.appendChild(form);
+    // Save order locally for thank-you page display
+    localStorage.setItem('prolife_last_order', JSON.stringify(order));
+    form.submit();
+  }
+
+  // Button event
+  document.getElementById('btnPayPalStd')?.addEventListener('click', ()=>{
+    const order = buildOrder();
+    submitToPayPal(order);
+  });
+})();
+</script>
+
+
 </body>
 </html>
