@@ -114,6 +114,10 @@
                 <button type="button" id="btnPrint" class="btn btn-outline-secondary">
                   <i class="bi bi-printer"></i> 列印訂單 Print
                 </button>
+                <button type="button" id="btnPdf" class="btn btn-outline-secondary">
+                  <i class="bi bi-file-earmark-pdf"></i> 下載PDF Download PDF
+                </button>
+
                 <a href="index.html#products" class="btn btn-outline-success">
                   <i class="bi bi-plus-circle"></i> 繼續選購 Continue shopping
                 </a>
@@ -122,6 +126,11 @@
               <button type="button" id="btnPayPalStd" class="btn btn-warning w-100">
               <i class="bi bi-paypal"></i> Pay with PayPal
               </button>
+
+              <button type="button" id="btnPayPalLink" class="btn btn-outline-warning w-100">
+                <i class="bi bi-paypal"></i> Pay via PayPal link
+              </button>
+
 
 
               <div class="form-text mt-2">
@@ -408,6 +417,103 @@
   });
 })();
 </script>
+<script>
+(function(){
+  const CART_KEY = 'prolife_cart_v1';
+  const SELLER_EMAIL = '98wilson98@gmail.com';
+
+  function loadCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) || []; }catch(e){ return []; } }
+  function subtotal(c){ return c.reduce((s,x)=> s + Number(x.price||0)*Number(x.qty||0), 0); }
+
+  document.getElementById('btnPayPalLink')?.addEventListener('click', () => {
+    const cart = loadCart();
+    if (!cart.length){ alert('購物車是空的 / Cart is empty'); return; }
+
+    const ref = 'PL' + Date.now().toString(36).toUpperCase();
+    const amount = subtotal(cart).toFixed(2);
+
+    // Keep a lightweight copy for the thank-you page / printing
+    localStorage.setItem('prolife_last_order', JSON.stringify({
+      ref,
+      createdAt: new Date().toISOString(),
+      items: cart.map(x => ({ id:x.id, name:x.name, price:+x.price, qty:+x.qty })),
+      subtotal: +amount,
+      payment: { method:'PayPal link' }
+    }));
+
+    // Build the direct PayPal link
+    const qs = new URLSearchParams({
+      cmd: '_xclick',
+      business: SELLER_EMAIL,
+      currency_code: 'HKD',
+      amount: amount,
+      item_name: 'ProLife order ' + ref,
+      no_shipping: '1',
+      rm: '2',
+      return: location.origin + location.pathname.replace('cart.html','thankyou.html') + '?status=success&ref=' + encodeURIComponent(ref),
+      cancel_return: location.href,
+      custom: ref
+    });
+    // Go to PayPal
+    window.location.href = 'https://www.paypal.com/cgi-bin/webscr?' + qs.toString();
+  });
+})();
+</script>
+<script>
+(function(){
+  const { jsPDF } = window.jspdf || {};
+  if (!jsPDF) return;
+
+  function currency(n){ return 'HK$ ' + (Number(n)||0).toFixed(2); }
+
+  document.getElementById('btnPdf')?.addEventListener('click', () => {
+    const order = JSON.parse(localStorage.getItem('prolife_last_order') || 'null');
+    if (!order){ alert('沒有可列印的訂單 / No order found'); return; }
+
+    const doc = new jsPDF({ unit:'pt', format:'a4' });
+    let y = 56;
+
+    doc.setFont('helvetica','bold'); doc.setFontSize(16);
+    doc.text('ProLife Global Health Ltd', 56, y); y += 20;
+    doc.setFont('helvetica','normal'); doc.setFontSize(12);
+    doc.text('Order Receipt / 訂單收據', 56, y); y += 18;
+    doc.text('Ref: ' + order.ref, 56, y); y += 16;
+    doc.text('Date: ' + new Date(order.createdAt || Date.now()).toLocaleString(), 56, y); y += 24;
+
+    doc.setFont('helvetica','bold');
+    doc.text('Items', 56, y); y += 16;
+    doc.setFont('helvetica','normal');
+
+    order.items.forEach(it => {
+      doc.text(`• ${it.name}  x${it.qty}`, 56, y); 
+      doc.text(`${currency(it.price)}  →  ${currency(it.price*it.qty)}`, 380, y, { align:'right' });
+      y += 16;
+    });
+
+    y += 10; doc.line(56, y, 539, y); y += 18;
+    doc.setFont('helvetica','bold');
+    doc.text('Subtotal: ' + currency(order.subtotal ?? order.total ?? 0), 56, y);
+
+    y += 28;
+    doc.setFont('helvetica','normal');
+    const cust = order.customer || {};
+    doc.text('Customer / 客戶', 56, y); y += 16;
+    doc.text((cust.name ? 'Name: ' + cust.name : 'Name: ') , 56, y); y += 14;
+    doc.text((cust.phone ? 'Phone: ' + cust.phone : 'Phone: '), 56, y); y += 14;
+    if (cust.email){ doc.text('Email: ' + cust.email, 56, y); y += 14; }
+    if (cust.address){ doc.text('Address: ' + cust.address, 56, y); y += 14; }
+
+    y += 20;
+    doc.text('Paid via: ' + (order.payment?.method || '—'), 56, y);
+
+    doc.save(`ProLife_Order_${order.ref}.pdf`);
+  });
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+
 
 
 </body>
