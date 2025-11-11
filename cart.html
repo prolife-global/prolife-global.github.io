@@ -348,30 +348,66 @@
     render();
   })();
   </script>
-  <!-- PayPal Standard (email-only) -->
+  <!-- PayPal Standard (email-only, combined with form capture) -->
 <script>
 (function(){
-  const CART_KEY = 'prolife_cart_v1';
-  const SELLER_EMAIL = '98wilson98@gmail.com';  // your PayPal account
+  const CART_KEY   = 'prolife_cart_v1';
+  const ORDERS_KEY = 'prolife_orders';
+  const LAST_KEY   = 'prolife_last_order';
+  const SELLER_EMAIL = '98wilson98@gmail.com'; // PayPal account
 
-  function loadCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) || []; }catch(e){ return []; } }
-  function subtotal(c){ return c.reduce((s,x)=> s + Number(x.price||0)*Number(x.qty||0), 0); }
+  // Helpers
+  const loadCart = () => { try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch(e){ return []; } };
+  const saveLocal = (k,v) => localStorage.setItem(k, JSON.stringify(v));
+  const subtotal = c => (c||[]).reduce((s,x)=> s + Number(x.price||0)*Number(x.qty||0), 0);
 
-  // Build a lightweight order object from current form + cart
-  function buildOrder(){
+  // Build & persist an order from form + cart
+  function buildAndSaveOrder(){
     const cart = loadCart();
-    const ref  = 'PL' + Date.now().toString(36).toUpperCase();
-    return {
+    if (!cart.length) { alert('購物車是空的 / Cart is empty'); return null; }
+
+    // Validate required form fields
+    const name  = document.getElementById('custName');
+    const phone = document.getElementById('custPhone');
+    const email = document.getElementById('custEmail');
+    const addr  = document.getElementById('custAddress');
+    const notes = document.getElementById('custNotes');
+
+    if (!name.value.trim()){ name.classList.add('is-invalid'); name.focus(); return null; }
+    name.classList.remove('is-invalid');
+    if (!phone.value.trim()){ phone.classList.add('is-invalid'); phone.focus(); return null; }
+    phone.classList.remove('is-invalid');
+
+    const ref = 'PL' + Date.now().toString(36).toUpperCase();
+
+    const order = {
       ref,
-      items: cart.map(x => ({ name:x.name, price:+x.price, qty:+x.qty })),
-      total: subtotal(cart)
+      createdAt: new Date().toISOString(),
+      items: cart.map(x => ({ id:x.id, name:x.name, price:Number(x.price||0), qty:Number(x.qty||0) })),
+      subtotal: subtotal(cart),
+      customer: {
+        name: name.value.trim(),
+        phone: phone.value.trim(),
+        email: (email.value || '').trim(),
+        address: (addr.value || '').trim(),
+        notes: (notes.value || '').trim()
+      },
+      payment: { method: 'PayPal', txnId: '' } // txnId known on PayPal side; you’ll match by ref
     };
+
+    // Persist to localStorage (for your own records and for thankyou.html)
+    try {
+      const list = JSON.parse(localStorage.getItem(ORDERS_KEY) || '[]');
+      list.push(order);
+      saveLocal(ORDERS_KEY, list);
+      saveLocal(LAST_KEY, order);
+    } catch(e){ console.warn('Save failed:', e); }
+
+    return order;
   }
 
-  // Create and post a PayPal Standard form
+  // Create & submit a PayPal Standard form
   function submitToPayPal(order){
-    if (!order.items.length){ alert('購物車是空的 / Cart is empty'); return; }
-
     const form = document.createElement('form');
     form.method = 'post';
     form.action = 'https://www.paypal.com/cgi-bin/webscr';
@@ -383,9 +419,10 @@
       currency_code: 'HKD',
       no_shipping: '1',
       rm: '2',
-      return: location.origin + location.pathname.replace('cart.html','thankyou.html') + '?status=success&ref=' + encodeURIComponent(order.ref),
+      // Redirect back to a Thank You page that will email confirmations
+      return: location.origin + '/thankyou.html?status=success&ref=' + encodeURIComponent(order.ref),
       cancel_return: location.href,
-      custom: order.ref
+      custom: order.ref // your ref so you can match in PayPal Activity later
     };
     Object.entries(base).forEach(([k,v])=>{
       const i=document.createElement('input'); i.type='hidden'; i.name=k; i.value=v; form.appendChild(i);
@@ -398,25 +435,26 @@
        ['amount_'+n,    it.price.toFixed(2)],
        ['quantity_'+n,  String(it.qty)]
       ].forEach(([k,v])=>{
-        const i=document.createElement('input');
-        i.type='hidden'; i.name=k; i.value=v;
-        form.appendChild(i);
+        const inp=document.createElement('input');
+        inp.type='hidden'; inp.name=k; inp.value=v; form.appendChild(inp);
       });
     });
 
+    // Keep a copy for the thank-you page (in case localStorage was cleared)
+    saveLocal('prolife_last_order', order);
+
     document.body.appendChild(form);
-    // Save order locally for thank-you page display
-    localStorage.setItem('prolife_last_order', JSON.stringify(order));
     form.submit();
   }
 
-  // Button event
+  // Wire the PayPal button
   document.getElementById('btnPayPalStd')?.addEventListener('click', ()=>{
-    const order = buildOrder();
-    submitToPayPal(order);
+    const order = buildAndSaveOrder();
+    if (order) submitToPayPal(order);
   });
 })();
 </script>
+
 <script>
 (function(){
   const CART_KEY = 'prolife_cart_v1';
